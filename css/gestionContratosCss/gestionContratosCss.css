@@ -1,0 +1,11 @@
+#formulario1{    
+    overflow: hidden;    
+}
+
+#dialogContrato{   
+    width: 800px;    
+}
+
+#modalLoad{    
+    z-index: 2001;    
+}

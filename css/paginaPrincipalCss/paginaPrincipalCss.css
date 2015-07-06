@@ -1,0 +1,191 @@
+@media screen and (max-width: 760px) {
+   
+    body{
+        background:lightblue;
+    }
+    
+/*    #textB{
+      
+        margin: 120px 0 0 65px;;
+        display:none;
+    } */
+    
+    #textB #textBienvenida{
+        
+          font-size:15px;
+          font-weight: 400;
+    }
+
+}    
+
+
+h1{
+    
+    margin-bottom: 30px;
+}
+
+#contenedor{
+    
+    /*margin-top:30px;*/
+  
+}
+
+#info{
+    
+    text-align: center;
+}
+
+#info2{
+    
+    text-align: center;
+    margin-top:10px;
+    margin-bottom: 40px;
+}
+
+.navbar{
+    
+    margin-bottom: 5px;
+}
+
+
+#contenedorCita{
+    
+    min-height: 0px;   
+    margin-bottom:10px;
+    
+}
+
+#contenedorImgParallax{
+    
+    padding-left: 0px;
+    padding-right: 0px
+    
+}
+.container{
+    
+    margin-top: 0px;
+
+    
+}
+
+/* Makes images fully responsive */
+
+.img-responsive,
+.thumbnail > img,
+.thumbnail a > img,
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+/*body
+{
+    padding-top: 20px;
+}*/
+#myCarousel .nav a small
+{
+    display: block;
+}
+#myCarousel .nav
+{
+    background: #eee;
+}
+.nav-justified > li > a
+{
+    border-radius: 0px;
+}
+.nav-pills>li[data-slide-to="0"].active a { background-color: #32A02D; }
+.nav-pills>li[data-slide-to="1"].active a { background-color: #E12523; }
+.nav-pills>li[data-slide-to="2"].active a { background-color: #2980b9; }
+.nav-pills>li[data-slide-to="3"].active a { background-color: #F0A14A; }
+
+/*parallax imagen*/
+.ha-bg-parallax {
+
+    /*background: url(http://thememove.com/shoot/white/assets/img/sample/1920x650/3.jpg) 50% -195px no-repeat fixed;*/
+    background: url(../../libs/imagenes/imagenesCarrusel/img2.jpg) -290px no-repeat fixed;
+    
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    -webkit-background-size: cover;
+    background-size: cover;
+    height: 550px;
+    margin: 0 auto;
+    width: 100%;
+    display: table;
+    vertical-align: middle;
+
+}
+
+
+
+.ha-bg-parallax .ha-parallax-body {
+
+    display: table-cell;
+    vertical-align: middle;
+
+}
+
+
+
+.ha-bg-parallax .ha-content-whitecolor {
+
+    font-size: 25px;
+    font-weight: normal;
+    color: #005EBA;
+    width: 45%;
+    margin: 200px auto auto auto;    
+    background-color: lightgray;
+    opacity: 0.8;
+}
+
+
+
+.ha-bg-parallax .ha-diamond-divider-md {
+
+    margin: 15px 0px;
+
+}
+
+
+
+.ha-bg-parallax .ha-heading-parallax {
+
+    font-style: italic;
+    font-weight: bold;
+    text-transform: none;
+    color: #ffffff;
+    padding-bottom: 0px;
+
+}
+
+.videoPresentacion{
+    
+    width: 100%;
+    z-index:0;
+/*    height: 550px;*/
+/*    background-size: cover;
+    overflow: hidden;*/
+         
+}
+
+.overlay {
+    position:absolute;
+    float:right;
+    margin: 25% 0 0 65%;
+    z-index:1;
+    color:#fff;
+    opacity: 0.5;
+}
+
+.overlay h1{    
+    font-size: 35px;
+    font-weight: 400;
+}
+
+.overlay h1 span{
+    
+    color:green;
+    
+}

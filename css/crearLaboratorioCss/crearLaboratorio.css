@@ -1,0 +1,51 @@
+#forma{    
+    overflow: hidden;     
+}
+
+#contenedor{
+    min-height: 500px;
+}
+
+#cabecera{
+    min-height:100px;
+}
+
+td{
+
+    text-align: center;
+    font-size: 12px;
+    //max-width: 100px;
+    overflow: hidden;
+}
+
+th{
+
+    text-align: center;
+    font-size: 15px;
+    max-width: 100px;
+}
+
+#modalConfirm{
+    opacity: 0.8;
+}
+
+#modalInfo{
+    opacity: 0.8;
+}
+
+#modalLoad{
+    opacity: 0.8;
+}
+
+.modal-backdrop {    
+    background-color: transparent;
+}
+
+#botones{    
+    text-align: end;;
+}
+
+#botones2{    
+    text-align: end;;
+}
+

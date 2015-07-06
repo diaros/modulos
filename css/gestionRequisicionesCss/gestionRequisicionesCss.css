@@ -1,0 +1,21 @@
+#formulario{    
+    
+    overflow: hidden;    
+    
+}
+
+td{
+    
+    text-align: center;
+    font-size: 12px;
+    max-width: 100px;
+}
+
+th{
+    
+    text-align: center;
+    font-size: 15px;
+    max-width: 100px;
+}
+
+

@@ -1,0 +1,49 @@
+#forma{    
+    overflow: hidden;    
+}
+
+#contenedor{
+    
+    min-height: 500px;
+    
+}
+
+#botones{    
+    text-align: end;;
+}
+
+td{
+    
+    text-align: center;
+    font-size: 12px;
+}
+
+th{
+    
+    text-align: center;
+     font-size: 15px;
+}
+
+#tablaAprobacionExamenes {
+  overflow-x:auto;
+}
+
+#paginador{
+    
+    text-align: center;
+}
+
+#cabecera{
+    
+    min-height:100px;
+    
+}
+
+#modalInfo{
+    
+     opacity: 0.8;
+}
+
+.modal-backdrop {    
+    background-color: transparent;
+}

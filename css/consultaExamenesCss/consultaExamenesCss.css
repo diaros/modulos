@@ -1,0 +1,55 @@
+#forma{    
+    overflow: hidden;    
+}
+
+#contenedor{
+    
+    min-height: 500px;
+    
+}
+
+td{
+    
+    text-align: center;
+    font-size: 12px;
+}
+
+th{
+    
+    text-align: center;
+     font-size: 15px;
+}
+
+#paginador{
+    
+    text-align: center;
+}
+
+#cabecera{
+    
+    min-height:100px;
+    
+}
+
+#modalInfo{
+    
+     opacity: 0.8;
+}
+
+.modal-backdrop {    
+    background-color: transparent;
+}
+
+#botones{    
+    text-align: end;;
+}
+
+#footer{
+    
+    position: static;
+    bottom: 1%;
+    clear:both;
+     background:none repeat scroll 0% 0% rgba(0, 0, 0, 0.05);
+
+}
+

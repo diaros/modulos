@@ -1,0 +1,129 @@
+.well{
+    
+    overflow:hidden;
+}
+
+.numeroInfo{
+    
+    font-size: 3em;
+}
+
+#forma{    
+    overflow: hidden;     
+}
+
+//****************//
+//cabecera
+//****************//
+
+#cabecera{
+    min-height:100px;
+}
+
+//****************//
+//footer
+//****************//
+#footer{
+    
+ position:fixed;
+   left:0px;
+   bottom:0px;
+   background: none repeat scroll 0% 0% rgba(249, 249, 249, 0.72);
+   max-width: 100%;
+
+}
+
+#paginador{
+    
+    text-align: center;
+}
+
+#modalConfirm{
+    opacity:0.9;
+}
+
+#modalConfirm2{
+    opacity:0.9;
+}
+
+#modalConfirm3{
+    opacity:0.9;
+}
+
+#modalInfo{
+    opacity:0.9;
+}
+
+#modalLoad{
+    opacity:0.9;
+}
+
+.modal-backdrop {    
+    background-color: transparent;
+}
+
+#botones{    
+    text-align: end;;
+}
+
+#botones2{    
+    text-align: end;;
+}
+
+#botones3{    
+    text-align: end;;
+}
+
+.navbar {
+    border-radius: 0px;
+    padding-right: 15px;
+    opacity:0.7;
+}
+
+.navbar-nav > li > .dropdown-menu {
+    
+    opacity:0.9;
+}
+
+//estilos Generales modulo contratos
+
+.modal-body{    
+    overflow: hidden;
+}
+
+.container{    
+    margin-top: 70px;
+    margin-bottom: 80px;
+    min-height: 500px;
+/*    box-shadow: 0px 0px 15px rgba(50, 50, 131, 0.5);
+    border-radius: 10px;*/
+    /*padding: 5px 5px 5px 5px;*/
+}
+
+.modal-content {
+   opacity:0.9;
+   padding-bottom:20px;
+   z-index: 2000;
+}
+
+.btn-huge{
+    padding-top:5px;
+    padding-bottom:5px;
+    margin-top: 5px;
+}
+
+.dropdown-menu {
+    
+    z-index: 3000;
+}
+
+.tdNum{
+    
+    text-align: center;
+    
+}
+
+.tdText{
+    
+    text-align: left;
+}
