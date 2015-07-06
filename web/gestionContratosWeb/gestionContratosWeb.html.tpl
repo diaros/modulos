@@ -5,7 +5,7 @@
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link type="text/css" href="../../libs/bootstrap/css/bootstrap.css" rel="stylesheet" />
-         <link type="text/css" href="../../libs/calendario/eternicode-bootstrap-datepicker-8bc254a/css/datepicker3.css" rel="stylesheet"/>
+        <link type="text/css" href="../../libs/calendario/eternicode-bootstrap-datepicker-8bc254a/css/datepicker3.css" rel="stylesheet"/>
         <link type="text/css" href="../../libs/font-awesome-4.2.0/css/font-awesome.css" rel="stylesheet" />
         <link type="text/css" href="../../css/estilosGenerales/estilosGeneralesCss.css" rel="stylesheet"/>
         <link type="text/css" href="../../css/gestionContratosCss/gestionContratosCss.css" rel="stylesheet"/>
@@ -57,9 +57,9 @@
                         <div class="form-group">
                             <label class="col-md-5 control-label" for="idUser">No Identificación:</label>  
                             <div class="col-md-7">
-{*                                <input id="idUser" name="idUser" placeholder="" class="form-control input-md" type="text" onblur="consultarObserv();">*}
+                            {*<input id="idUser" name="idUser" placeholder="" class="form-control input-md" type="text" onblur="consultarObserv();">*}
                               <select id="idUser" name="idUser" class="form-control" onblur="consultarObserv();" >                                    
-                                </select>
+                              </select>
                             </div>                            
                         </div>
 

@@ -11,6 +11,8 @@
         <link type="text/css" href="../../css/estilosGenerales/estilosGeneralesCss.css" rel="stylesheet"/> 
         <link type="text/css" href="../../css/reporteNominaPlanoCss/reporteNominaPlanoCss.css" rel="stylesheet"/> 
         <link type="text/css" href="../../libs/wow/css/animate.css" rel="stylesheet">
+        
+        <title>Reporte Nomina Plano</title>
 
     </head>
 
@@ -365,7 +367,6 @@
         {$footer}
         <script src="../../libs/jquery/jquery.js"></script>  
         <script src="../../libs/bootstrap/js/bootstrap.js"></script>
-        <script src="../../libs/bootstrap/js/typeahead.js"></script>
         <script src="../../libs/calendario/eternicode-bootstrap-datepicker-8bc254a/js/bootstrap-datepicker.js"></script>
         <script src="../../libs/calendario/eternicode-bootstrap-datepicker-8bc254a/js/locales/bootstrap-datepicker.es.js"></script> 
         <script src="../../libs/filestyle/filestyle.js"></script>

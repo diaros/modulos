@@ -108,10 +108,7 @@ function consultarEmpClienteBySupervisor() {
 
             }
         }
-
     });
-
-
 }
 
 function consultarCC() {

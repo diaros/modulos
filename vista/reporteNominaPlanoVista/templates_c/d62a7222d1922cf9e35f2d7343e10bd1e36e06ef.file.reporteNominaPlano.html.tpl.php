@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2015-07-01 17:10:27
+<?php /* Smarty version Smarty-3.1.13, created on 2015-07-06 14:08:56
          compiled from "..\..\web\reporteNominaPlanoWeb\reporteNominaPlano.html.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:12373556376ab787468-25265475%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'd62a7222d1922cf9e35f2d7343e10bd1e36e06ef' => 
     array (
       0 => '..\\..\\web\\reporteNominaPlanoWeb\\reporteNominaPlano.html.tpl',
-      1 => 1435787980,
+      1 => 1436203850,
       2 => 'file',
     ),
   ),
@@ -39,6 +39,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
         <link type="text/css" href="../../css/estilosGenerales/estilosGeneralesCss.css" rel="stylesheet"/> 
         <link type="text/css" href="../../css/reporteNominaPlanoCss/reporteNominaPlanoCss.css" rel="stylesheet"/> 
         <link type="text/css" href="../../libs/wow/css/animate.css" rel="stylesheet">
+        
+        <title>Reporte Nomina Plano</title>
 
     </head>
 
@@ -436,7 +438,6 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['ciudad']['last']       = ($_
 
         <script src="../../libs/jquery/jquery.js"></script>  
         <script src="../../libs/bootstrap/js/bootstrap.js"></script>
-        <script src="../../libs/bootstrap/js/typeahead.js"></script>
         <script src="../../libs/calendario/eternicode-bootstrap-datepicker-8bc254a/js/bootstrap-datepicker.js"></script>
         <script src="../../libs/calendario/eternicode-bootstrap-datepicker-8bc254a/js/locales/bootstrap-datepicker.es.js"></script> 
         <script src="../../libs/filestyle/filestyle.js"></script>
