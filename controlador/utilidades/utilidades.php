@@ -382,4 +382,15 @@ class utilidades {
     }
 
     //fin funciones Modulo Contrato
+    
+    //funciones mod nomina
+    function consultarEstadoNomina(){
+        
+        $conexion = new conexion();
+        $sql = "select * from mod_nomina_estado";
+        $resulConsulta = $conexion->consultar($sql);
+        return $resulConsulta;        
+        
+    }    
+    //fin mod nomina
 }

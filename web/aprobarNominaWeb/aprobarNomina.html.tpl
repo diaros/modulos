@@ -24,7 +24,7 @@
 
             <legend>Aprobar Nomina</legend>
 
-            <form id="formReporteNominaPlano" name='formReporteNominaPlano' class="form-horizontal" action='../../vista/reporteNominaPlanoVista/reporteNominaPlanoVista.php' method="post" enctype="multipart/form-data">
+            <form id="formAprobarNomina" name='formAprobarNomina' class="form-horizontal" action='../../vista/aprobarNominaVista/aprobarNominaVista.php' method="post" enctype="multipart/form-data">
 
                 <div class="well">
 
@@ -35,7 +35,7 @@
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="empresaInt">Empresa interna:</label>
                                 <div class="col-md-8">
-                                    <select id="empresaInt" name="empresaInt" class="form-control" onchange="consultarEmpClienteBySupervisor();">
+                                    <select id="empresaInt" name="empresaInt" class="form-control" onchange="consultarempclientebysupervisor();">
                                         <option value=""></option>
                                         {section name=empInt loop=$empresaInterna}
                                             <option value="{$empresaInterna[empInt].cod_Empr}">{$empresaInterna[empInt].nom_empr}</option>
@@ -51,33 +51,111 @@
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="empUsu">Empresa cliente:</label>
                                 <div class="col-md-8">
-                                    <select id="empUsu" name="empUsu" class="form-control" onchange="consultarCC();"></select>
+                                    <select id="empUsu" name="empUsu" class="form-control" onchange="consultarcc();"></select>
                                 </div>
                             </div>                     
 
                         </div>
-                                  
+
                         <div class="col-lg-4">
                             <div class="form-group">
-                                <label class="col-md-4 control-label" for="appendedtext">Rango Fechas</label>
+                                <label class="col-md-4 control-label" for="centroCosto">Centro costo:</label>
                                 <div class="col-md-8">
-                                    <div class="input-group">
-                                        <input id="fecIni" name="appendedtext" class="form-control datepicker fechas" placeholder="fecha ini" type="text">
-                                        <span class="input-group-addon">-</span>
-                                         <input id="fecFin" name="appendedtext" class="form-control datepicker fechas" placeholder="fecha fin" type="text">
-                                    </div>
-                                   
+                                    <select id="centroCosto" name="centroCosto" class="form-control" onchange=""></select>
                                 </div>
                             </div>
-                        </div>                                    
+                        </div>
 
-                    </div>                   
+                    </div>        
+
+                    <div class="col-lg-12">
+
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="ciudad">Ciudad:</label>
+                                <div class="col-md-8">
+                                    <select id="ciudad" name="ciudad" class="form-control">
+                                        <option value=""></option>
+                                        {section name=ciudadaux loop=$ciudades}
+                                            <option value="{$ciudades[ciudadaux].suc_codigo}">{$ciudades[ciudadaux].suc_nombre}</option>
+                                        {/section}    
+                                    </select>
+                                </div>
+                            </div>
+                        </div>                 
+
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="estado">Estado:</label>
+                                <div class="col-md-8">
+                                    <select id="estado" name="estado" class="form-control">
+                                        <option value=""></option>
+                                        {section name=estado loop=$estados}
+                                            <option value="{$estados[estado].id}">{$estados[estado].estado}</option>
+                                        {/section}    
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="fecIni">Rango Fechas</label>
+                                <div class="col-md-8">
+                                    <div class="input-group">
+
+                                        <input id="fecIni" name="fecIni" class="form-control fechas datepicker" placeholder="Fecha ini" type="text" onchange="valfechaini();"/>
+
+                                        <span class="input-group-addon">-</span>
+
+                                        <input id="fecFin" name="fecFin" class="form-control fechas datepicker" placeholder="Fecha fin" type="text" disabled/>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-lg-12" style="text-align: right;">
+                        <a type="button" id="consultar" class="btn btn-primary" onclick="valvaciosforma();"><span class="fa fa-search"></span> Consultar</a>
+                        <a type="reset"  id="limpiar"   class="btn btn-danger"  onclick="limpiarform();"><span class="fa fa-eraser"></span> Limpiar</a>
+                    </div>                
 
                 </div>
 
             </form>            
 
         </div>
+
+        <div class="modal fade" id="modalLoad">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body" style="text-align: center;">
+                        <img src="../../libs/imagenes/cargando.gif">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="modalInfo">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="tituloModal"></h4>
+                    </div>
+
+                    <div class="modal-body" id="cuerpoModal">
+                    </div>
+
+                    <div class="modal-footer">
+                    </div>
+
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->                               
 
         {$footer}
 
