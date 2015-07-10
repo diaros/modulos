@@ -129,9 +129,9 @@
 
                 <hr>
 
-                <div id="contenedorTabla" style="display:{$mostrarTabla}"> 
+                <div id="contenedorTabla" style="display:{$mostrarTabla}" class="table-responsive"> 
 
-                    <table class="table table-condensed table-hover table-responsive table-striped" id="datosRequicisiones">
+                    <table class="table table-condensed table-hover table-striped" id="datosRequicisiones">
 
                         <thead>
 

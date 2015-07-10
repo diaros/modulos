@@ -121,7 +121,6 @@ if (isset($_POST['accion']) && $_POST['accion'] == 'Aceptar') {
 
 if (isset($_GET['accion']) && $_GET['accion'] == 'postAceptar') {    
    
-
     $fechaIni = $_GET['fechaIni'];
     $fechaFin = $_GET['fechaFin'];
     $idEmpInt = $_GET['idEmpInt'];

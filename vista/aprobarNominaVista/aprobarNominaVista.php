@@ -14,6 +14,9 @@ $consutaEmpInt = $utilidades->consultarEmpInterna();
 $ciudades = $utilidades->consultarSucursales();
 $estados = $utilidades->consultarEstadoNomina();
 
+$mostrarTabla = "block";
+
+$smarty->assign("mostrarTabla", $mostrarTabla, true);
 $smarty->assign("ciudades", $ciudades, true);
 $smarty->assign("empresaInterna", $consutaEmpInt, true);
 $smarty->assign("empresaCliente", $clientes, true);

@@ -84,7 +84,7 @@
                             </div>
                         </div>                 
 
-                        <div class="col-lg-4">
+                   {*     <div class="col-lg-4">
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="estado">Estado:</label>
                                 <div class="col-md-8">
@@ -96,7 +96,7 @@
                                     </select>
                                 </div>
                             </div>
-                        </div>
+                        </div>*}
 
                         <div class="col-lg-4">
                             <div class="form-group">
@@ -116,6 +116,14 @@
                         </div>
 
                     </div>
+                                    
+                    <div class="col-lg-12">
+
+                        <div class="col-lg-4">
+                            
+                        </div>
+
+                    </div>
 
                     <div class="col-lg-12" style="text-align: right;">
                         <a type="button" id="consultar" class="btn btn-primary" onclick="valvaciosforma();"><span class="fa fa-search"></span> Consultar</a>
@@ -123,7 +131,41 @@
                     </div>                
 
                 </div>
-
+                                    
+                <hr>
+                
+                <div id="contenedorTabla" style="display:{$mostrarTabla}" class="table-responsive">
+                
+                    <table id="tablaDatosReg" class="table table-condensed table-hover table-striped">
+                        
+                        <thead id="cabeceraDatosNomina">
+                            
+                            <tr>
+                                <td class="tdNum">Consecutivo</td>
+                                <td class="tdNum">Centro costo</td>
+                                <td class="tdNum">Ciudad</td>
+                                <td class="tdNum">Supervisor</td>
+                                <td class="tdNum">Periodo</td>
+                                <td class="tdNum">Estado</td>
+                                <td class="tdNum"><p>Selecionar todos</p><input id="selecTodos" type="checkbox" onclick="valSelectTodos();"/></td>
+                            </tr>
+                                
+                        </thead>
+                        
+                        <tbody id="datosNomina">
+                            
+                        </tbody>                 
+                        
+                        
+                    </table>
+                    
+                    <div id="contentBtn2" class="col-lg-12" style="text-align: right;">
+                        <a type="button" id="consultar" class="btn btn-primary" onclick="aprobarRegNom();"><span class="fa fa-check"></span> Aprobar</a>
+                      
+                    </div>        
+                
+                </div> 
+                
             </form>            
 
         </div>

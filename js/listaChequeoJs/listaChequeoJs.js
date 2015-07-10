@@ -770,8 +770,7 @@ function marcarTodos(id) {
             $("#presentado" + i).prop("checked", true);
             $("#noPresentado" + i).prop("checked", false);
             $("#noAplica" + i).prop("checked", false);
-            $("#derogado" + i).prop("checked", false);
-            
+            $("#derogado" + i).prop("checked", false);           
 
         }
         

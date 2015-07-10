@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2015-07-07 17:12:35
+<?php /* Smarty version Smarty-3.1.13, created on 2015-07-10 17:11:08
          compiled from "..\..\web\aprobarNominaWeb\aprobarNomina.html.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:18587559abb8e47dd98-38056409%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '2083bf1e5f0aeb307147600fcf1539c49a2bec48' => 
     array (
       0 => '..\\..\\web\\aprobarNominaWeb\\aprobarNomina.html.tpl',
-      1 => 1436306881,
+      1 => 1436566219,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'cabecera' => 1,
     'empresaInterna' => 1,
     'ciudades' => 1,
-    'estados' => 1,
+    'mostrarTabla' => 1,
     'footer' => 1,
   ),
   'has_nocache_code' => false,
@@ -164,44 +164,7 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['ciudadaux']['last']       = 
                             </div>
                         </div>                 
 
-                        <div class="col-lg-4">
-                            <div class="form-group">
-                                <label class="col-md-4 control-label" for="estado">Estado:</label>
-                                <div class="col-md-8">
-                                    <select id="estado" name="estado" class="form-control">
-                                        <option value=""></option>
-                                        <?php if (isset($_smarty_tpl->tpl_vars['smarty']->value['section']['estado'])) unset($_smarty_tpl->tpl_vars['smarty']->value['section']['estado']);
-$_smarty_tpl->tpl_vars['smarty']->value['section']['estado']['name'] = 'estado';
-$_smarty_tpl->tpl_vars['smarty']->value['section']['estado']['loop'] = is_array($_loop=$_smarty_tpl->tpl_vars['estados']->value) ? count($_loop) : max(0, (int)$_loop); unset($_loop);
-$_smarty_tpl->tpl_vars['smarty']->value['section']['estado']['show'] = true;
-$_smarty_tpl->tpl_vars['smarty']->value['section']['estado']['max'] = $_smarty_tpl->tpl_vars['smarty']->value['section']['estado']['loop'];
-$_smarty_tpl->tpl_vars['smarty']->value['section']['estado']['step'] = 1;
-$_smarty_tpl->tpl_vars['smarty']->value['section']['estado']['start'] = $_smarty_tpl->tpl_vars['smarty']->value['section']['estado']['step'] > 0 ? 0 : $_smarty_tpl->tpl_vars['smarty']->value['section']['estado']['loop']-1;
-if ($_smarty_tpl->tpl_vars['smarty']->value['section']['estado']['show']) {
-    $_smarty_tpl->tpl_vars['smarty']->value['section']['estado']['total'] = $_smarty_tpl->tpl_vars['smarty']->value['section']['estado']['loop'];
-    if ($_smarty_tpl->tpl_vars['smarty']->value['section']['estado']['total'] == 0)
-        $_smarty_tpl->tpl_vars['smarty']->value['section']['estado']['show'] = false;
-} else
-    $_smarty_tpl->tpl_vars['smarty']->value['section']['estado']['total'] = 0;
-if ($_smarty_tpl->tpl_vars['smarty']->value['section']['estado']['show']):
-
-            for ($_smarty_tpl->tpl_vars['smarty']->value['section']['estado']['index'] = $_smarty_tpl->tpl_vars['smarty']->value['section']['estado']['start'], $_smarty_tpl->tpl_vars['smarty']->value['section']['estado']['iteration'] = 1;
-                 $_smarty_tpl->tpl_vars['smarty']->value['section']['estado']['iteration'] <= $_smarty_tpl->tpl_vars['smarty']->value['section']['estado']['total'];
-                 $_smarty_tpl->tpl_vars['smarty']->value['section']['estado']['index'] += $_smarty_tpl->tpl_vars['smarty']->value['section']['estado']['step'], $_smarty_tpl->tpl_vars['smarty']->value['section']['estado']['iteration']++):
-$_smarty_tpl->tpl_vars['smarty']->value['section']['estado']['rownum'] = $_smarty_tpl->tpl_vars['smarty']->value['section']['estado']['iteration'];
-$_smarty_tpl->tpl_vars['smarty']->value['section']['estado']['index_prev'] = $_smarty_tpl->tpl_vars['smarty']->value['section']['estado']['index'] - $_smarty_tpl->tpl_vars['smarty']->value['section']['estado']['step'];
-$_smarty_tpl->tpl_vars['smarty']->value['section']['estado']['index_next'] = $_smarty_tpl->tpl_vars['smarty']->value['section']['estado']['index'] + $_smarty_tpl->tpl_vars['smarty']->value['section']['estado']['step'];
-$_smarty_tpl->tpl_vars['smarty']->value['section']['estado']['first']      = ($_smarty_tpl->tpl_vars['smarty']->value['section']['estado']['iteration'] == 1);
-$_smarty_tpl->tpl_vars['smarty']->value['section']['estado']['last']       = ($_smarty_tpl->tpl_vars['smarty']->value['section']['estado']['iteration'] == $_smarty_tpl->tpl_vars['smarty']->value['section']['estado']['total']);
-?>
-                                            <option value="<?php echo $_smarty_tpl->tpl_vars['estados']->value[$_smarty_tpl->getVariable('smarty')->value['section']['estado']['index']]['id'];?>
-"><?php echo $_smarty_tpl->tpl_vars['estados']->value[$_smarty_tpl->getVariable('smarty')->value['section']['estado']['index']]['estado'];?>
-</option>
-                                        <?php endfor; endif; ?>    
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
+                   
 
                         <div class="col-lg-4">
                             <div class="form-group">
@@ -221,6 +184,14 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['estado']['last']       = ($_
                         </div>
 
                     </div>
+                                    
+                    <div class="col-lg-12">
+
+                        <div class="col-lg-4">
+                            
+                        </div>
+
+                    </div>
 
                     <div class="col-lg-12" style="text-align: right;">
                         <a type="button" id="consultar" class="btn btn-primary" onclick="valvaciosforma();"><span class="fa fa-search"></span> Consultar</a>
@@ -228,7 +199,42 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['estado']['last']       = ($_
                     </div>                
 
                 </div>
-
+                                    
+                <hr>
+                
+                <div id="contenedorTabla" style="display:<?php echo $_smarty_tpl->tpl_vars['mostrarTabla']->value;?>
+" class="table-responsive">
+                
+                    <table id="tablaDatosReg" class="table table-condensed table-hover table-striped">
+                        
+                        <thead id="cabeceraDatosNomina">
+                            
+                            <tr>
+                                <td class="tdNum">Consecutivo</td>
+                                <td class="tdNum">Centro costo</td>
+                                <td class="tdNum">Ciudad</td>
+                                <td class="tdNum">Supervisor</td>
+                                <td class="tdNum">Periodo</td>
+                                <td class="tdNum">Estado</td>
+                                <td class="tdNum"><p>Selecionar todos</p><input id="selecTodos" type="checkbox" onclick="valSelectTodos();"/></td>
+                            </tr>
+                                
+                        </thead>
+                        
+                        <tbody id="datosNomina">
+                            
+                        </tbody>                 
+                        
+                        
+                    </table>
+                    
+                    <div id="contentBtn2" class="col-lg-12" style="text-align: right;">
+                        <a type="button" id="consultar" class="btn btn-primary" onclick="aprobarRegNom();"><span class="fa fa-check"></span> Aprobar</a>
+                      
+                    </div>        
+                
+                </div> 
+                
             </form>            
 
         </div>
