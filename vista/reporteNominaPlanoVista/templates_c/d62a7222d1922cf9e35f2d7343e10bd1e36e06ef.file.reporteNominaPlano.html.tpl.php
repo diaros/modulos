@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2015-07-10 16:08:27
+<?php /* Smarty version Smarty-3.1.13, created on 2015-07-13 10:37:35
          compiled from "..\..\web\reporteNominaPlanoWeb\reporteNominaPlano.html.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:12373556376ab787468-25265475%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'd62a7222d1922cf9e35f2d7343e10bd1e36e06ef' => 
     array (
       0 => '..\\..\\web\\reporteNominaPlanoWeb\\reporteNominaPlano.html.tpl',
-      1 => 1436536068,
+      1 => 1436801854,
       2 => 'file',
     ),
   ),
@@ -39,7 +39,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
         <link type="text/css" href="../../css/estilosGenerales/estilosGeneralesCss.css" rel="stylesheet"/> 
         <link type="text/css" href="../../css/reporteNominaPlanoCss/reporteNominaPlanoCss.css" rel="stylesheet"/> 
         <link type="text/css" href="../../libs/wow/css/animate.css" rel="stylesheet">
-        
+
         <title>Reporte Nomina Plano</title>
 
     </head>
@@ -224,15 +224,15 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['ciudad']['last']       = ($_
 
 
                 </div>
-                                        
-               
-                    
-                                    
-                <div id="contenedorTablaErrores" style="display:none;">
-                    
-                     <legend>Listado de errores</legend>
-                     
-                      <table id="tablaErrores" class="table table-hover table-striped table-condensed">
+
+                
+
+
+                <div id="contenedorTablaErrores" class="table-responsive" style="display:none;">
+
+                    <legend>Listado de errores</legend>
+
+                    <table id="tablaErrores" class="table table-hover table-striped table-condensed">
 
                         <thead id="cabeceraErrores">
                             <tr id="filaEncabezadosErrores">                                
@@ -243,21 +243,22 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['ciudad']['last']       = ($_
                         </tbody>
 
                     </table>
-                    
+
                     
 
-                </div>
+
+                </div>     
 
                 <div id="contenedorTabla" style="display: none">
 
                     <legend>Datos registrados</legend>                   
 
                     <div class="row" style="font-size: 10px;">
-                        
-                    <div id="contentUserSinReg" class="col-lg-12 col-md-6">
-                        
-                    </div>                        
-                        
+
+                        <div id="contentUserSinReg" class="col-lg-12 col-md-6">
+
+                        </div>                        
+
                         <div class="col-lg-3 col-md-6">
                             <div id="panelUserReg" class="panel panel-success">
                                 <div class="panel-heading">
@@ -273,7 +274,7 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['ciudad']['last']       = ($_
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="col-lg-3 col-md-6">
                             <div id="panelHrsOrdi" class="panel panel-primary">
                                 <div class="panel-heading">
@@ -289,7 +290,7 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['ciudad']['last']       = ($_
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="col-lg-3 col-md-6">
                             <div class="panel panel-info">
                                 <div class="panel-heading">
@@ -305,7 +306,7 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['ciudad']['last']       = ($_
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="col-lg-3 col-md-6">
                             <div class="panel panel-warning">
                                 <div class="panel-heading">
@@ -321,7 +322,7 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['ciudad']['last']       = ($_
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="col-lg-9 col-md-6">
                             <div id="contenedorEstadoPlanilla" class="panel panel-danger">
                                 <div class="panel-heading">
@@ -337,7 +338,7 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['ciudad']['last']       = ($_
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="col-lg-3 col-md-6">
                             <div class="panel panel-success">
                                 <div class="panel-heading">
@@ -353,7 +354,7 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['ciudad']['last']       = ($_
                                 </div>
                             </div>
                         </div>
-                        
+
                     </div>           
                     <!-- /.row --> 
 
@@ -370,10 +371,10 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['ciudad']['last']       = ($_
 
                         </table>
                     </div>
-                   
-                    
+
+
                     <div class="col-lg-12" style="text-align: right;">
-                        
+
                         <a type="button" id="finalizar" class="btn btn-primary" onclick="confirmFinalizar();"><span class="fa fa-check"></span>Terminar</a> 
                         <a type="button" id="eliminar" class="btn btn-danger" onclick="confirmEliminar();"><span class="fa fa-close"></span>Eliminar</a>
 
@@ -382,7 +383,7 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['ciudad']['last']       = ($_
                 </div>                                    
 
             </form>
-                                    
+
         </div>
 
         <div class="modal fade" id="modalLoad">
@@ -413,8 +414,8 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['ciudad']['last']       = ($_
                 </div><!-- /.modal-content -->
             </div><!-- /.modal-dialog -->
         </div><!-- /.modal -->   
-        
-           <div class="modal fade" id="modalInfoDatos">
+
+        <div class="modal fade" id="modalInfoDatos">
             <div class="modal-dialog">
                 <div class="modal-content">
 
@@ -432,7 +433,7 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['ciudad']['last']       = ($_
                 </div><!-- /.modal-content -->
             </div><!-- /.modal-dialog -->
         </div><!-- /.modal -->  
-    
+
 
         <?php echo $_smarty_tpl->tpl_vars['footer']->value;?>
 
@@ -444,7 +445,7 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['ciudad']['last']       = ($_
         <script src="../../js/reporteNominaPlanoJs/reporteNominaPlano.js"></script> 
         <script src="../../libs/wow/js/wow.min.js"></script>
         <script>
-            new WOW().init();
+                            new WOW().init();
         </script>
 
     </body>

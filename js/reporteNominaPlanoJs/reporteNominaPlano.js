@@ -787,7 +787,7 @@ function construirTabla(data,idReg) {
         var idPlanilla = $("#idPlanilla1").val();
         $("#estadoPlanilla").html("PW-" + idPlanilla + " | Sin terminar");
               
-        $("#contenedorTabla").fadeIn(5000);
+        $("#contenedorTabla").fadeIn(1000);
 
 //        $("#panelUserReg").addClass('animated wow pulse');
 //        $("#panelHrsOrdi").addClass('animated wow pulse');

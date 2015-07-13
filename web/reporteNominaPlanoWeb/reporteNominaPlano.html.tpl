@@ -11,7 +11,7 @@
         <link type="text/css" href="../../css/estilosGenerales/estilosGeneralesCss.css" rel="stylesheet"/> 
         <link type="text/css" href="../../css/reporteNominaPlanoCss/reporteNominaPlanoCss.css" rel="stylesheet"/> 
         <link type="text/css" href="../../libs/wow/css/animate.css" rel="stylesheet">
-        
+
         <title>Reporte Nomina Plano</title>
 
     </head>
@@ -145,20 +145,20 @@
 
 
                 </div>
-                                        
-               {* <div class="col-lg-12">
-                    
-                    <img src="../../libs/imagenes/iconos/Kameleon-Free-Pack/Multicolor/SVG/Round Icons/Batman.svg" alt="why so serius?">
-                    <img src="../../libs/imagenes/iconos/Kameleon-Free-Pack/Multicolor/SVG/Round Icons/Captain-Shield.svg" alt="why so serius?">
+
+                {* <div class="col-lg-12">
+                     
+                <img src="../../libs/imagenes/iconos/Kameleon-Free-Pack/Multicolor/SVG/Round Icons/Batman.svg" alt="why so serius?">
+                <img src="../../libs/imagenes/iconos/Kameleon-Free-Pack/Multicolor/SVG/Round Icons/Captain-Shield.svg" alt="why so serius?">
 
                 </div>*}
-                    
-                                    
-                <div id="contenedorTablaErrores" style="display:none;">
-                    
-                     <legend>Listado de errores</legend>
-                     
-                      <table id="tablaErrores" class="table table-hover table-striped table-condensed">
+
+
+                <div id="contenedorTablaErrores" class="table-responsive" style="display:none;">
+
+                    <legend>Listado de errores</legend>
+
+                    <table id="tablaErrores" class="table table-hover table-striped table-condensed">
 
                         <thead id="cabeceraErrores">
                             <tr id="filaEncabezadosErrores">                                
@@ -169,25 +169,24 @@
                         </tbody>
 
                     </table>
-                    
-                    {*<div class="col-lg-12" style="text-align: right;">
-                        
-                       <a type="reset"  id="limpiar2"   class="btn btn-danger"  onclick="limpiarErrores();"><span class="fa fa-eraser"></span> Limpiar</a>
 
+                    {*<div class="col-lg-12" style="text-align: right;">                        
+                    <a type="reset"  id="limpiar2"   class="btn btn-danger"  onclick="limpiarErrores();"><span class="fa fa-eraser"></span> Limpiar</a>
                     </div>*}
 
-                </div>
+
+                </div>     
 
                 <div id="contenedorTabla" style="display: none">
 
                     <legend>Datos registrados</legend>                   
 
                     <div class="row" style="font-size: 10px;">
-                        
-                    <div id="contentUserSinReg" class="col-lg-12 col-md-6">
-                        
-                    </div>                        
-                        
+
+                        <div id="contentUserSinReg" class="col-lg-12 col-md-6">
+
+                        </div>                        
+
                         <div class="col-lg-3 col-md-6">
                             <div id="panelUserReg" class="panel panel-success">
                                 <div class="panel-heading">
@@ -203,7 +202,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="col-lg-3 col-md-6">
                             <div id="panelHrsOrdi" class="panel panel-primary">
                                 <div class="panel-heading">
@@ -219,7 +218,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="col-lg-3 col-md-6">
                             <div class="panel panel-info">
                                 <div class="panel-heading">
@@ -235,7 +234,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="col-lg-3 col-md-6">
                             <div class="panel panel-warning">
                                 <div class="panel-heading">
@@ -251,7 +250,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="col-lg-9 col-md-6">
                             <div id="contenedorEstadoPlanilla" class="panel panel-danger">
                                 <div class="panel-heading">
@@ -267,7 +266,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="col-lg-3 col-md-6">
                             <div class="panel panel-success">
                                 <div class="panel-heading">
@@ -283,7 +282,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                     </div>           
                     <!-- /.row --> 
 
@@ -300,10 +299,10 @@
 
                         </table>
                     </div>
-                   
-                    
+
+
                     <div class="col-lg-12" style="text-align: right;">
-                        
+
                         <a type="button" id="finalizar" class="btn btn-primary" onclick="confirmFinalizar();"><span class="fa fa-check"></span>Terminar</a> 
                         <a type="button" id="eliminar" class="btn btn-danger" onclick="confirmEliminar();"><span class="fa fa-close"></span>Eliminar</a>
 
@@ -312,7 +311,7 @@
                 </div>                                    
 
             </form>
-                                    
+
         </div>
 
         <div class="modal fade" id="modalLoad">
@@ -343,8 +342,8 @@
                 </div><!-- /.modal-content -->
             </div><!-- /.modal-dialog -->
         </div><!-- /.modal -->   
-        
-           <div class="modal fade" id="modalInfoDatos">
+
+        <div class="modal fade" id="modalInfoDatos">
             <div class="modal-dialog">
                 <div class="modal-content">
 
@@ -362,7 +361,7 @@
                 </div><!-- /.modal-content -->
             </div><!-- /.modal-dialog -->
         </div><!-- /.modal -->  
-    
+
 
         {$footer}
         <script src="../../libs/jquery/jquery.js"></script>  
@@ -373,7 +372,7 @@
         <script src="../../js/reporteNominaPlanoJs/reporteNominaPlano.js"></script> 
         <script src="../../libs/wow/js/wow.min.js"></script>
         <script>
-            new WOW().init();
+                            new WOW().init();
         </script>
 
     </body>

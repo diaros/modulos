@@ -327,7 +327,7 @@ class reporteNominaPlanoDatos {
                         and c.id_planilla_usuario = b.id
                         and b.id_usuario = " . $ced . "
                         and b.id_planilla = a.id
-                        and a.estado = 2";
+                        and a.estado in (2,4)";
 
         $resul = $conexion->consultar($sql);
         return $resul;

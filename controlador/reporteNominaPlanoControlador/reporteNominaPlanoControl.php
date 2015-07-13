@@ -929,7 +929,7 @@ class reporteNominaPlanoControl {
 
         if (count($arregloDiasAnterioresF) > 0) {
             $tipo = 'F';
-            $resDiasAntFesti = $this->insertDiasAnteriores($arregloDiasAnterioresH, $mesDiasAnt, $tipo, $mes);
+            $resDiasAntFesti = $this->insertDiasAnteriores($arregloDiasAnterioresF, $mesDiasAnt, $tipo, $mes);
             
             if($resDiasAntFesti == false){
                 
@@ -976,7 +976,7 @@ class reporteNominaPlanoControl {
         if (count($arregloDiasAnterioresD) > 0) {
             
             $tipo = 'D';
-            $resDiasAntDom = $this->insertDiasAnteriores($arregloDiasAnterioresH, $mesDiasAnt, $tipo, $mes);
+            $resDiasAntDom = $this->insertDiasAnteriores($arregloDiasAnterioresD, $mesDiasAnt, $tipo, $mes);
             
             if($resDiasAntDom == false){
                 

@@ -228,8 +228,7 @@ function consultarRegNomina(){
             estado:estado
         },
         dataType:"json",
-        beforeSend:function(){  
-            
+        beforeSend:function(){           
             $("#modalLoad").modal('toggle');
         },
         success:function(data){            
@@ -237,12 +236,18 @@ function consultarRegNomina(){
             if(data != '0' && data != '-1'){
                 
                 construirTabla(data);
+                consultarTotalDatos();
                 
             }else if(data == '0'){
-                
+                 
+                $("#modalLoad").modal('hide');
+                $("#tituloModal").html("Información");
+                $("#cuerpoModal").html("No existen registros con los parametros ingresados");
+                $("#modalInfo").modal('show');
                 
             }else if(data == '-1'){
                 
+                $("#modalLoad").modal('hide');
                 
             }
             
@@ -250,6 +255,77 @@ function consultarRegNomina(){
         }
         
     });
+    
+}
+
+function consultarTotalDatos(){
+
+    var empInt = $("#empresaInt").val();
+    var empCli = $("#empUsu").val();
+    var centrocosto = $("#centroCosto").val();
+    var ciudad = $("#ciudad").val();
+    var fecIni = $("#fecIni").val();
+    var fecFin = $("#fecFin").val();
+    var estado = $("#estado").val();
+    
+    $.ajax({
+        
+        type: 'POST',
+        url: '../../vista/aprobarNominaVista/asincAprobarNomina.php',
+        data:{
+            accion:"totalDatos",
+            empInt:empInt,
+            empCli:empCli,
+            centroCosto:centrocosto,
+            ciudad:ciudad,
+            fechaIni:fecIni,
+            fechaFin:fecFin,
+            estado:estado            
+        },
+        dataType:"json",
+        beforeSend:function(){},
+        success:function(data){
+            console.log(data);
+            $.each(data,function(llave,valor){
+                
+                if(llave == 'hrsFestivos'){
+                    
+                    $("#hrsFestivos").append(valor)
+                    
+                }
+                
+                if(llave == 'hrsDominicales'){
+                    
+                    $("#hrsDominicales").append(valor)
+                    
+                }
+                
+                if(llave == 'hrsOrdinarias'){
+                    
+                    $("#hrsOrdinarias").append(valor)
+                    
+                }
+                
+                if(llave == 'totalUsuarios'){
+                    
+                    $("#totalUsers").append(valor)
+                    
+                }
+                
+                if(llave == 'totalConceptos'){
+                    
+                  
+                    
+                    $("#adicionales").append(valor);
+                    
+                }
+                
+            });
+            
+        }
+        
+    }).done(function(){});
+    
     
 }
 
@@ -328,16 +404,14 @@ function aprobarRegNom(){
             regNomina:regNom
         },
         dataType: 'json',
-        beforeSend:function(){
-            
-//             $("#modalLoad").modal('toggle');
-            
+        beforeSend:function(){            
+//           $("#modalLoad").modal('toggle');            
         },
         success:function(data){
             
             if(data == '1'){
                 
-//                $("#modalLoad").modal('toggle');
+//              $("#modalLoad").modal('toggle');
                 
                 $("#tituloModal").html("Información");
                 $("#cuerpoModal").html("Nominas aprobadas correctamente");
@@ -347,7 +421,7 @@ function aprobarRegNom(){
                 
             }else if(data == '-1'){
                 
-//                $("#modalLoad").modal('toggle');
+//              $("#modalLoad").modal('toggle');
                 
                 $("#tituloModal").html("Advertencia");
                 $("#cuerpoModal").html("Ha ocurrido un error aprobando los registros, por favor vuelva a intentarlo nuevamene.Si el fallo persiste comuniquese con el depto de desarrollo");
@@ -391,4 +465,11 @@ function validarfechas(fechaInicial, fechaFinal) {
     }
 
 
+}
+
+function formatPesos(num) {
+    var p = num.toFixed(2).split(".");
+    return  p[0].split("").reverse().reduce(function(acc, num, i, orig) {
+        return  num + (i && !(i % 3) ? "." : "") + acc;
+    }, "") + "." + p[1];
 }

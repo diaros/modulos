@@ -60,5 +60,28 @@ if (isset($_POST['accion']) && $_POST['accion'] == 'aprobarSolicitudes') {
     }    
 }
 
+if (isset($_POST['accion']) && $_POST['accion'] == 'totalDatos') {
+    
+    $empInt = $_POST['empInt'];
+    $empCli = $_POST['empCli'];
+    $centroCosto = $_POST['centrocosto'];
+    $ciudad = $_POST['ciudad'];
+    $fechaIni = $_POST['fechaIni'];
+    $fechaFin = $_POST['fechaFin'];
+    $estado = $_POST['estado'];
+    
+    $totalConceptos = $aprobarNominaControl->totalDatos($empInt, $empCli, $centroCosto, $ciudad, $estado, $fechaIni, $fechaFin);
+    
+    if(count($totalConceptos)>0){
+        
+        echo json_encode($totalConceptos);
+        
+    }else{
+        
+        echo '-1';
+    }
+    
+}
+
 ?>
 
