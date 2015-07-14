@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2015-07-13 10:37:35
+<?php /* Smarty version Smarty-3.1.13, created on 2015-07-14 10:14:02
          compiled from "..\..\web\reporteNominaPlanoWeb\reporteNominaPlano.html.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:12373556376ab787468-25265475%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'd62a7222d1922cf9e35f2d7343e10bd1e36e06ef' => 
     array (
       0 => '..\\..\\web\\reporteNominaPlanoWeb\\reporteNominaPlano.html.tpl',
-      1 => 1436801854,
+      1 => 1436884616,
       2 => 'file',
     ),
   ),
@@ -260,7 +260,7 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['ciudad']['last']       = ($_
                         </div>                        
 
                         <div class="col-lg-3 col-md-6">
-                            <div id="panelUserReg" class="panel panel-success">
+                            <div id="panelUserReg" class="panel panel-info">
                                 <div class="panel-heading">
                                     <div class="row">
                                         <div class="col-xs-3">
@@ -276,7 +276,7 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['ciudad']['last']       = ($_
                         </div>
 
                         <div class="col-lg-3 col-md-6">
-                            <div id="panelHrsOrdi" class="panel panel-primary">
+                            <div id="panelHrsOrdi" class="panel panel-info">
                                 <div class="panel-heading">
                                     <div class="row">
                                         <div class="col-xs-3">
@@ -308,7 +308,7 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['ciudad']['last']       = ($_
                         </div>
 
                         <div class="col-lg-3 col-md-6">
-                            <div class="panel panel-warning">
+                            <div class="panel panel-info">
                                 <div class="panel-heading">
                                     <div class="row">
                                         <div class="col-xs-3">

@@ -188,7 +188,7 @@
                         </div>                        
 
                         <div class="col-lg-3 col-md-6">
-                            <div id="panelUserReg" class="panel panel-success">
+                            <div id="panelUserReg" class="panel panel-info">
                                 <div class="panel-heading">
                                     <div class="row">
                                         <div class="col-xs-3">
@@ -204,7 +204,7 @@
                         </div>
 
                         <div class="col-lg-3 col-md-6">
-                            <div id="panelHrsOrdi" class="panel panel-primary">
+                            <div id="panelHrsOrdi" class="panel panel-info">
                                 <div class="panel-heading">
                                     <div class="row">
                                         <div class="col-xs-3">
@@ -236,7 +236,7 @@
                         </div>
 
                         <div class="col-lg-3 col-md-6">
-                            <div class="panel panel-warning">
+                            <div class="panel panel-info">
                                 <div class="panel-heading">
                                     <div class="row">
                                         <div class="col-xs-3">

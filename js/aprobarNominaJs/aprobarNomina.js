@@ -142,12 +142,12 @@ function valvaciosforma() {
 
                 consultarRegNomina();
             }
-            
-        }else{
-            
-             consultarRegNomina();
-            
-        }       
+
+        } else {
+
+            consultarRegNomina();
+
+        }
 
     } else {
 
@@ -194,7 +194,7 @@ function valfechafin() {
         $("#modalInfo").modal('toggle');
 
     } else {
-       
+
         $("#tituloModal").html("Advertencia");
         $("#cuerpoModal").html("Fechas validadas");
         $("#modalInfo").modal('toggle');
@@ -203,8 +203,8 @@ function valfechafin() {
 
 }
 
-function consultarRegNomina(){
-    
+function consultarRegNomina() {
+
     var empInt = $("#empresaInt").val();
     var empCli = $("#empUsu").val();
     var centrocosto = $("#centroCosto").val();
@@ -212,53 +212,52 @@ function consultarRegNomina(){
     var fecIni = $("#fecIni").val();
     var fecFin = $("#fecFin").val();
     var estado = $("#estado").val();
-    
+
     $.ajax({
-       
         type: 'POST',
         url: '../../vista/aprobarNominaVista/asincAprobarNomina.php',
-        data:{
-            accion:"consultarRegNomina",
-            empInt:empInt,
-            empCli:empCli,
-            centroCosto:centrocosto,
-            ciudad:ciudad,
-            fechaIni:fecIni,
-            fechaFin:fecFin,
-            estado:estado
+        data: {
+            accion: "consultarRegNomina",
+            empInt: empInt,
+            empCli: empCli,
+            centroCosto: centrocosto,
+            ciudad: ciudad,
+            fechaIni: fecIni,
+            fechaFin: fecFin,
+            estado: estado
         },
-        dataType:"json",
-        beforeSend:function(){           
+        dataType: "json",
+        beforeSend: function() {
             $("#modalLoad").modal('toggle');
         },
-        success:function(data){            
-            
-            if(data != '0' && data != '-1'){
-                
+        success: function(data) {
+
+            if (data != '0' && data != '-1') {
+
                 construirTabla(data);
                 consultarTotalDatos();
-                
-            }else if(data == '0'){
-                 
+
+            } else if (data == '0') {
+
                 $("#modalLoad").modal('hide');
                 $("#tituloModal").html("Información");
                 $("#cuerpoModal").html("No existen registros con los parametros ingresados");
                 $("#modalInfo").modal('show');
-                
-            }else if(data == '-1'){
-                
+
+            } else if (data == '-1') {
+
                 $("#modalLoad").modal('hide');
-                
+
             }
-            
-           
+
+
         }
-        
+
     });
-    
+
 }
 
-function consultarTotalDatos(){
+function consultarTotalDatos() {
 
     var empInt = $("#empresaInt").val();
     var empCli = $("#empUsu").val();
@@ -267,96 +266,108 @@ function consultarTotalDatos(){
     var fecIni = $("#fecIni").val();
     var fecFin = $("#fecFin").val();
     var estado = $("#estado").val();
-    
+
+    $("#hrsFestivos").html("");
+    $("#hrsDominicales").html("");
+    $("#hrsOrdinarias").html("");
+    $("#totalUsers").html("");
+    $("#adicionales").html("");
+
     $.ajax({
-        
         type: 'POST',
         url: '../../vista/aprobarNominaVista/asincAprobarNomina.php',
-        data:{
-            accion:"totalDatos",
-            empInt:empInt,
-            empCli:empCli,
-            centroCosto:centrocosto,
-            ciudad:ciudad,
-            fechaIni:fecIni,
-            fechaFin:fecFin,
-            estado:estado            
+        data: {
+            accion: "totalDatos",
+            empInt: empInt,
+            empCli: empCli,
+            centroCosto: centrocosto,
+            ciudad: ciudad,
+            fechaIni: fecIni,
+            fechaFin: fecFin,
+            estado: estado
         },
-        dataType:"json",
-        beforeSend:function(){},
-        success:function(data){
+        dataType: "json",
+        beforeSend: function() {
+        },
+        success: function(data) {
             console.log(data);
-            $.each(data,function(llave,valor){
-                
-                if(llave == 'hrsFestivos'){
-                    
-                    $("#hrsFestivos").append(valor)
-                    
+            $.each(data, function(llave, valor) {
+
+                if (llave == 'hrsFestivos') {
+
+                    $("#hrsFestivos").append(valor);
+
                 }
-                
-                if(llave == 'hrsDominicales'){
-                    
-                    $("#hrsDominicales").append(valor)
-                    
+
+                if (llave == 'hrsDominicales') {
+
+                    $("#hrsDominicales").append(valor);
+
                 }
-                
-                if(llave == 'hrsOrdinarias'){
-                    
-                    $("#hrsOrdinarias").append(valor)
-                    
+
+                if (llave == 'hrsOrdinarias') {
+
+                    $("#hrsOrdinarias").append(valor);
+
                 }
-                
-                if(llave == 'totalUsuarios'){
-                    
-                    $("#totalUsers").append(valor)
-                    
+
+                if (llave == 'totalUsuarios') {
+
+                    $("#totalUsers").append(valor);
+
                 }
-                
-                if(llave == 'totalConceptos'){
-                    
-                  
-                    
-                    $("#adicionales").append(valor);
-                    
+
+                if (llave == 'totalConceptos') {
+
+                    var aux = formatPesos(parseFloat(valor));
+                    $("#adicionales").append(aux);
+
                 }
-                
+
             });
-            
+
         }
-        
-    }).done(function(){});
-    
-    
+
+    }).done(function() {
+    });
+
+
 }
 
-function construirTabla(data){
-    
+function construirTabla(data) {
+
     var filaDatos = '';
     $("#datosNomina").html('');
     var pos = 0;
-    
-    $.each(data, function(llave,valor){
-        
-       filaDatos = filaDatos + "<tr>\n\
-                        <td class = 'tdNum'><a id='conse-"+pos+"' onclick='consulSol(this.id);'>"+valor.id+"</a></td>\n\\n\
-                        <td class = 'tdNum'>"+valor.centro_costo+"</td>\n\\n\
-                        <td class = 'tdNum'>"+valor.ciudad+"</td>\n\\n\
-                        <td class = 'tdNum'>"+valor.usu_creo+"</td>\n\\n\
-                        <td class = 'tdNum'>"+valor.periodo+"</td>\n\\n\
-                        <td class = 'tdNum'>"+valor.estado+"</td>\n\
-                        <td class = 'tdNum'><input id='reg-"+pos+"' name='reg"+pos+"' type='checkbox' /></td>\n\
+
+    $.each(data, function(llave, valor) {
+
+        filaDatos = filaDatos + "<tr>\n\
+                        <td class = 'tdNum'><a id='conse-" + pos + "' onclick='consulSolicitud(this.id);'>" + valor.id + "</a></td>\n\\n\
+                        <td class = 'tdNum'>" + valor.centro_costo + "</td>\n\\n\
+                        <td class = 'tdNum'>" + valor.ciudad + "</td>\n\\n\
+                        <td class = 'tdNum'>" + valor.usu_creo + "</td>\n\\n\
+                        <td class = 'tdNum'>" + valor.periodo + "</td>\n\\n\
+                        <td class = 'tdNum'>" + valor.estado + "</td>\n\
+                        <td class = 'tdNum'><input id='reg-" + pos + "' name='reg" + pos + "' type='checkbox' /></td>\n\
                     </tr>";
-        
+
         pos++;
-        
+
     });
-    
+
     $("#datosNomina").append(filaDatos);
     $("#modalLoad").modal('toggle');
 }
 
-function consulSol(id) {
-    console.log($("#" + id + "").html());
+function consulSolicitud(id) {
+    
+    var infonom;
+    
+    $("#tituloModalDatos").html("Detalle Adicionales");
+    $("#cuerpoModalDatos").html(infonom);
+    $("#modalInfoDatos").modal('show');
+    
 }
 
 function valSelectTodos() {
@@ -381,59 +392,58 @@ function valSelectTodos() {
     }
 }
 
-function aprobarRegNom(){
-    
+function aprobarRegNom() {
+
     var longreg = $('#tablaDatosReg >tbody >tr').length;
     var regNom = new Array();
-    
+
     for (var i = 0; i < longreg; i++) {
-        
-        if($("#reg-" + i + "").prop("checked")){
-            
-            regNom[i] = $("#conse-"+i+"").html();
+
+        if ($("#reg-" + i + "").prop("checked")) {
+
+            regNom[i] = $("#conse-" + i + "").html();
             //console.log( $("#conse-"+i+"").html());             
-            
-        }       
+
+        }
     }
-    
+
     $.ajax({
-        type: 'POST' ,
+        type: 'POST',
         url: '../../vista/aprobarNominaVista/asincAprobarNomina.php',
-        data:{
-            accion:"aprobarSolicitudes",
-            regNomina:regNom
+        data: {
+            accion: "aprobarSolicitudes",
+            regNomina: regNom
         },
         dataType: 'json',
-        beforeSend:function(){            
+        beforeSend: function() {
 //           $("#modalLoad").modal('toggle');            
         },
-        success:function(data){
-            
-            if(data == '1'){
-                
+        success: function(data) {
+
+            if (data == '1') {
+
 //              $("#modalLoad").modal('toggle');
-                
                 $("#tituloModal").html("Información");
                 $("#cuerpoModal").html("Nominas aprobadas correctamente");
                 $("#modalInfo").modal('toggle');
                 consultarRegNomina();
-                
-                
-            }else if(data == '-1'){
-                
+
+
+            } else if (data == '-1') {
+
 //              $("#modalLoad").modal('toggle');
-                
+
                 $("#tituloModal").html("Advertencia");
                 $("#cuerpoModal").html("Ha ocurrido un error aprobando los registros, por favor vuelva a intentarlo nuevamene.Si el fallo persiste comuniquese con el depto de desarrollo");
                 $("#modalInfo").modal('toggle');
                 limpiarform();
             }
-            
-        }        
-        
-    }).done(function(){
-        
-        
+
+        }
+
+    }).done(function() {
+
+
     });
 }
 
@@ -463,6 +473,229 @@ function validarfechas(fechaInicial, fechaFinal) {
         return true;
 
     }
+
+
+}
+
+function detAdicionales() {
+
+    var longreg = $('#tablaDatosReg >tbody >tr').length;
+    var regNom = new Array();
+
+    for (var i = 0; i < longreg; i++) {
+
+        regNom[i] = $("#conse-" + i + "").html();
+
+    }
+
+    $.ajax({
+        type: 'POST',
+        url: '../../vista/aprobarNominaVista/asincAprobarNomina.php',
+        data: {
+            accion: "detAdicionales",
+            idRegNominas: regNom
+        },
+        dataType: 'json',
+        beforeSend: function() {
+            //$("#modalLoad").modal('toggle');            
+        },
+        success: function(data) {
+
+
+
+        }
+
+    }).done(function(data) {
+
+        var acumDetConceptos = 0;
+        var filaDetConceptos = '';
+        var vlrDetConcepto = 0;
+        var tablaDetConceptos = '';
+
+        $.each(data, function(llave, valor3) {
+
+            filaDetConceptos = filaDetConceptos + "<tr><td class='tdText'>" + valor3.nombre + "</td><td class='tdNum'>" + valor3.totalConcepto + "</td></tr>";
+            vlrDetConcepto = parseFloat(valor3.totalConcepto);
+            acumDetConceptos = acumDetConceptos + vlrDetConcepto;
+        });
+
+        acumDetConceptos = formatPesos(acumDetConceptos);
+
+        tablaDetConceptos = "<table class='table table-hover table-striped table-condensed'>\n\
+                                    <thead>\n\
+                                        <tr>\n\
+                                            <td class='tdNum'>Nombre</td><td class='tdNum'>Valor</td>\n\
+                                        </tr>\n\
+                                    </thead>\n\
+                                    <tbody>\n\
+                                    " + filaDetConceptos + "\
+                                    <tr class='active danger'><td class='tdNum'>Total</td><td class='tdNum'>" + acumDetConceptos + "</td></tr><tbody>\n\
+                                  </table>";
+
+        $("#tituloModalDatos").html("Detalle Adicionales");
+        $("#cuerpoModalDatos").html(tablaDetConceptos);
+        $("#modalInfoDatos").modal('show');
+
+    });
+
+}
+
+function detDominicales() {
+
+    var empInt = $("#empresaInt").val();
+    var empCli = $("#empUsu").val();
+    var centrocosto = $("#centroCosto").val();
+    var ciudad = $("#ciudad").val();
+    var fecIni = $("#fecIni").val();
+    var fecFin = $("#fecFin").val();
+    var estado = $("#estado").val();
+    var filasDetDominicales = '';
+    var tablaDetDominicales = '';
+
+    $.ajax({
+        type: 'POST',
+        url: '../../vista/aprobarNominaVista/asincAprobarNomina.php',
+        data: {
+            accion: "detDominicales",
+            empInt: empInt,
+            empCli: empCli,
+            centroCosto: centrocosto,
+            ciudad: ciudad,
+            fechaIni: fecIni,
+            fechaFin: fecFin,
+            estado: estado
+        },
+        dataType: "json",
+        beforeSend: function() {
+            $("#modalLoad").modal('show');
+        },
+        success: function(data) {
+
+            console.log(data);
+
+            if (data != '-1' && data != '0') {
+
+                $.each(data, function(llave, valor) {
+
+                    filasDetDominicales = filasDetDominicales + "<tr>\n\
+                        <td class='tdText'>" + valor.nombre + " " + valor.apellido + " </td><td class='tdNum'>" + valor.hrsDom + "</td>\n\
+                        </tr>";
+
+                });
+
+                tablaDetDominicales = "<table class='table table-hover table-striped table-condensed'>\n\
+                <thead>\n\
+                <tr>\n\
+                <td class='tdNum'>Empleado</td><td class='tdNum'>Hrs Domincales</td>\n\
+                </tr>\n\
+                <thead>\n\
+                <tbody>\n\
+                " + filasDetDominicales + "\
+                </tbody>\n\
+                </table>";
+
+                $("#modalLoad").modal('hide');
+                $("#tituloModalDatos").html("Detalle Dominicales");
+                $("#cuerpoModalDatos").html(tablaDetDominicales);
+                $("#modalInfoDatos").modal('show');
+
+            } else if (data == '0') {
+                
+                $("#modalLoad").modal('hide');
+                $("#tituloModal").html("Advertencia");
+                $("#cuerpoModal").html("No existen horas dominicales registradas");
+                $("#modalInfo").modal('toggle');
+
+            } else if (data == '-1') {
+                
+                $("#modalLoad").modal('hide');
+                $("#tituloModal").html("Advertencia");
+                $("#cuerpoModal").html("Ha ocurrido un fallo. Por favor vuelva a intentarlo. Si el proble persiste cominiquelo al departamento de desarrollo");
+                $("#modalInfo").modal('toggle');
+            }
+        }
+
+    });
+
+
+}
+
+function detFestivos() {
+
+    var empInt = $("#empresaInt").val();
+    var empCli = $("#empUsu").val();
+    var centrocosto = $("#centroCosto").val();
+    var ciudad = $("#ciudad").val();
+    var fecIni = $("#fecIni").val();
+    var fecFin = $("#fecFin").val();
+    var estado = $("#estado").val();
+    var filasDetFestivos = '';
+    var tablaDetFestivos = '';
+
+    $.ajax({
+        type: 'POST',
+        url: '../../vista/aprobarNominaVista/asincAprobarNomina.php',
+        data: {
+            accion: "detFestivos",
+            empInt: empInt,
+            empCli: empCli,
+            centroCosto: centrocosto,
+            ciudad: ciudad,
+            fechaIni: fecIni,
+            fechaFin: fecFin,
+            estado: estado
+        },
+        dataType: "json",
+        beforeSend: function() {
+            $("#modalLoad").modal('show');
+        },
+        success: function(data) {
+
+            console.log(data);
+
+            if (data != '-1' && data != '0') {
+
+                $.each(data, function(llave, valor) {
+
+                    filasDetFestivos = filasDetFestivos + "<tr>\n\
+                        <td class='tdText'>" + valor.nombre + " " + valor.apellido + " </td><td class='tdNum'>" + valor.hrsFest + "</td>\n\
+                        </tr>";
+
+                });
+
+                tablaDetFestivos = "<table class='table table-hover table-striped table-condensed'>\n\
+                <thead>\n\
+                <tr>\n\
+                <td class='tdNum'>Empleado</td><td class='tdNum'>Hrs Festivos</td>\n\
+                </tr>\n\
+                <thead>\n\
+                <tbody>\n\
+                " + filasDetFestivos + "\
+                </tbody>\n\
+                </table>";
+
+                $("#modalLoad").modal('hide');
+                $("#tituloModalDatos").html("Detalle Festivos");
+                $("#cuerpoModalDatos").html(tablaDetFestivos);
+                $("#modalInfoDatos").modal('show');
+
+            } else if (data == '0') {
+                
+                $("#modalLoad").modal('hide');
+                $("#tituloModal").html("Advertencia");
+                $("#cuerpoModal").html("No existen horas festivas registradas");
+                $("#modalInfo").modal('toggle');
+
+            } else if (data == '-1') {
+                
+                $("#modalLoad").modal('hide');
+                $("#tituloModal").html("Advertencia");
+                $("#cuerpoModal").html("Ha ocurrido un fallo. Por favor vuelva a intentarlo. Si el proble persiste cominiquelo al departamento de desarrollo");
+                $("#modalInfo").modal('toggle');
+            }
+        }
+
+    });
 
 
 }
