@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2015-05-11 10:51:42
+<?php /* Smarty version Smarty-3.1.13, created on 2015-07-15 11:45:46
          compiled from "..\..\web\gestionContratosWeb\gestionContratosWeb.html.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:137915446de60ebf4a2-59156914%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '7a0ff74aa171ee0d7c4d17f3ad46e7d177d023b5' => 
     array (
       0 => '..\\..\\web\\gestionContratosWeb\\gestionContratosWeb.html.tpl',
-      1 => 1431359488,
+      1 => 1436219454,
       2 => 'file',
     ),
   ),
@@ -32,7 +32,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link type="text/css" href="../../libs/bootstrap/css/bootstrap.css" rel="stylesheet" />
-         <link type="text/css" href="../../libs/calendario/eternicode-bootstrap-datepicker-8bc254a/css/datepicker3.css" rel="stylesheet"/>
+        <link type="text/css" href="../../libs/calendario/eternicode-bootstrap-datepicker-8bc254a/css/datepicker3.css" rel="stylesheet"/>
         <link type="text/css" href="../../libs/font-awesome-4.2.0/css/font-awesome.css" rel="stylesheet" />
         <link type="text/css" href="../../css/estilosGenerales/estilosGeneralesCss.css" rel="stylesheet"/>
         <link type="text/css" href="../../css/gestionContratosCss/gestionContratosCss.css" rel="stylesheet"/>
@@ -110,9 +110,9 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['empInt']['last']       = ($_
                         <div class="form-group">
                             <label class="col-md-5 control-label" for="idUser">No Identificación:</label>  
                             <div class="col-md-7">
-
+                            
                               <select id="idUser" name="idUser" class="form-control" onblur="consultarObserv();" >                                    
-                                </select>
+                              </select>
                             </div>                            
                         </div>
 

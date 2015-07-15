@@ -329,6 +329,10 @@ function consultarTotalDatos() {
         }
 
     }).done(function() {
+        
+//        $("#contenedorDatosConsulta").toggle(1000);
+        $("#contenedorDatosConsulta").slideDown(1000);
+        
     });
 
 
@@ -361,13 +365,94 @@ function construirTabla(data) {
 }
 
 function consulSolicitud(id) {
-    
-    var infonom;
-    
-    $("#tituloModalDatos").html("Detalle Adicionales");
-    $("#cuerpoModalDatos").html(infonom);
-    $("#modalInfoDatos").modal('show');
-    
+
+    var auxId = $("#" + id + "").html();
+    console.log(auxId);
+    $("#ocultoIdNomina").val(auxId);
+
+    $.ajax({
+        type: 'POST',
+        url: '../../vista/aprobarNominaVista/asincAprobarNomina.php',
+        data: {
+            accion: "regByPlanilla",
+            idPlanilla: auxId
+        },
+        dataType: "json",
+        beforeSend: function() {
+
+
+        },
+        success: function(data) {
+            
+            console.log(data);
+            var filas = '';
+            var pos = 1;
+            var totalHabiles = 0;
+            var totalDominicales = 0;
+            var totalFestivos = 0;
+            var totalUsers = 0;
+            
+            if (data != '-1') {
+
+                //Total conceptos
+                var vlrTotalConceptos = totalConceptos(auxId);
+                if ($.isNumeric(vlrTotalConceptos) !== true) {
+                    vlrTotalConceptos = 0;
+                }
+                vlrTotalConceptos = formatPesos(vlrTotalConceptos);
+                $("#totalAdicionales").html(vlrTotalConceptos);
+                //fin Total concepos
+
+                $("#filaEncabezados").html("");
+                 $("#datosUsuario").html("");
+
+                $("#filaEncabezados").append(
+                        "<td class='tdNum'>Cedula</td>\n\
+                 <td class='tdNum'>Nombre</td>\n\
+                 <td class='tdNum'>Hrs Habiles</td>\n\
+                 <td class='tdNum'>Hrs Dominicales</td>\n\
+                 <td class='tdNum'>Hrs festivos</td>\n\
+                 <td class='tdNum'>Adicionales</td>"
+                        );
+
+                $.each(data, function(llave, valor) {
+
+                    var diash = '';
+                    var diasd = '';
+                    var diasf = '';
+                    
+                            filas = filas + "<tr id='" + pos + "FilaDatos' >";
+                            filas = filas + "<td id = '" + pos + "idUser' class='tdNum'>" + valor.id_usuario + "</td>\n\
+                            <td id = '" + pos + "nomUser' class='tdText'>" + valor.ape_empl + " " + valor.nom_empl + "</td>\n\
+                            <td id = '" + pos + "hrsHabiles' class='tdNum'>" + valor.horas_habiles + "</td>\n\
+                            <td id = '" + pos + "hrsDominic' class='tdNum'>" + valor.horas_dominicales + "</td>\n\
+                            <td id = '" + pos + "hrsFesti' class='tdNum'>" + valor.horas_festivos + "</td>\n\
+                            <td id = '" + pos + "celConceptos' class='tdNum'><input type='button' class='btn btn-link' id='btnConceptos" + pos + "' onclick='mostrarconceptos(this.id);' value='Consultar'><input type='hidden' id='idPlanilla" + pos + "' value='" + valor.id + "'></td>";
+
+                        filas = filas + "</tr>";
+                        
+                        totalHabiles = parseFloat(totalHabiles) + parseFloat(valor.horas_habiles);
+                        totalDominicales = parseFloat(totalDominicales) + parseFloat(valor.horas_dominicales);
+                        totalFestivos = parseFloat(totalFestivos) + parseFloat(valor.horas_festivos);
+                        totalUsers++;
+                        pos++;
+                   
+
+                });
+
+                $("#hrsHabiles2").html(totalHabiles);
+                $("#hrsDominicales2").html(totalDominicales);
+                $("#hrsFestivos2").html(totalFestivos);
+                $("#totalUsers2").html(totalUsers);
+
+                $("#datosUsuario").append(filas);
+
+            }
+        }
+    });
+
+    $("#modaldetNomina").modal('show');
+
 }
 
 function valSelectTodos() {
@@ -600,14 +685,14 @@ function detDominicales() {
                 $("#modalInfoDatos").modal('show');
 
             } else if (data == '0') {
-                
+
                 $("#modalLoad").modal('hide');
                 $("#tituloModal").html("Advertencia");
                 $("#cuerpoModal").html("No existen horas dominicales registradas");
                 $("#modalInfo").modal('toggle');
 
             } else if (data == '-1') {
-                
+
                 $("#modalLoad").modal('hide');
                 $("#tituloModal").html("Advertencia");
                 $("#cuerpoModal").html("Ha ocurrido un fallo. Por favor vuelva a intentarlo. Si el proble persiste cominiquelo al departamento de desarrollo");
@@ -680,14 +765,14 @@ function detFestivos() {
                 $("#modalInfoDatos").modal('show');
 
             } else if (data == '0') {
-                
+
                 $("#modalLoad").modal('hide');
                 $("#tituloModal").html("Advertencia");
                 $("#cuerpoModal").html("No existen horas festivas registradas");
                 $("#modalInfo").modal('toggle');
 
             } else if (data == '-1') {
-                
+
                 $("#modalLoad").modal('hide');
                 $("#tituloModal").html("Advertencia");
                 $("#cuerpoModal").html("Ha ocurrido un fallo. Por favor vuelva a intentarlo. Si el proble persiste cominiquelo al departamento de desarrollo");
@@ -701,8 +786,158 @@ function detFestivos() {
 }
 
 function formatPesos(num) {
-    var p = num.toFixed(2).split(".");
+    var p = num.toFixed(1).split(".");
     return  p[0].split("").reverse().reduce(function(acc, num, i, orig) {
         return  num + (i && !(i % 3) ? "." : "") + acc;
     }, "") + "." + p[1];
+}
+
+function totalConceptos(id) {
+
+    var idPlanilla = id;
+    var datoTotalConceptos = '';
+
+    $.ajax({
+        type: 'POST',
+        url: "../../vista/reporteNominaPlanoVista/asincReporteNominaPlano.php",
+        data: {
+            accion: "consultarTotalConceptos",
+            idPlanilla: idPlanilla
+        },
+        async: false,
+        dataType: "json",
+        beforeSend: function() {
+        },
+        success: function() {
+        }
+
+    }).done(function(data) {
+
+        var total = 0;
+
+        $.each(data, function(llave, valor) {
+
+            total = parseFloat(valor.total);
+
+        });
+
+        datoTotalConceptos = total;
+
+    });
+
+    return datoTotalConceptos;
+}
+
+function mostrarDetAdicionales() {
+
+    var idPlanilla = $("#ocultoIdNomina").val();
+
+    $.ajax({
+        type: 'POST',
+        url: '../../vista/reporteNominaPlanoVista/asincReporteNominaPlano.php',
+        data: {
+            accion: 'consultarDetalleConceptos',
+            idPlanilla: idPlanilla
+        },
+        async: false,
+        dataType: "json",
+        beforeSend: function() {
+        },
+        success: function() {
+        }
+
+    }).done(function(data) {
+        
+        console.log(data);
+        
+        var acumDetConceptos = 0;
+        var filaDetConceptos = '';
+        var vlrDetConcepto = 0;
+        var tablaDetConceptos = '';
+
+        $.each(data, function(llave, valor3) {
+
+            filaDetConceptos = filaDetConceptos + "<tr><td class='tdText'>" + valor3.nombre + "</td><td class='tdNum'>" + valor3.totalConcepto + "</td></tr>";
+            vlrDetConcepto = parseFloat(valor3.totalConcepto);
+            acumDetConceptos = acumDetConceptos + vlrDetConcepto;
+        });
+
+        acumDetConceptos = formatPesos(acumDetConceptos);
+
+        tablaDetConceptos = "<table class='table table-hover table-striped table-condensed'>\n\
+                                    <thead>\n\
+                                        <tr>\n\
+                                            <td class='tdNum'>Nombre</td><td class='tdNum'>Valor</td>\n\
+                                        </tr>\n\
+                                    </thead>\n\
+                                    <tbody>\n\
+                                    " + filaDetConceptos + "\
+                                    <tr class='active danger'><td class='tdNum'>Total</td><td class='tdNum'>" + acumDetConceptos + "</td></tr><tbody>\n\
+                                  </table>";
+
+        $("#tituloModalDatos").html("Detalle Conceptos");
+        $("#cuerpoModalDatos").html(tablaDetConceptos);
+        $("#modalInfoDatos").modal('toggle');
+
+    });
+}
+
+function mostrarconceptos(id) {
+
+    var longId = id.length;
+    var idLinea = id.substring(12, longId);
+
+    var idPlanilla = $("#ocultoIdNomina").val();
+    var idUsuario = $("#" + idLinea + "idUser").html();
+    $("#cuerpoModal").html("");
+
+    var filaConceptosUsuario = '';
+    var vlrConcepto = '';
+
+    $.ajax({
+        type: 'POST',
+        url: "../../vista/reporteNominaPlanoVista/asincReporteNominaPlano.php",
+        data: {
+            accion: "consultarConceptos",
+            idPlanilla: idPlanilla,
+            idUsuario: idUsuario
+        },
+        dataType: "json",
+        beforeSend: function() {
+        },
+        success: function() {
+        }
+
+    }).done(function(data) {
+
+        var acumConceptos = 0;
+
+        $.each(data, function(llave, valor2) {
+
+            filaConceptosUsuario = filaConceptosUsuario + "<tr><td class='tdText'>" + valor2.nombre + "</td><td class='tdNum'>" + valor2.valor + "</td></tr>";
+            vlrConcepto = parseFloat(valor2.valor);
+            acumConceptos = acumConceptos + vlrConcepto;
+
+        });
+
+        acumConceptos = formatPesos(acumConceptos);
+
+        var tablaConceptosUsuario = "<table class='table table-hover table-striped table-condensed'>\n\
+                                    <thead>\n\
+                                        <tr>\n\
+                                            <td class='tdNum'>Nombre</td><td class='tdNum'>Valor</td>\n\
+                                        </tr>\n\
+                                    </thead>\n\
+                                    <tbody>\n\
+                                    " + filaConceptosUsuario + "\
+                                    <tr class='active danger'><td class='tdNum'>Total</td><td class='tdNum'>" + acumConceptos + "</td></tr><tbody>\n\
+                                  </table>";
+
+        $("#tituloModalDatos").html("Conceptos");
+        $("#cuerpoModalDatos").html(tablaConceptosUsuario);
+        $("#modalInfoDatos").modal('toggle');
+
+    });
+
+
 }

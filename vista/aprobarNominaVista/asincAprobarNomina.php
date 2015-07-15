@@ -154,8 +154,25 @@ if (isset($_POST['accion']) && $_POST['accion'] == 'detFestivos'){
         
          echo '-1';
         
-    }
+    } 
     
+}
+
+if(isset($_POST['accion']) && $_POST['accion'] == 'regByPlanilla'){
+    
+    $idPlanilla = $_POST['idPlanilla'];
+    
+    $reporte = $aprobarNominaControl->detRegitrosByIdPlanilla($idPlanilla);
+    
+    if($reporte != null){
+        
+        echo json_encode($reporte);
+        
+    }else {
+        
+        echo '-1';
+    }
+        
     
 }
 

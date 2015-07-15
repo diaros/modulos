@@ -1,6 +1,7 @@
 <?php
 
 include '../../datos/aprobarNominaDatos/aprobarNominaDatos.php';
+include '../../datos/reporteNominaPlanoDatos/reporteNominaPlanoDatos.php';
 include_once '../../controlador/utilidades/utilidades.php';
 
 session_start();
@@ -215,6 +216,14 @@ class aprobarNominaControl {
         $reporte = $aprobarNominaDatos->detFestivos($condicionDinamica);
 
         return $reporte;
+    }
+    
+    function detRegitrosByIdPlanilla($id){
+        
+        $consulRegNomina = new reporteNominaPlanoDatos();
+        $reporte = $consulRegNomina->consultarDatosRegByIdPlanilla($id);
+        return $reporte;        
+        
     }
 
 }

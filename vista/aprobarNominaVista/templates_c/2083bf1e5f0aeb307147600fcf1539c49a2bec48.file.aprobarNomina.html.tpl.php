@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2015-07-14 15:32:23
+<?php /* Smarty version Smarty-3.1.13, created on 2015-07-15 17:41:53
          compiled from "..\..\web\aprobarNominaWeb\aprobarNomina.html.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:18587559abb8e47dd98-38056409%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '2083bf1e5f0aeb307147600fcf1539c49a2bec48' => 
     array (
       0 => '..\\..\\web\\aprobarNominaWeb\\aprobarNomina.html.tpl',
-      1 => 1436905859,
+      1 => 1437000081,
       2 => 'file',
     ),
   ),
@@ -162,9 +162,7 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['ciudadaux']['last']       = 
                                     </select>
                                 </div>
                             </div>
-                        </div>                 
-
-                        
+                        </div>                      
 
                         <div class="col-lg-4">
                             <div class="form-group">
@@ -182,6 +180,22 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['ciudadaux']['last']       = 
                                 </div>
                             </div>
                         </div>
+
+
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="consecutivo">Consecutivo:</label>
+                                <div class="col-md-8">
+                                    
+                                     <div class="input-group">
+
+                                        <input id="consecutivo" name="fecIni" class="form-control" placeholder="" type="text"/>                                       
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>            
 
                     </div>
 
@@ -201,12 +215,14 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['ciudadaux']['last']       = 
                 </div>
 
                 <hr>
-
-                <div>                 
+                
+                <div id="contenedorDatosConsulta">                   
+               
+                <div id="contenedorAcumulados">                 
 
                     <div class="row" style="font-size: 10px;">
 
-                        <div class="col-lg-12 col-md-12">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <div class="panel panel-success">
                                 <div class="panel-heading">
                                     <div class="row">
@@ -219,14 +235,10 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['ciudadaux']['last']       = 
                                         </div>
                                     </div>
                                 </div>
-
-                                
-
-
                             </div>
                         </div>
 
-                        <div class="col-lg-3 col-md-6">
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6">
                             <div id="panelUserReg" class="panel panel-info">
                                 <div class="panel-heading">
                                     <div class="row">
@@ -242,7 +254,7 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['ciudadaux']['last']       = 
                             </div>
                         </div>
 
-                        <div class="col-lg-3 col-md-6">
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6">
                             <div id="panelHrsOrdi" class="panel panel-info">
                                 <div class="panel-heading">
                                     <div class="row">
@@ -258,7 +270,7 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['ciudadaux']['last']       = 
                             </div>
                         </div>
 
-                        <div class="col-lg-3 col-md-6">
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6">
                             <div class="panel panel-info">
                                 <div class="panel-heading">
                                     <div class="row">
@@ -274,7 +286,7 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['ciudadaux']['last']       = 
                             </div>
                         </div>
 
-                        <div class="col-lg-3 col-md-6">
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6">
                             <div class="panel panel-info">
                                 <div class="panel-heading">
                                     <div class="row">
@@ -333,6 +345,8 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['ciudadaux']['last']       = 
                     </div>                         
 
                 </div> 
+                
+                </div>
 
             </form>            
 
@@ -367,7 +381,7 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['ciudadaux']['last']       = 
             </div><!-- /.modal-dialog -->
         </div><!-- /.modal -->  
 
-        <div class="modal fade" id="modalInfoDatos">
+        <div class="modal fade modalDatos" id="modalInfoDatos">
             <div class="modal-dialog">
                 <div class="modal-content">
 
@@ -385,6 +399,137 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['ciudadaux']['last']       = 
                 </div><!-- /.modal-content -->
             </div><!-- /.modal-dialog -->
         </div><!-- /.modal -->  
+
+        <div id="modaldetNomina" class="modal fade bs-example-modal-lg " tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+
+            <div class="modal-dialog modal-lg">
+
+                <div class="modal-content modalDatos">
+
+                    <div class="modal-header" id="titulodDetNomina">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Detalle nomina</h4>
+                    </div>
+
+                    <div class="modal-body" id="bodyDetModal">
+
+                        <input type="hidden" id="ocultoIdNomina"/>
+
+                        <div class="row" style="font-size: 10px;">
+
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="panel panel-success">
+                                    <div class="panel-heading">
+                                        <div class="row">
+                                            <div class="col-xs-3">
+                                                <i class="fa fa-dollar fa-4x"></i>
+                                            </div>
+                                            <div class="col-xs-9 text-right">
+                                                <div id="totalAdicionales" class="huge numeroInfo"></div>
+                                                <div><a id="linkDetAdicionales" onclick="mostrarDetAdicionales();">Detalle Adicionales</a></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6">
+                                <div id="panelUserReg" class="panel panel-info">
+                                    <div class="panel-heading">
+                                        <div class="row">
+                                            <div class="col-xs-3">
+                                                <i class="fa fa-user fa-4x"></i>
+                                            </div>
+                                            <div class="col-xs-9 text-right">
+                                                <div id="totalUsers2" class="huge numeroInfo"></div>
+                                                <div>Usuarios Registrados</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6">
+                                <div id="panelHrsOrdi" class="panel panel-info">
+                                    <div class="panel-heading">
+                                        <div class="row">
+                                            <div class="col-xs-3">
+                                                <i class="fa fa-clock-o fa-4x"></i>
+                                            </div>
+                                            <div class="col-xs-9 text-right">
+                                                <div id="hrsHabiles2" class="huge numeroInfo"></div>
+                                                <div>Horas Habiles</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6">
+                                <div class="panel panel-info">
+                                    <div class="panel-heading">
+                                        <div class="row">
+                                            <div class="col-xs-3">
+                                                <i class="fa fa-clock-o fa-4x"></i>
+                                            </div>
+                                            <div class="col-xs-9 text-right">
+                                                <div id="hrsDominicales2" class="huge numeroInfo"></div>
+                                                <div>Horas Dominicales</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6">
+                                <div class="panel panel-info">
+                                    <div class="panel-heading">
+                                        <div class="row">
+                                            <div class="col-xs-3">
+                                                <i class="fa fa-clock-o fa-4x"></i>
+                                            </div>
+                                            <div class="col-xs-9 text-right">
+                                                <div id="hrsFestivos2" class="huge numeroInfo"></div>
+                                                <div>Horas Festivos</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">Usuarios registrados</div>
+                            <div class="panel-body">
+                                <table id="tablaDatos" class="table table-hover table-striped table-condensed">
+
+                                    <thead id="cabeceraDatosUser">
+                                        <tr id="filaEncabezados">                                
+                                        </tr>
+                                    </thead>
+
+                                    <tbody id="datosUsuario">
+                                    </tbody>
+
+                                </table>
+                            </div>    
+
+                        </div>
+
+                    </div>
+
+                    <div class="modal-footer">
+
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
 
 
         <?php echo $_smarty_tpl->tpl_vars['footer']->value;?>

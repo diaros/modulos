@@ -8,3 +8,22 @@
     color:#fff;
     
 }
+
+#modalInfoDatos{
+    
+    z-index: 2001;
+}
+
+.modalDatos{
+    
+    opacity:1.0;
+}
+
+#linkDetAdicionales{
+    
+    color:#fff;
+}
+
+#contenedorDatosConsulta{    
+    display:none;
+}
