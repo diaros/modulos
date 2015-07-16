@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2015-07-15 17:41:53
+<?php /* Smarty version Smarty-3.1.13, created on 2015-07-16 09:54:22
          compiled from "..\..\web\aprobarNominaWeb\aprobarNomina.html.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:18587559abb8e47dd98-38056409%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '2083bf1e5f0aeb307147600fcf1539c49a2bec48' => 
     array (
       0 => '..\\..\\web\\aprobarNominaWeb\\aprobarNomina.html.tpl',
-      1 => 1437000081,
+      1 => 1437054342,
       2 => 'file',
     ),
   ),
@@ -33,7 +33,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 
     <head>
 
-        <meta http-equiv="Content-Type" content="text/html:charset=UTF-8" >
+        <meta http-equiv="Content-Type" content="text/html:charset=UTF-8">
 
         <link type="text/css" href="../../libs/bootstrap/css/bootstrap.css" rel="stylesheet"/>
         <link type="text/css" href="../../libs/calendario/eternicode-bootstrap-datepicker-8bc254a/css/datepicker3.css" rel="stylesheet"/>
@@ -307,9 +307,9 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['ciudadaux']['last']       = 
                 </div>
 
                 <div id="contenedorTabla" style="display:<?php echo $_smarty_tpl->tpl_vars['mostrarTabla']->value;?>
-" class="table-responsive">             
+">             
 
-                    <div class="panel panel-default">
+                    <div class="panel panel-default table-responsive">
 
                         <div class="panel-heading">Nominas registradas</div>
 

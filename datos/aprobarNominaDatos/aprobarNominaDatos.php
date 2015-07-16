@@ -61,7 +61,8 @@ class aprobarNominaDatos {
                     and convert(varchar,a.id_emp_cli) = b.nit
                     and a.ciudad = c.suc_codigo
                     and a.estado = e.id
-                    and a.id = f.id_planilla";
+                    and a.id = f.id_planilla
+                    and a.estado = 2";
         $reporte = $conexion->consultar($sql);
         return $reporte[0]['totalUsers'];
     }
@@ -85,7 +86,8 @@ class aprobarNominaDatos {
                     and a.ciudad = c.suc_codigo
                     and a.estado = e.id
                     and a.id = f.id_planilla
-                    and f.id = g.id_planilla_usuario";
+                    and f.id = g.id_planilla_usuario
+                    and a.estado = 2";
         $reporte = $conexion->consultar($sql);
         return $reporte[0]['totalConceptos'];
     }
@@ -107,7 +109,8 @@ class aprobarNominaDatos {
                     and convert(varchar,a.id_emp_cli) = b.nit
                     and a.ciudad = c.suc_codigo
                     and a.estado = e.id
-                    and a.id = f.id_planilla";
+                    and a.id = f.id_planilla
+                    and a.estado = 2";
         $reporte = $conexion->consultar($sql);
         return $reporte[0]['hrsDominicales'];
     }
@@ -129,7 +132,8 @@ class aprobarNominaDatos {
                     and convert(varchar,a.id_emp_cli) = b.nit
                     and a.ciudad = c.suc_codigo
                     and a.estado = e.id
-                    and a.id = f.id_planilla";
+                    and a.id = f.id_planilla
+                    and a.estado = 2";
         $reporte = $conexion->consultar($sql);
         return $reporte[0]['hrsFestivos'];
     }
@@ -151,7 +155,8 @@ class aprobarNominaDatos {
                     and convert(varchar,a.id_emp_cli) = b.nit
                     and a.ciudad = c.suc_codigo
                     and a.estado = e.id
-                    and a.id = f.id_planilla";
+                    and a.id = f.id_planilla
+                    and a.estado = 2";
         $reporte = $conexion->consultar($sql);
         return $reporte[0]['hrsOrdinarias'];
     }
@@ -181,7 +186,8 @@ class aprobarNominaDatos {
                         and a.id = f.id_planilla
                         and f.id_usuario = g.cod_empl
                         and a.id_emp_int = g.cod_empr
-                        and f.horas_dominicales != 0";
+                        and f.horas_dominicales != 0
+                         and a.estado = 2";
         
         $reporte = $conexion->consultar($sql);
         return $reporte;
@@ -212,7 +218,8 @@ class aprobarNominaDatos {
                         and a.id = f.id_planilla
                         and f.id_usuario = g.cod_empl
                         and a.id_emp_int = g.cod_empr
-                        and f.horas_festivos != 0";
+                        and f.horas_festivos != 0
+                        and a.estado = 2";
         
         $reporte = $conexion->consultar($sql);
         return $reporte;

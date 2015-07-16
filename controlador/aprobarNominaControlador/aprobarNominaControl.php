@@ -10,7 +10,7 @@ class aprobarNominaControl {
 
     function __construct() {}
 
-    function consultaRegNomina($empInt, $empCli, $centroCosto, $ciudad, $estado, $fechaIni, $fechaFin) {
+    function consultaRegNomina($empInt, $empCli, $centroCosto, $ciudad, $estado, $fechaIni, $fechaFin,$consecutivo) {
 
         $aprobarNominaDatos = new aprobarNominaDatos();
         $condicionDinamica = '';
@@ -43,6 +43,12 @@ class aprobarNominaControl {
         if ($estado != '') {
 
             $condicionDinamica = $condicionDinamica . " and a.estado = " . $estado . " ";
+        }
+        
+        if($consecutivo != ''){
+            
+            $condicionDinamica = $condicionDinamica . " and a.id = " . $consecutivo . " ";
+            
         }
 
         $reporte = $aprobarNominaDatos->consultaRegNomina($condicionDinamica);
@@ -77,7 +83,7 @@ class aprobarNominaControl {
         }
     }
 
-    function totalDatos($empInt, $empCli, $centroCosto, $ciudad, $estado, $fechaIni, $fechaFin) {
+    function totalDatos($empInt, $empCli, $centroCosto, $ciudad, $estado, $fechaIni, $fechaFin,$consecutivo) {
 
         $aprobarNominaDatos = new aprobarNominaDatos();
         $reporte = Array();
@@ -112,6 +118,12 @@ class aprobarNominaControl {
 
             $condicionDinamica = $condicionDinamica . " and a.estado = " . $estado . " ";
         }
+        
+        if($consecutivo != ''){
+            
+            $condicionDinamica = $condicionDinamica . " and a.id = " . $consecutivo . " ";
+            
+        }
 
         $reporte['totalConceptos'] = $aprobarNominaDatos->totalConceptos($condicionDinamica);
         $reporte['totalUsuarios'] = $aprobarNominaDatos->totalUsuarios($condicionDinamica);
@@ -138,7 +150,7 @@ class aprobarNominaControl {
         return $reporte;
     }
 
-    function detDominicales($empInt, $empCli, $centroCosto, $ciudad, $estado, $fechaIni, $fechaFin) {
+    function detDominicales($empInt, $empCli, $centroCosto, $ciudad, $estado, $fechaIni, $fechaFin,$consecutivo) {
 
         $aprobarNominaDatos = new aprobarNominaDatos();
         $condicionDinamica = '';
@@ -171,6 +183,12 @@ class aprobarNominaControl {
         if ($estado != '') {
 
             $condicionDinamica = $condicionDinamica . " and a.estado = " . $estado . " ";
+        }
+        
+        if($consecutivo != ''){
+            
+            $condicionDinamica = $condicionDinamica . " and a.id = " . $consecutivo . " ";
+            
         }
 
         $reporte = $aprobarNominaDatos->detDominicales($condicionDinamica);
@@ -178,7 +196,7 @@ class aprobarNominaControl {
         return $reporte;
     }
 
-    function detFestivos($empInt, $empCli, $centroCosto, $ciudad, $estado, $fechaIni, $fechaFin) {
+    function detFestivos($empInt, $empCli, $centroCosto, $ciudad, $estado, $fechaIni, $fechaFin,$consecutivo) {
 
         $aprobarNominaDatos = new aprobarNominaDatos();
         $condicionDinamica = '';
@@ -211,6 +229,12 @@ class aprobarNominaControl {
         if ($estado != '') {
 
             $condicionDinamica = $condicionDinamica . " and a.estado = " . $estado . " ";
+        }
+        
+        if($consecutivo != ''){
+            
+            $condicionDinamica = $condicionDinamica . " and a.id = " . $consecutivo . " ";
+            
         }
 
         $reporte = $aprobarNominaDatos->detFestivos($condicionDinamica);

@@ -19,6 +19,9 @@ function inicio() {
 }
 
 function limpiarForm() {
+    
+    $("#contenedorTabla").slideUp(1000);
+    $("#contenedorTablaErrores").slideUp(1000);
 
     $("#empresaInt").prop('disabled', false);
     $("#empUsu").prop('disabled', false);
@@ -58,13 +61,11 @@ function limpiarForm() {
     $("#registrar").removeClass('disabled');
     $("#plantilla").removeClass('disabled');
     $("#consultar").removeClass('disabled');
-    $("#finalizar").removeClass('disabled');
-
-    $("#contenedorTabla").fadeOut(1000);
+    $("#finalizar").removeClass('disabled');   
 
     $("#cabeceraErrores").html("");
     $("#datosErrores").html("");
-    $("#contenedorTablaErrores").fadeOut(1000);
+
     
     $("#contentUserSinReg").html("");
 }
@@ -389,7 +390,7 @@ function construirTablaErrores(datos) {
     var filasColumnasErrores = '';
     $("#cabeceraErrores").html("");
     $("#datosErrores").html("");
-    $("#contenedorTablaErrores").fadeOut(1000);
+    $("#contenedorTablaErrores").slideUp(1000);
     var iter = 0;
 
     $.each(datos, function(llave, valor) {
@@ -426,7 +427,7 @@ function construirTablaErrores(datos) {
 
     $("#datosErrores").append(tablaErroresDatos);
 
-    $("#contenedorTablaErrores").fadeIn(1000);
+    $("#contenedorTablaErrores").slideDown(1000);
 
     $("#modalLoad").modal('toggle');
 }
@@ -441,7 +442,7 @@ function mostrarMalordenEncabezados(datos){
         var filasColumnas = '';
         $("#cabeceraErrores").html("");
         $("#datosErrores").html("");
-        $("#contenedorTablaErrores").fadeOut(1000);
+        $("#contenedorTablaErrores").slideUp(1000);
 
         $.each(datos, function(llave, valor) {
 
@@ -494,7 +495,7 @@ function mostrarAdicionalesIncorrectos(datos){
         var filasColumnas = '';
         $("#cabeceraErrores").html("");
         $("#datosErrores").html("");
-        $("#contenedorTablaErrores").fadeOut(1000);
+        $("#contenedorTablaErrores").slideUp(1000);
 
         $.each(datos, function(llave, valor) {
 
@@ -691,7 +692,7 @@ function construirTabla(data,idReg) {
 
     $("#cabeceraErrores").html("");
     $("#datosErrores").html("");
-    $("#contenedorTablaErrores").fadeOut(1000);
+    $("#contenedorTablaErrores").slideUp(1000);
 
     if (data != '-1') {
 
@@ -787,7 +788,7 @@ function construirTabla(data,idReg) {
         var idPlanilla = $("#idPlanilla1").val();
         $("#estadoPlanilla").html("PW-" + idPlanilla + " | Sin terminar");
               
-        $("#contenedorTabla").fadeIn(1000);
+            $("#contenedorTabla").slideDown(2500);
 
 //        $("#panelUserReg").addClass('animated wow pulse');
 //        $("#panelHrsOrdi").addClass('animated wow pulse');
@@ -1272,7 +1273,7 @@ function finalizarPlanilla() {
                 $("#estadoPlanilla").html("PW-" + idPlanilla + " | Terminada");
                 $("#contenedorEstadoPlanilla").removeClass('panel-danger');
                 $("#contenedorEstadoPlanilla").addClass('panel-primary');
-                $("#contenedorEstadoPlanilla").fadeIn(2000);
+                $("#contenedorEstadoPlanilla").slideDown(1000);
                 $("#modalInfoDatos").modal('toggle');
 
             } else {
@@ -1323,7 +1324,7 @@ function eliminarPlanilla() {
                 $("#estadoPlanilla").html("PW-" + idPlanilla + " | Eliminada");
                 $("#contenedorEstadoPlanilla").removeClass('panel-danger');
                 $("#contenedorEstadoPlanilla").addClass('panel-danger');
-                $("#contenedorEstadoPlanilla").fadeIn(2000);
+                $("#contenedorEstadoPlanilla").slideDown(1000);
                 $("#modalInfoDatos").modal('toggle');
 
             } else {
@@ -1342,7 +1343,7 @@ function eliminarPlanilla() {
 }
 
 function formatPesos(num) {
-    var p = num.toFixed(2).split(".");
+    var p = num.toFixed(1).split(".");
     return  p[0].split("").reverse().reduce(function(acc, num, i, orig) {
         return  num + (i && !(i % 3) ? "." : "") + acc;
     }, "") + "." + p[1];

@@ -93,7 +93,9 @@ function consultarcc() {
 }
 
 function limpiarform() {
-
+    
+    $("#contenedorDatosConsulta").slideUp(1000);
+    
     $("#empresaInt").prop('disabled', false);
     $("#empUsu").prop('disabled', false);
     $("#centroCosto").prop('disabled', false);
@@ -109,6 +111,16 @@ function limpiarform() {
     $("#fecIni").val('');
     $("#fecFin").val('');
     $("#estado").val('');
+    $("#consecutivo").val('');
+    
+    $("#adicionales").html("");
+    $("#totalUsers").html("");
+    $("#hrsOrdinarias").html("");
+    $("#hrsDominicales").html("");
+    $("#hrsFestivos").html("");
+    $("#datosNomina").html("");
+    
+    
 
 }
 
@@ -120,8 +132,9 @@ function valvaciosforma() {
     var ciudad = $("#ciudad").val();
     var fecFin = $("#fecFin").val();
     var estado = $("#estado").val();
+    var consecutivo = $("#consecutivo").val();
 
-    if (empInt != '' || empCli !== null || centrocosto != null || ciudad != '' || fecFin != '' || estado != '') {
+    if (empInt != '' || empCli !== null || centrocosto != null || ciudad != '' || fecFin != '' || estado != '' || consecutivo == '') {
 
 
         if (fecFin != '') {
@@ -212,6 +225,7 @@ function consultarRegNomina() {
     var fecIni = $("#fecIni").val();
     var fecFin = $("#fecFin").val();
     var estado = $("#estado").val();
+    var consecutivo = $("#consecutivo").val();
 
     $.ajax({
         type: 'POST',
@@ -224,14 +238,14 @@ function consultarRegNomina() {
             ciudad: ciudad,
             fechaIni: fecIni,
             fechaFin: fecFin,
-            estado: estado
+            consecutivo: consecutivo
         },
         dataType: "json",
         beforeSend: function() {
             $("#modalLoad").modal('toggle');
         },
         success: function(data) {
-
+            $("#contenedorDatosConsulta").slideUp(1000);
             if (data != '0' && data != '-1') {
 
                 construirTabla(data);
@@ -266,6 +280,7 @@ function consultarTotalDatos() {
     var fecIni = $("#fecIni").val();
     var fecFin = $("#fecFin").val();
     var estado = $("#estado").val();
+    var consecutivo = $("#consecutivo").val();
 
     $("#hrsFestivos").html("");
     $("#hrsDominicales").html("");
@@ -284,7 +299,8 @@ function consultarTotalDatos() {
             ciudad: ciudad,
             fechaIni: fecIni,
             fechaFin: fecFin,
-            estado: estado
+            estado: estado,
+            consecutivo:consecutivo
         },
         dataType: "json",
         beforeSend: function() {
@@ -634,6 +650,7 @@ function detDominicales() {
     var fecIni = $("#fecIni").val();
     var fecFin = $("#fecFin").val();
     var estado = $("#estado").val();
+    var consecutivo = $("#consecutivo").val();
     var filasDetDominicales = '';
     var tablaDetDominicales = '';
 
@@ -648,7 +665,8 @@ function detDominicales() {
             ciudad: ciudad,
             fechaIni: fecIni,
             fechaFin: fecFin,
-            estado: estado
+            estado: estado,
+            consecutivo:consecutivo
         },
         dataType: "json",
         beforeSend: function() {
@@ -714,6 +732,7 @@ function detFestivos() {
     var fecIni = $("#fecIni").val();
     var fecFin = $("#fecFin").val();
     var estado = $("#estado").val();
+    var consecutivo = $("#consecutivo").val();
     var filasDetFestivos = '';
     var tablaDetFestivos = '';
 
@@ -728,7 +747,8 @@ function detFestivos() {
             ciudad: ciudad,
             fechaIni: fecIni,
             fechaFin: fecFin,
-            estado: estado
+            estado: estado,
+            consecutivo:consecutivo
         },
         dataType: "json",
         beforeSend: function() {

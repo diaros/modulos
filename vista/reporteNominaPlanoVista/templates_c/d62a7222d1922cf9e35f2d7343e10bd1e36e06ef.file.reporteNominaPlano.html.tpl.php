@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2015-07-14 10:14:02
+<?php /* Smarty version Smarty-3.1.13, created on 2015-07-16 17:53:18
          compiled from "..\..\web\reporteNominaPlanoWeb\reporteNominaPlano.html.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:12373556376ab787468-25265475%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'd62a7222d1922cf9e35f2d7343e10bd1e36e06ef' => 
     array (
       0 => '..\\..\\web\\reporteNominaPlanoWeb\\reporteNominaPlano.html.tpl',
-      1 => 1436884616,
+      1 => 1437087194,
       2 => 'file',
     ),
   ),
@@ -214,7 +214,7 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['ciudad']['last']       = ($_
 
                     </div>
 
-                    <div id="contenedorBtnCargar" class="col-lg-12" style="display:none; text-align: right;margin-left: 550px; margin-top:5px;">
+                    <div id="contenedorBtnCargar" class="col-lg-12">
 
                         <div class="col-lg-5 col-md-offset-1" style="">
                             <input id="planillaNomina" name="planillaNomina" class="filestyle" type="file" data-buttonName="btn-primary" data-size="nr" data-input="true" data-buttonText="Seleccionar" onchange="valExtension();">
@@ -224,42 +224,49 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['ciudad']['last']       = ($_
 
 
                 </div>
-
+                
+                <hr>
                 
 
 
-                <div id="contenedorTablaErrores" class="table-responsive" style="display:none;">
+                <div id="contenedorTablaErrores">                
 
-                    <legend>Listado de errores</legend>
+                    <div class="panel panel-default table-responsive">
 
-                    <table id="tablaErrores" class="table table-hover table-striped table-condensed">
+                        <div class="panel-heading">Listado de errores</div>
+                        
+                        <div class="panel-body">
+                        
+                            <table id="tablaErrores" class="table table-hover table-striped table-condensed">
 
-                        <thead id="cabeceraErrores">
-                            <tr id="filaEncabezadosErrores">                                
-                            </tr>
-                        </thead>
+                                <thead id="cabeceraErrores">
+                                    <tr id="filaEncabezadosErrores">                                
+                                    </tr>
+                                </thead>
 
-                        <tbody id="datosErrores">
-                        </tbody>
+                                <tbody id="datosErrores">
+                                </tbody>
 
-                    </table>
+                            </table>
+                            
+                        </div>    
 
-                    
+                    </div>            
 
 
                 </div>     
 
-                <div id="contenedorTabla" style="display: none">
+                <div id="contenedorTabla">
 
-                    <legend>Datos registrados</legend>                   
+
 
                     <div class="row" style="font-size: 10px;">
 
-                        <div id="contentUserSinReg" class="col-lg-12 col-md-6">
+                        <div id="contentUserSinReg" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
                         </div>                        
 
-                        <div class="col-lg-3 col-md-6">
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6">
                             <div id="panelUserReg" class="panel panel-info">
                                 <div class="panel-heading">
                                     <div class="row">
@@ -275,7 +282,7 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['ciudad']['last']       = ($_
                             </div>
                         </div>
 
-                        <div class="col-lg-3 col-md-6">
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6">
                             <div id="panelHrsOrdi" class="panel panel-info">
                                 <div class="panel-heading">
                                     <div class="row">
@@ -291,7 +298,7 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['ciudad']['last']       = ($_
                             </div>
                         </div>
 
-                        <div class="col-lg-3 col-md-6">
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6">
                             <div class="panel panel-info">
                                 <div class="panel-heading">
                                     <div class="row">
@@ -307,7 +314,7 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['ciudad']['last']       = ($_
                             </div>
                         </div>
 
-                        <div class="col-lg-3 col-md-6">
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6">
                             <div class="panel panel-info">
                                 <div class="panel-heading">
                                     <div class="row">
@@ -323,7 +330,7 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['ciudad']['last']       = ($_
                             </div>
                         </div>
 
-                        <div class="col-lg-9 col-md-6">
+                        <div class="col-lg-9 col-md-6 col-sm-6 col-xs-6">
                             <div id="contenedorEstadoPlanilla" class="panel panel-danger">
                                 <div class="panel-heading">
                                     <div class="row">
@@ -339,7 +346,7 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['ciudad']['last']       = ($_
                             </div>
                         </div>
 
-                        <div class="col-lg-3 col-md-6">
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6">
                             <div class="panel panel-success">
                                 <div class="panel-heading">
                                     <div class="row">
@@ -358,18 +365,27 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['ciudad']['last']       = ($_
                     </div>           
                     <!-- /.row --> 
 
-                    <div id="subContentTabla" class="table-responsive">
-                        <table id="tablaDatos" class="table table-hover table-striped table-condensed">
+                    <div id="subContentTabla">
 
-                            <thead id="cabeceraDatosUser">
-                                <tr id="filaEncabezados">                                
-                                </tr>
-                            </thead>
+                        <div class="panel panel-default table-responsive">
+                            <div class="panel-heading">Usuarios registrados</div>  
+                            <div class="panel-body">  
 
-                            <tbody id="datosUsuario">
-                            </tbody>
 
-                        </table>
+                                <table id="tablaDatos" class="table table-hover table-striped table-condensed">
+
+                                    <thead id="cabeceraDatosUser">
+                                        <tr id="filaEncabezados">                                
+                                        </tr>
+                                    </thead>
+
+                                    <tbody id="datosUsuario">
+                                    </tbody>
+
+                                </table>
+                            </div> 
+
+                        </div>
                     </div>
 
 
@@ -390,7 +406,8 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['ciudad']['last']       = ($_
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-body" style="text-align: center;">
-                        <img src="../../libs/imagenes/cargando.gif">
+                        
+                        <span class=" fa fa-cog fa-spin fa-5x"></span>
                     </div>
                 </div>
             </div>

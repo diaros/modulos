@@ -17,8 +17,9 @@ if (isset($_POST['accion']) && $_POST['accion'] == 'consultarRegNomina') {
     $fechaIni = $_POST['fechaIni'];
     $fechaFin = $_POST['fechaFin'];
     $estado = $_POST['estado'];
+    $consecutivo = $_POST['consecutivo'];
 
-    $reporte = $aprobarNominaControl->consultaRegNomina($empInt, $empCli, $centroCosto, $ciudad, $estado, $fechaIni, $fechaFin);
+    $reporte = $aprobarNominaControl->consultaRegNomina($empInt, $empCli, $centroCosto, $ciudad, $estado, $fechaIni, $fechaFin,$consecutivo);
 
     if ($reporte != false) {
 
@@ -69,8 +70,9 @@ if (isset($_POST['accion']) && $_POST['accion'] == 'totalDatos') {
     $fechaIni = $_POST['fechaIni'];
     $fechaFin = $_POST['fechaFin'];
     $estado = $_POST['estado'];
+    $consecutivo = $_POST['consecutivo'];
     
-    $totalConceptos = $aprobarNominaControl->totalDatos($empInt, $empCli, $centroCosto, $ciudad, $estado, $fechaIni, $fechaFin);
+    $totalConceptos = $aprobarNominaControl->totalDatos($empInt, $empCli, $centroCosto, $ciudad, $estado, $fechaIni, $fechaFin,$consecutivo);
     
     if(count($totalConceptos)>0){
         
@@ -110,8 +112,9 @@ if (isset($_POST['accion']) && $_POST['accion'] == 'detDominicales'){
     $fechaIni = $_POST['fechaIni'];
     $fechaFin = $_POST['fechaFin'];
     $estado = $_POST['estado'];
+    $consecutivo = $_POST['consecutivo'];
     
-    $detDominicales = $aprobarNominaControl->detDominicales($empInt, $empCli, $centroCosto, $ciudad, $estado, $fechaIni, $fechaFin);
+    $detDominicales = $aprobarNominaControl->detDominicales($empInt, $empCli, $centroCosto, $ciudad, $estado, $fechaIni, $fechaFin,$consecutivo);
     
     if(count($detDominicales)>0){
         
@@ -139,8 +142,9 @@ if (isset($_POST['accion']) && $_POST['accion'] == 'detFestivos'){
     $fechaIni = $_POST['fechaIni'];
     $fechaFin = $_POST['fechaFin'];
     $estado = $_POST['estado'];
+    $consecutivo = $_POST['consecutivo'];
     
-    $detDominicales = $aprobarNominaControl->detFestivos($empInt, $empCli, $centroCosto, $ciudad, $estado, $fechaIni, $fechaFin);
+    $detDominicales = $aprobarNominaControl->detFestivos($empInt, $empCli, $centroCosto, $ciudad, $estado, $fechaIni, $fechaFin,$consecutivo);
     
     if(count($detDominicales)>0){
         

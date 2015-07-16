@@ -4,7 +4,7 @@
 
     <head>
 
-        <meta http-equiv="Content-Type" content="text/html:charset=UTF-8" >
+        <meta http-equiv="Content-Type" content="text/html:charset=UTF-8">
 
         <link type="text/css" href="../../libs/bootstrap/css/bootstrap.css" rel="stylesheet"/>
         <link type="text/css" href="../../libs/calendario/eternicode-bootstrap-datepicker-8bc254a/css/datepicker3.css" rel="stylesheet"/>
@@ -226,9 +226,9 @@
 
                 </div>
 
-                <div id="contenedorTabla" style="display:{$mostrarTabla}" class="table-responsive">             
+                <div id="contenedorTabla" style="display:{$mostrarTabla}">             
 
-                    <div class="panel panel-default">
+                    <div class="panel panel-default table-responsive">
 
                         <div class="panel-heading">Nominas registradas</div>
 
