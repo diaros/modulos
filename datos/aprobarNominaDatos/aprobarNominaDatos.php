@@ -31,7 +31,7 @@ class aprobarNominaDatos {
                           and convert(varchar,a.id_emp_cli) = b.nit
                           and a.ciudad = c.suc_codigo
                           and a.estado = e.id
-                          and a.estado in (2,4)";
+                          and a.estado in (2)";
         $reporte = $conexion->consultar($sql);
         return $reporte;
     }

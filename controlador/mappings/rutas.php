@@ -41,6 +41,7 @@ $arregloInfinito['goDashBoard'] = array('ruta' => '../../vista/dashBoardVista/da
 
 //Modulo Nomina
 $arregloInfinito['goReporteNomina'] = array('ruta' => '../../vista/reporteNominaPlanoVista/reporteNominaPlanoVista.php');
+$arregloInfinito['goAprobarNomina'] = array('ruta' => '../../vista/aprobarNominaVista/aprobarNominaVista.php');
 
 
 header("Location:" . $arregloInfinito[$accionMenu]['ruta']);

@@ -6,6 +6,7 @@
         
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link type="text/css" href="../../libs/bootstrap/css/bootstrap.css" rel="stylesheet" />
+        <link type="text/css" href="../../libs/font-awesome-4.2.0/css/font-awesome.min.css" rel="stylesheet" /> 
         <link type="text/css" href="../../css/recordarContrasenaCss/recordarContrasenaCss.css" rel="stylesheet" />
 
         <title>Recordar contraseña</title>

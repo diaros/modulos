@@ -13,6 +13,7 @@
 
         <link type="text/css" href="../../libs/bootstrap/css/bootstrap.css" rel="stylesheet"/>
         <link type="text/css" href="../../libs/DataTables-1.10.3/media/css/jquery.dataTables.min.css">
+        <link type="text/css" href="../../libs/font-awesome-4.2.0/css/font-awesome.min.css" rel="stylesheet" />
         
         <link type="text/css" href="../../css/anularSolicitudCss/anularSolicitudCss.css" rel="stylesheet"/> 
         <link type="text/css" href="../../css/estilosGenerales/estilosGeneralesCss.css" rel="stylesheet"/> 
@@ -170,14 +171,13 @@
             </div><!-- /.modal-dialog -->
         </div><!-- /.modal -->                  
 
-        <div class="modal fade" id="modalLoad">
+          <div class="modal fade" id="modalLoad">
             <div class="modal-dialog">
-                <div class="modal-content">
-
+                <div class="modal-content noFondoModal">
                     <div class="modal-body" style="text-align: center;">
-                        <img src="../../libs/imagenes/cargando.gif">
+                        {*<img src="../../libs/imagenes/cargando.gif">*}
+                        <span class=" fa fa-cog fa-spin fa-6x iconblue"></span>
                     </div>
-
                 </div>
             </div>
         </div>

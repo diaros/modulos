@@ -136,6 +136,14 @@
 
                 <hr>
                 
+              {*  <div class="col-lg-12">
+                     
+                <img src="../../libs/imagenes/iconos/Kameleon-Free-Pack/Multicolor/SVG/Round Icons/Batman.svg" alt="why so serius?">
+                <img src="../../libs/imagenes/iconos/Kameleon-Free-Pack/Multicolor/SVG/Round Icons/Captain-Shield.svg" alt="why so serius?">
+                <img src="../../libs/imagenes/iconos/Kameleon-Free-Pack/Multicolor/SVG/Round Icons/Settings-2.svg" alt="why so serius?">
+
+                </div>*}
+                
                 <div id="contenedorDatosConsulta">                   
                
                 <div id="contenedorAcumulados">                 
@@ -271,11 +279,12 @@
 
         </div>
 
-        <div class="modal fade" id="modalLoad">
+           <div class="modal fade" id="modalLoad">
             <div class="modal-dialog">
-                <div class="modal-content">
+                <div class="modal-content noFondoModal">
                     <div class="modal-body" style="text-align: center;">
-                        <img src="../../libs/imagenes/cargando.gif">
+                        {*<img src="../../libs/imagenes/cargando.gif">*}
+                        <span class=" fa fa-cog fa-spin fa-6x iconblue"></span>
                     </div>
                 </div>
             </div>

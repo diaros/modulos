@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2015-03-24 17:41:44
+<?php /* Smarty version Smarty-3.1.13, created on 2015-07-17 10:06:29
          compiled from "..\..\web\logueoWeb\logueo.html.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:306185398c9736a2584-77626724%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '4e3be091187802a1e073e02a54f280f76c2f0a25' => 
     array (
       0 => '..\\..\\web\\logueoWeb\\logueo.html.tpl',
-      1 => 1427209559,
+      1 => 1437145585,
       2 => 'file',
     ),
   ),
@@ -26,12 +26,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     <head>
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <script src="../../libs/jquery/jquery.js"></script>  
-        <script src="../../libs/bootstrap/js/bootstrap.js"></script>  
-        <script src="../../js/logueoJs/logueoJs.js"></script>
-        <script src="http://mymaplist.com/js/vendor/TweenLite.min.js"></script>
+        
 
         <link type="text/css" href="../../libs/bootstrap/css/bootstrap.css" rel="stylesheet" />
+        <link type="text/css" href="../../libs/font-awesome-4.2.0/css/font-awesome.min.css" rel="stylesheet" />
+        <link type="text/css" href="../../css/estilosGenerales/estilosGeneralesCss.css" rel="stylesheet" />
         <link type="text/css" href="../../css/logueoCss/logueoCss.css" rel="stylesheet" />
 
         <title>Logueo</title>
@@ -105,14 +104,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
             </div><!-- /.modal-dialog -->
         </div><!-- /.modal -->  
 
-        <div class="modal fade" id="modalLoad">
+          <div class="modal fade" id="modalLoad">
             <div class="modal-dialog">
-                <div class="modal-content">
-
+                <div class="modal-content noFondoModal">
                     <div class="modal-body" style="text-align: center;">
-                        <img src="../../libs/imagenes/cargando.gif">
+                        
+                        <span class=" fa fa-cog fa-spin fa-6x iconblue"></span>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -164,8 +162,12 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                 </div><!-- /.modal-content -->
             </div><!-- /.modal-dialog -->
         </div><!-- /.modal -->  
-
-
+        
+        <script src="../../libs/jquery/jquery.js"></script>  
+        <script src="../../libs/bootstrap/js/bootstrap.js"></script>  
+        <script src="../../js/logueoJs/logueoJs.js"></script>
+        <script src="http://mymaplist.com/js/vendor/TweenLite.min.js"></script>
+        
     </body>
 
 </html>

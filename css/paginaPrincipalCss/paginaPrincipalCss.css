@@ -1,8 +1,8 @@
-@media screen and (max-width: 760px) {
+@media screen and (max-width: 1200px) {
    
-    body{
+/*    body{
         background:lightblue;
-    }
+    }*/
     
 /*    #textB{
       
@@ -15,8 +15,20 @@
           font-size:15px;
           font-weight: 400;
     }
+    
+    #contenedorVideo{
+        
+        display:none;
+    }
+    
+    #contenedorCita{
+        
+        margin-top:30px;
+    }
 
-}    
+}
+
+
 
 
 h1{

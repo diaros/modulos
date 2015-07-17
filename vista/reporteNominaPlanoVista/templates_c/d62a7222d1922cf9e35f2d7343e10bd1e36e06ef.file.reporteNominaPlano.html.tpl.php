@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2015-07-16 17:53:18
+<?php /* Smarty version Smarty-3.1.13, created on 2015-07-17 16:45:07
          compiled from "..\..\web\reporteNominaPlanoWeb\reporteNominaPlano.html.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:12373556376ab787468-25265475%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'd62a7222d1922cf9e35f2d7343e10bd1e36e06ef' => 
     array (
       0 => '..\\..\\web\\reporteNominaPlanoWeb\\reporteNominaPlano.html.tpl',
-      1 => 1437087194,
+      1 => 1437168910,
       2 => 'file',
     ),
   ),
@@ -226,7 +226,7 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['ciudad']['last']       = ($_
                 </div>
                 
                 <hr>
-                
+             
 
 
                 <div id="contenedorTablaErrores">                
@@ -404,10 +404,10 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['ciudad']['last']       = ($_
 
         <div class="modal fade" id="modalLoad">
             <div class="modal-dialog">
-                <div class="modal-content">
+                <div class="modal-content noFondoModal">
                     <div class="modal-body" style="text-align: center;">
                         
-                        <span class=" fa fa-cog fa-spin fa-5x"></span>
+                        <span class=" fa fa-cog fa-spin fa-6x iconblue"></span>
                     </div>
                 </div>
             </div>

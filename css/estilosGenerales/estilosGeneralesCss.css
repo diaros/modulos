@@ -127,3 +127,27 @@
     
     text-align: left;
 }
+
+/**********************
+Estilos para modal load
+**********************/
+.fa-6x {
+    
+    font-size: 6em;
+}
+
+.noFondoModal{
+
+	background-color:transparent;
+	box-shadow:none;
+	border:none;
+
+}
+
+
+.iconblue{    
+    color:#0099CB;
+}
+/**********************
+Fin Estilos para modal load
+**********************/

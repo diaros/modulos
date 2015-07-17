@@ -329,14 +329,23 @@ function consultarTotalDatos() {
 
                 if (llave == 'totalUsuarios') {
 
-                    $("#totalUsers").append(valor);
-
+                    if (valor == 0) {
+                        $("#totalUsers").append("");
+                    } else {
+                        $("#totalUsers").append(valor);
+                    }
                 }
 
                 if (llave == 'totalConceptos') {
 
                     var aux = formatPesos(parseFloat(valor));
-                    $("#adicionales").append(aux);
+                    
+                    if(aux !== 'NaN.undefined'){                    
+                        $("#adicionales").append(aux);                        
+                    }else {
+                        
+                        $("#adicionales").append("");
+                    }             
 
                 }
 
@@ -451,8 +460,7 @@ function consulSolicitud(id) {
                         totalDominicales = parseFloat(totalDominicales) + parseFloat(valor.horas_dominicales);
                         totalFestivos = parseFloat(totalFestivos) + parseFloat(valor.horas_festivos);
                         totalUsers++;
-                        pos++;
-                   
+                        pos++;                   
 
                 });
 

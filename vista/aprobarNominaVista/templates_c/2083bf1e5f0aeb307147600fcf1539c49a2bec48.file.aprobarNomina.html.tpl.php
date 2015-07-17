@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2015-07-16 09:54:22
+<?php /* Smarty version Smarty-3.1.13, created on 2015-07-17 16:35:15
          compiled from "..\..\web\aprobarNominaWeb\aprobarNomina.html.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:18587559abb8e47dd98-38056409%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '2083bf1e5f0aeb307147600fcf1539c49a2bec48' => 
     array (
       0 => '..\\..\\web\\aprobarNominaWeb\\aprobarNomina.html.tpl',
-      1 => 1437054342,
+      1 => 1437168874,
       2 => 'file',
     ),
   ),
@@ -216,6 +216,8 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['ciudadaux']['last']       = 
 
                 <hr>
                 
+              
+                
                 <div id="contenedorDatosConsulta">                   
                
                 <div id="contenedorAcumulados">                 
@@ -352,11 +354,12 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['ciudadaux']['last']       = 
 
         </div>
 
-        <div class="modal fade" id="modalLoad">
+           <div class="modal fade" id="modalLoad">
             <div class="modal-dialog">
-                <div class="modal-content">
+                <div class="modal-content noFondoModal">
                     <div class="modal-body" style="text-align: center;">
-                        <img src="../../libs/imagenes/cargando.gif">
+                        
+                        <span class=" fa fa-cog fa-spin fa-6x iconblue"></span>
                     </div>
                 </div>
             </div>

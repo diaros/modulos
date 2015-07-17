@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2015-07-03 17:51:31
+<?php /* Smarty version Smarty-3.1.13, created on 2015-07-17 15:34:53
          compiled from "..\..\web\paginaPrincipalWeb\paginaPrincipal.html.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:29494539a2910077106-40115473%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '43f9812b8f988398d133137583191b8c223e39ea' => 
     array (
       0 => '..\\..\\web\\paginaPrincipalWeb\\paginaPrincipal.html.tpl',
-      1 => 1435963890,
+      1 => 1437164903,
       2 => 'file',
     ),
   ),
@@ -36,7 +36,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
         <link type="text/css" href="../../libs/font-awesome-4.2.0/css/font-awesome.min.css" rel="stylesheet" />       
         <link type="text/css" href="../../css/estilosGenerales/estilosGeneralesCss.css" rel="stylesheet"/>
         <link type="text/css" href="../../css/paginaPrincipalCss/paginaPrincipalCss.css" rel="stylesheet"/>
-        <link type="text/css" href="../../libs/wow/css/animate.css" rel="stylesheet">
+        <link type="text/css" href="../../libs/wow/css/animate.css" rel="stylesheet"/>
 
         <title>Pagina principal</title>
 
@@ -45,37 +45,30 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     <body>
 
         <?php echo $_smarty_tpl->tpl_vars['cabecera']->value;?>
-
-
-        
+     
 
         <div id="contenedorImgParallax" class="container-fluid">
 
-            <div>
-                
-                <div id="contenedorVideo">
-                    
-                    <div id="textB" class="overlay wow fadeInUp" data-wow-offset="0" data-wow-delay="0.5s">                      
-                         <h1 id="textBienvenida">Bienvenido a la intranet del grupo <span>Listos S.A.S</span></h1>              
-                    </div>
-                    
-                    <video id="the-video" class="videoPresentacion" loop="" autoplay="">
-                        <source src="../../libs/videos/presentacion/5.mp4"/>
-                    </video>           
-                    
-                </div>             
-                     
+            <div>              
 
-               
-                    
-            </div>
+                <div id="contenedorVideo">
+
+                        <div id="textB" class="overlay wow fadeInUp" data-wow-offset="0" data-wow-delay="0.5s">                      
+                            <h1 id="textBienvenida">Bienvenido a la intranet del grupo <span>Listos S.A.S</span></h1>              
+                        </div>
+
+                        <video id="the-video" class="videoPresentacion" loop="" autoplay="">
+                            <source src="../../libs/videos/presentacion/5.mp4"/>
+                        </video>           
+
+                </div>        
+
                 
+
+            </div>
+
         </div>
-                            
-                           
-                            
-      
-                            
+
         <div id="contenedorCita" class="container">
             <div class="row">
                 <div class="col-md-6 col-md-offset-3">
@@ -87,8 +80,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                 </div>
             </div>
         </div>
-
-
 
         <div class="container" id="contenedor">         
 
@@ -168,13 +159,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                         <a class="btn btn-warning btn-lg" onclick="ingresarModulo('8');">Ingresar</a>
                     </p>
 
-                </div>             
-
-
-            </div>
-
-
+                </div>
             
+            </div>
 
         </div> 
 
@@ -200,24 +187,25 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 
         <div class="modal fade" id="modalLoad">
             <div class="modal-dialog">
-                <div class="modal-content">
-
+                <div class="modal-content noFondoModal">
                     <div class="modal-body" style="text-align: center;">
-                        <img src="../../libs/imagenes/cargando.gif">
+                        
+                        <span class=" fa fa-cog fa-spin fa-6x iconblue"></span>
                     </div>
-
                 </div>
             </div>
         </div>
+
         <?php echo $_smarty_tpl->tpl_vars['footer']->value;?>
 
 
         <script src="../../libs/jquery/jquery.js"></script>
         <script src="../../libs/bootstrap/js/bootstrap.js"></script>
         <script src="../../js/paginaPrincipalJs/paginaPrincipalJs.js"></script>
+        <script src="../../lib/parallax.js-1.3.1/parallax.min.js"></script>
         <script src="../../libs/wow/js/wow.min.js"></script>
         <script>
-            new WOW().init();
+                            new WOW().init();
         </script>
 
     </body>

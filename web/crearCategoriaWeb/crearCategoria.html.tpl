@@ -111,17 +111,16 @@
 
         </div>
 
-        <div class="modal fade" id="modalLoad">
+          <div class="modal fade" id="modalLoad">
             <div class="modal-dialog">
-                <div class="modal-content">
-
+                <div class="modal-content noFondoModal">
                     <div class="modal-body" style="text-align: center;">
-                        <img src="../../libs/imagenes/cargando.gif">
+                        {*<img src="../../libs/imagenes/cargando.gif">*}
+                        <span class=" fa fa-cog fa-spin fa-6x iconblue"></span>
                     </div>
-
                 </div>
             </div>
-        </div>                            
+        </div>                           
 
         <div class="modal fade" id="modalInfo">
 
