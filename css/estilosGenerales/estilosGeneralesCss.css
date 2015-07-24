@@ -50,13 +50,6 @@
     opacity:0.9;
 }
 
-#modalInfo{
-    opacity:0.9;
-}
-
-#modalLoad{
-    opacity:0.9;
-}
 
 .modal-backdrop {    
     background-color: transparent;
@@ -101,7 +94,7 @@
 }
 
 .modal-content {
-   opacity:0.9;
+   /*opacity:0.9;*/
    padding-bottom:20px;
    z-index: 2000;
 }
@@ -119,13 +112,18 @@
 
 .tdNum{
     
-    text-align: center;
+    text-align: right;
     
 }
 
 .tdText{
     
     text-align: left;
+}
+
+.tdTitle{
+    
+    text-align:center;
 }
 
 /**********************

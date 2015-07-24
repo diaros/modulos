@@ -1,7 +1,7 @@
 <?php
 
 include '../../datos/aprobarNominaDatos/aprobarNominaDatos.php';
-include '../../datos/reporteNominaPlanoDatos/reporteNominaPlanoDatos.php';
+include_once '../../datos/reporteNominaPlanoDatos/reporteNominaPlanoDatos.php';
 include_once '../../controlador/utilidades/utilidades.php';
 
 session_start();
@@ -114,22 +114,22 @@ class aprobarNominaControl {
             $condicionDinamica = $condicionDinamica . " and a.ciudad = " . $ciudad . " ";
         }
 
-        if ($estado != '') {
-
-            $condicionDinamica = $condicionDinamica . " and a.estado = " . $estado . " ";
-        }
+//        if ($estado != '') {
+//
+//            $condicionDinamica = $condicionDinamica . " and a.estado = " . $estado . " ";
+//        }
         
         if($consecutivo != ''){
             
             $condicionDinamica = $condicionDinamica . " and a.id = " . $consecutivo . " ";
             
-        }
-
-        $reporte['totalConceptos'] = $aprobarNominaDatos->totalConceptos($condicionDinamica);
-        $reporte['totalUsuarios'] = $aprobarNominaDatos->totalUsuarios($condicionDinamica);
-        $reporte['hrsDominicales'] = $aprobarNominaDatos->totalDominicales($condicionDinamica);
-        $reporte['hrsFestivos'] = $aprobarNominaDatos->totalFestivos($condicionDinamica);
-        $reporte['hrsOrdinarias'] = $aprobarNominaDatos->totalOrdinarias($condicionDinamica);
+        }       
+        
+        $reporte['totalConceptos'] = $aprobarNominaDatos->totalConceptos($condicionDinamica,$estado);
+        $reporte['totalUsuarios'] = $aprobarNominaDatos->totalUsuarios($condicionDinamica,$estado);
+        $reporte['hrsDominicales'] = $aprobarNominaDatos->totalDominicales($condicionDinamica,$estado);
+        $reporte['hrsFestivos'] = $aprobarNominaDatos->totalFestivos($condicionDinamica,$estado);
+        $reporte['hrsOrdinarias'] = $aprobarNominaDatos->totalOrdinarias($condicionDinamica,$estado);
 
         if ($reporte['totalConceptos'] === false || $reporte['totalUsuarios'] === false || $reporte['hrsDominicales'] === false || $reporte['hrsFestivos'] === false || $reporte['hrsOrdinarias'] === false) {
 

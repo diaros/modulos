@@ -35,6 +35,7 @@ class webServiceAut {
             $_SESSION['usuMail'] = $arrayUser['return']['usuMail'];
             $_SESSION['usuCodigo'] = $arrayUser['return']['usuCodigo'];
             $_SESSION['usuNombres'] = $arrayUser['return']['usuNombres'];
+            $_SESSION['usuNumeroDocumento'] = $arrayUser['return']['usuNumeroDocumento'];
              
             $_SESSION['ciudad'] = $arregloCiudadUsuario['return']['nombreCiudad'];
             $_SESSION['codCiudad'] = $arregloCiudadUsuario['return']['ciuCodigo_AutCiudad'];

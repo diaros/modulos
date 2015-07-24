@@ -107,7 +107,7 @@ class reporteNominaPlanoControl {
         foreach ($consultaUsuarios as $fila) {
 
             $cont = $cont + 1;
-            $j = 16;
+            
             $objPHPExcel->getActiveSheet()->SetCellValue("A" . $cont, $fila['cod_empl']);
             $objPHPExcel->getActiveSheet()->SetCellValue("B" . $cont, trim($fila['nom_empl']) . " " . trim($fila['ape_empl']));
 
@@ -131,7 +131,7 @@ class reporteNominaPlanoControl {
             }
         }
 
-        $objPHPExcel->getActiveSheet()->setTitle('Reporte Examenes medicos');
+        $objPHPExcel->getActiveSheet()->setTitle('Planilla Nomina');
         $objPHPExcel->getSecurity()->setLockWindows(true);
         $objPHPExcel->getSecurity()->setLockStructure(true);
 
@@ -1240,7 +1240,7 @@ class reporteNominaPlanoControl {
 
         $reporteNominaDatos = new reporteNominaPlanoDatos();
 
-        $usuCreo = $_SESSION['usuCodigo'];
+        $usuCreo = $_SESSION['usuNumeroDocumento'];
         $fechaCreo = date('Y-m-d H:i:s');
         $tipo = "XX";
         $estado = 1;

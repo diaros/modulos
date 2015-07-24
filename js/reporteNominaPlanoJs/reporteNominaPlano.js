@@ -699,15 +699,15 @@ function construirTabla(data,idReg) {
         $("#filaEncabezados").html("");
 
         $("#filaEncabezados").append(
-                "<td class='tdNum'>Cedula</td>\n\
-                 <td class='tdNum'>Nombre</td>\n\
-                 <td class='tdNum'>Hrs Habiles</td>\n\
-                 <td class='tdNum'>Hrs Dominicales</td>\n\
-                 <td class='tdNum'>Hrs festivos</td>\n\
-                 <td class='tdNum'>Dias Habiles</td>\n\
-                 <td class='tdNum'>Dias Dominicales</td>\n\
-                 <td class='tdNum'>Dias Festivos</td>\n\
-                 <td class='tdNum'>Adicionales</td>"
+                "<td class='tdTitle'>Cedula</td>\n\
+                 <td class='tdTitle'>Nombre</td>\n\
+                 <td class='tdTitle'>Hrs Habiles</td>\n\
+                 <td class='tdTitle'>Hrs Dominicales</td>\n\
+                 <td class='tdTitle'>Hrs festivos</td>\n\
+                 <td class='tdTitle'>Dias Habiles</td>\n\
+                 <td class='tdTitle'>Dias Dominicales</td>\n\
+                 <td class='tdTitle'>Dias Festivos</td>\n\
+                 <td class='tdTitle'>Adicionales</td>"
                 );
 
         $.each(data, function(llave, valor) {
@@ -741,10 +741,10 @@ function construirTabla(data,idReg) {
                             <td id = '" + pos + "hrsHabiles' class='tdNum'>" + valor.horas_habiles + "</td>\n\
                             <td id = '" + pos + "hrsDominic' class='tdNum'>" + valor.horas_dominicales + "</td>\n\
                             <td id = '" + pos + "hrsFesti' class='tdNum'>" + valor.horas_festivos + "</td>\n\
-                            <td id = '" + pos + "celDiasH' class='tdText'><input type='button' class='btn btn-link' id='btnDiasH" + pos + "' onclick='mostrarDias(this.id);' value='Consultar'><input type='hidden' id='" + pos + "diasH' value='" + diash + "'></td>\n\
-                            <td id = '" + pos + "celDiasD' class='tdText'><input type='button' class='btn btn-link' id='btnDiasD" + pos + "' onclick='mostrarDias(this.id);' value='Consultar'><input type='hidden' id='" + pos + "diasd' value='" + diasd + "'></td>\n\
-                            <td id = '" + pos + "celDiasF' class='tdText'><input type='button' class='btn btn-link' id='btnDiasF" + pos + "' onclick='mostrarDias(this.id);' value='Consultar'><input type='hidden' id='" + pos + "diasf' value='" + diasf + "'></td>\n\
-                            <td id = '" + pos + "celConceptos' class='tdText'><input type='button' class='btn btn-link' id='btnConceptos" + pos + "' onclick='mostrarconceptos(this.id);' value='Consultar'><input type='hidden' id='idPlanilla" + pos + "' value='" + valor.id + "'></td>";
+                            <td id = '" + pos + "celDiasH' class='tdTitle'><input type='button' class='btn btn-link' id='btnDiasH" + pos + "' onclick='mostrarDias(this.id);' value='Consultar'><input type='hidden' id='" + pos + "diasH' value='" + diash + "'></td>\n\
+                            <td id = '" + pos + "celDiasD' class='tdTitle'><input type='button' class='btn btn-link' id='btnDiasD" + pos + "' onclick='mostrarDias(this.id);' value='Consultar'><input type='hidden' id='" + pos + "diasd' value='" + diasd + "'></td>\n\
+                            <td id = '" + pos + "celDiasF' class='tdTitle'><input type='button' class='btn btn-link' id='btnDiasF" + pos + "' onclick='mostrarDias(this.id);' value='Consultar'><input type='hidden' id='" + pos + "diasf' value='" + diasf + "'></td>\n\
+                            <td id = '" + pos + "celConceptos' class='tdTitle'><input type='button' class='btn btn-link' id='btnConceptos" + pos + "' onclick='mostrarconceptos(this.id);' value='Consultar'><input type='hidden' id='idPlanilla" + pos + "' value='" + valor.id + "'></td>";
 
             filas = filas + "</tr>";
 
@@ -835,7 +835,7 @@ function cantUsuariosSinRegistrar(idReg){
                                             <i class='fa fa-exclamation-triangle fa-4x'></i>\n\
                                        </div>\n\
                                        <div class='col-xs-11 text-right'><div class='huge numeroInfo'>Advertencia : Existen empleados sin registrar! consultelos \n\
-                                            <a id='linkUserFaltantes' type='button' onclick='valUsersSinReg();' style='font-size:28px';'> aqui</a>\n\
+                                            <a id='linkUserFaltantes' type='button' onclick='valUsersSinReg();'> aqui</a>\n\
                                        </div>\n\
                                     </div>\n\
                                     </div>\n\
@@ -880,13 +880,13 @@ function valUsersSinReg(){
                 
                 $.each(data,function(llave,valor){              
           
-                    filaUsuarios = filaUsuarios + "<tr><td class='tdNum'>"+valor.cedula+"</td><td class='tdText'>"+valor.apellido+" "+valor.nombre+"</td></tr>";                  
+                    filaUsuarios = filaUsuarios + "<tr><td class='tdText'>"+valor.apellido+" "+valor.nombre+"</td><td class='tdNum'>"+valor.cedula+"</td></tr>";                  
                     
                 });  
                 
                 tablaUserSinreg = "<table class='table table-hover table-striped table-condensed'>\n\
                                    <thead>\n\
-                                   <tr><td class='tdNum'>Cedula</td><td class='tdNum'>Nombre</td></tr>\n\
+                                   <tr><td class='tdText'>Nombre</td><td class='tdNum'>Cedula</td></tr>\n\
                                    </thead>\n\
                                    <tbody>\n\
                                    "+filaUsuarios+"</tbody>\n\
@@ -944,7 +944,7 @@ function mostrarDetAdicionales() {
         tablaDetConceptos = "<table class='table table-hover table-striped table-condensed'>\n\
                                     <thead>\n\
                                         <tr>\n\
-                                            <td class='tdNum'>Nombre</td><td class='tdNum'>Valor</td>\n\
+                                            <td class='tdText'>Nombre</td><td class='tdNum'>Valor</td>\n\
                                         </tr>\n\
                                     </thead>\n\
                                     <tbody>\n\
@@ -1040,7 +1040,7 @@ function mostrarconceptos(id) {
         var tablaConceptosUsuario = "<table class='table table-hover table-striped table-condensed'>\n\
                                     <thead>\n\
                                         <tr>\n\
-                                            <td class='tdNum'>Nombre</td><td class='tdNum'>Valor</td>\n\
+                                            <td class='tdText'>Nombre</td><td class='tdNum'>Valor</td>\n\
                                         </tr>\n\
                                     </thead>\n\
                                     <tbody>\n\
@@ -1115,7 +1115,7 @@ function mostrarDias(id) {
         tablaDiasUsuario = "<table class='table table-hover table-striped table-condensed'>\n\
                 <thead>\n\
                 <tr>\n\
-                <td class='tdNum'>Fecha Dia</td><td class='tdNum'>Tipo</td>\n\
+                <td class='tdText'>Fecha Dia</td><td class='tdText'>Tipo</td>\n\
                 </tr>\n\
                 <thead>\n\
                 <tbody>\n\
@@ -1145,7 +1145,7 @@ function mostrarDias(id) {
         tablaDiasUsuario = "<table class='table table-hover table-striped table-condensed'>\n\
                 <thead>\n\
                 <tr>\n\
-                <td class='tdNum'>Fecha Dia</td><td class='tdNum'>Tipo</td>\n\
+                <td class='tdText'>Fecha Dia</td><td class='tdText'>Tipo</td>\n\
                 </tr>\n\
                 <thead>\n\
                 <tbody>\n\
@@ -1175,7 +1175,7 @@ function mostrarDias(id) {
         tablaDiasUsuario = "<table class='table table-hover table-striped table-condensed'>\n\
                 <thead>\n\
                 <tr>\n\
-                <td class='tdNum'>Fecha Dia</td><td class='tdNum'>Tipo</td>\n\
+                <td class='tdText'>Fecha Dia</td><td class='tdText'>Tipo</td>\n\
                 </tr>\n\
                 <thead>\n\
                 <tbody>\n\

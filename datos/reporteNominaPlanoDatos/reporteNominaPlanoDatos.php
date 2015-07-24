@@ -175,18 +175,21 @@ class reporteNominaPlanoDatos {
                         b.horas_festivos,
                         b.id_usuario,
                         e.nom_empl,
-                        e.ape_empl  
+                        e.ape_empl,
+                        f.suc_nombre as ciudad
 
                         from   mod_nomina_planilla a,
                                mod_nomina_planilla_usuario b
                                left join mod_nomina_concepto d on (b.id = d.id_planilla_usuario),
                                mod_nomina_dia c,      
-                               kactus.dbo.bi_emple e
+                               kactus.dbo.bi_emple e,
+                               dbo.sucursales f
                         where 1 = 1
                         and a.id = " . $id . "
                         and a.id = b.id_planilla
                         and b.id = c.id_planilla_usuario
                         and b.id_usuario = e.cod_empl
+                        and (convert(int,a.ciudad)) =  f.suc_codigo
                         group by a.id, a.consecutivo,
                         a.id_emp_int,a.id_emp_cli,
                         a.centro_costo,a.periodo, 
@@ -196,7 +199,7 @@ class reporteNominaPlanoDatos {
                         b.horas_festivos,
                         b.id_usuario,
                         e.nom_empl,
-                        e.ape_empl
+                        e.ape_empl,suc_nombre
                         order by e.ape_empl,e.nom_empl";
 
         $resul = $conexion->consultar($sql);

@@ -24,9 +24,11 @@ if (isset($_POST['accion']) && $_POST['accion'] == 'consultarRegNomina') {
     if ($reporte != false) {
 
         echo json_encode($reporte);
+        
     } else if ($reporte == null) {
 
         echo '0';
+        
     } else if ($reporte == false) {
 
         echo '-1';
@@ -69,7 +71,7 @@ if (isset($_POST['accion']) && $_POST['accion'] == 'totalDatos') {
     $ciudad = $_POST['ciudad'];
     $fechaIni = $_POST['fechaIni'];
     $fechaFin = $_POST['fechaFin'];
-    $estado = $_POST['estado'];
+    $estado = 2;
     $consecutivo = $_POST['consecutivo'];
     
     $totalConceptos = $aprobarNominaControl->totalDatos($empInt, $empCli, $centroCosto, $ciudad, $estado, $fechaIni, $fechaFin,$consecutivo);
@@ -128,8 +130,7 @@ if (isset($_POST['accion']) && $_POST['accion'] == 'detDominicales'){
         
          echo '-1';
         
-    }
-    
+    } 
     
 }
 
@@ -156,7 +157,7 @@ if (isset($_POST['accion']) && $_POST['accion'] == 'detFestivos'){
         
     }else if($detDominicales === false){
         
-         echo '-1';
+        echo '-1';
         
     } 
     

@@ -13,18 +13,9 @@
     margin-top:5px;
 }
 
-///estilos para modal load
-/*.modal-content{
-
-    opacity: 1;
-}*/
-
-
-
-
-
 #linkUserFaltantes{    
     color: #fff;
+    font-size:28px;
 }
 
 #linkDetAdicionales{

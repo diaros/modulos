@@ -1,22 +1,22 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2015-07-24 15:18:12
-         compiled from "..\..\web\aprobarNominaWeb\aprobarNomina.html.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:18587559abb8e47dd98-38056409%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /* Smarty version Smarty-3.1.13, created on 2015-07-24 16:54:21
+         compiled from "..\..\web\consultaNominaWeb\consultaNomina.html.tpl" */ ?>
+<?php /*%%SmartyHeaderCode:2592855b1601b09ea95-60283233%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
-    '2083bf1e5f0aeb307147600fcf1539c49a2bec48' => 
+    '7265c57f90d4c706110df7140d7d1c5cd9b769a8' => 
     array (
-      0 => '..\\..\\web\\aprobarNominaWeb\\aprobarNomina.html.tpl',
-      1 => 1437689837,
+      0 => '..\\..\\web\\consultaNominaWeb\\consultaNomina.html.tpl',
+      1 => 1437773905,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '18587559abb8e47dd98-38056409',
+  'nocache_hash' => '2592855b1601b09ea95-60283233',
   'function' => 
   array (
   ),
   'version' => 'Smarty-3.1.13',
-  'unifunc' => 'content_559abb8e6c9108_98402235',
+  'unifunc' => 'content_55b1601b53f0a8_04717874',
   'variables' => 
   array (
     'cabecera' => 1,
@@ -27,7 +27,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_559abb8e6c9108_98402235')) {function content_559abb8e6c9108_98402235($_smarty_tpl) {?><!DOCTYPE html>
+<?php if ($_valid && !is_callable('content_55b1601b53f0a8_04717874')) {function content_55b1601b53f0a8_04717874($_smarty_tpl) {?><!DOCTYPE html>
 
 <html>
 
@@ -39,10 +39,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
         <link type="text/css" href="../../libs/calendario/eternicode-bootstrap-datepicker-8bc254a/css/datepicker3.css" rel="stylesheet"/>
         <link type="text/css" href="../../libs/font-awesome-4.2.0/css/font-awesome.min.css" rel="stylesheet" />
         <link type="text/css" href="../../css/estilosGenerales/estilosGeneralesCss.css" rel="stylesheet"/> 
-        <link type="text/css" href="../../css/aprobarNominaCss/aprobarNominaCss.css" rel="stylesheet"/> 
+        <link type="text/css" href="../../css/consultaNominaCss/consultaNomina.css" rel="stylesheet"/> 
 
-        <title>Aprobar Nomina</title>
-
+        <title>Consultar Nomina</title>
     </head>
 
     <body>
@@ -52,9 +51,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 
         <div id="contenedor" class="container">
 
-            <legend>Aprobar Nomina</legend>
+            <legend>Consultar Nomina</legend>
 
-            <form id="formAprobarNomina" name='formAprobarNomina' class="form-horizontal" action='../../vista/aprobarNominaVista/aprobarNominaVista.php' method="post" enctype="multipart/form-data">
+            <form id="formConsultarNomina" name='formAprobarNomina' class="form-horizontal" action='../../vista/consultaNominaVista/consultaNominaVista.php' method="post" enctype="multipart/form-data">
 
                 <div class="well">
 
@@ -121,7 +120,7 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['empInt']['last']       = ($_
                             </div>
                         </div>
 
-                    </div>        
+                    </div>
 
                     <div class="col-lg-12">
 
@@ -186,8 +185,7 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['ciudadaux']['last']       = 
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="consecutivo">Consecutivo:</label>
                                 <div class="col-md-8">
-                                    
-                                     <div class="input-group">
+                                    <div class="input-group">
 
                                         <input id="consecutivo" name="fecIni" class="form-control" placeholder="" type="text"/>                                       
 
@@ -199,152 +197,145 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['ciudadaux']['last']       = 
 
                     </div>
 
-                    
-
                     <div class="col-lg-12" style="text-align: right;">
                         <a type="button" id="consultar" class="btn btn-primary" onclick="valvaciosforma();"><span class="fa fa-search"></span> Consultar</a>
                         <a type="reset"  id="limpiar"   class="btn btn-danger"  onclick="limpiarform();"><span class="fa fa-eraser"></span> Limpiar</a>
-                    </div>                
+                    </div> 
 
                 </div>
 
                 <hr>
-                
-              
-                
-                <div id="contenedorDatosConsulta">                   
-               
-                <div id="contenedorAcumulados">                 
 
-                    <div class="row" style="font-size: 10px;">
+                <div id="contenedorDatosConsulta">
 
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <div class="panel panel-success">
-                                <div class="panel-heading">
-                                    <div class="row">
-                                        <div class="col-xs-3">
-                                            <i class="fa fa-dollar fa-4x"></i>
-                                        </div>
-                                        <div class="col-xs-9 text-right">
-                                            <div id="adicionales" class="huge numeroInfo"></div>
-                                            <div><a class="linkDetalle" id="linkAdicionales" onclick="detAdicionales();">Adicionales</a></div>
+                    <div id="contenedorAcumulados">
+
+                        <div class="row" style="font-size: 10px;">
+
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="panel panel-success">
+                                    <div class="panel-heading">
+                                        <div class="row">
+                                            <div class="col-xs-3">
+                                                <i class="fa fa-dollar fa-4x"></i>
+                                            </div>
+                                            <div class="col-xs-9 text-right">
+                                                <div id="adicionales" class="huge numeroInfo"></div>
+                                                <div><a class="linkDetalle" id="linkAdicionales" onclick="detAdicionales();">Adicionales</a></div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6">
-                            <div id="panelUserReg" class="panel panel-info">
-                                <div class="panel-heading">
-                                    <div class="row">
-                                        <div class="col-xs-3">
-                                            <i class="fa fa-user fa-4x"></i>
-                                        </div>
-                                        <div class="col-xs-9 text-right">
-                                            <div id="totalUsers" class="huge numeroInfo"></div>
-                                            <div>Usuarios Registrados</div>
+                            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6">
+                                <div id="panelUserReg" class="panel panel-info">
+                                    <div class="panel-heading">
+                                        <div class="row">
+                                            <div class="col-xs-3">
+                                                <i class="fa fa-user fa-4x"></i>
+                                            </div>
+                                            <div class="col-xs-9 text-right">
+                                                <div id="totalUsers" class="huge numeroInfo"></div>
+                                                <div>Usuarios Registrados</div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6">
-                            <div id="panelHrsOrdi" class="panel panel-info">
-                                <div class="panel-heading">
-                                    <div class="row">
-                                        <div class="col-xs-3">
-                                            <i class="fa fa-clock-o fa-4x"></i>
-                                        </div>
-                                        <div class="col-xs-9 text-right">
-                                            <div id="hrsOrdinarias" class="huge numeroInfo"></div>
-                                            <div>Horas Ordinarias</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6">
-                            <div class="panel panel-info">
-                                <div class="panel-heading">
-                                    <div class="row">
-                                        <div class="col-xs-3">
-                                            <i class="fa fa-clock-o fa-4x"></i>
-                                        </div>
-                                        <div class="col-xs-9 text-right">
-                                            <div id="hrsDominicales" class="huge numeroInfo"></div>
-                                            <div><a class="linkDetalle" id="linkDetDominicales" onclick="detDominicales();">Horas Dominicales</a></div>
+                            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6">
+                                <div id="panelHrsOrdi" class="panel panel-info">
+                                    <div class="panel-heading">
+                                        <div class="row">
+                                            <div class="col-xs-3">
+                                                <i class="fa fa-clock-o fa-4x"></i>
+                                            </div>
+                                            <div class="col-xs-9 text-right">
+                                                <div id="hrsOrdinarias" class="huge numeroInfo"></div>
+                                                <div>Horas Ordinarias</div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6">
-                            <div class="panel panel-info">
-                                <div class="panel-heading">
-                                    <div class="row">
-                                        <div class="col-xs-3">
-                                            <i class="fa fa-clock-o fa-4x"></i>
-                                        </div>
-                                        <div class="col-xs-9 text-right">
-                                            <div id="hrsFestivos" class="huge numeroInfo"></div>
-                                            <div><a class="linkDetalle" id="linkDetFestivos" onclick="detFestivos();">Horas Festivos</a></div>
+                            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6">
+                                <div class="panel panel-info">
+                                    <div class="panel-heading">
+                                        <div class="row">
+                                            <div class="col-xs-3">
+                                                <i class="fa fa-clock-o fa-4x"></i>
+                                            </div>
+                                            <div class="col-xs-9 text-right">
+                                                <div id="hrsDominicales" class="huge numeroInfo"></div>
+                                                <div><a class="linkDetalle" id="linkDetDominicales" onclick="detDominicales();">Horas Dominicales</a></div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>                               
 
-                    </div>          
+                            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6">
+                                <div class="panel panel-info">
+                                    <div class="panel-heading">
+                                        <div class="row">
+                                            <div class="col-xs-3">
+                                                <i class="fa fa-clock-o fa-4x"></i>
+                                            </div>
+                                            <div class="col-xs-9 text-right">
+                                                <div id="hrsFestivos" class="huge numeroInfo"></div>
+                                                <div><a class="linkDetalle" id="linkDetFestivos" onclick="detFestivos();">Horas Festivos</a></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
-                </div>
+                        </div>                       
 
-                <div id="contenedorTabla" style="display:<?php echo $_smarty_tpl->tpl_vars['mostrarTabla']->value;?>
+                    </div>
+
+                    <div id="contenedorTabla" style="display:<?php echo $_smarty_tpl->tpl_vars['mostrarTabla']->value;?>
 ">             
 
-                    <div class="panel panel-default table-responsive">
+                        <div class="panel panel-default table-responsive">
 
-                        <div class="panel-heading">Nominas registradas</div>
+                            <div class="panel-heading">Nominas registradas</div>
 
-                        <div class="panel-body">
+                            <div class="panel-body">
 
-                            <table id="tablaDatosReg" class="table table-condensed table-hover table-striped">
+                                <table id="tablaDatosReg" class="table table-condensed table-hover table-striped">
 
-                                <thead id="cabeceraDatosNomina">
+                                    <thead id="cabeceraDatosNomina">
 
-                                    <tr>
-                                        <td class="tdTitle">Consecutivo</td>
-                                        <td class="tdTitle">Centro costo</td>
-                                        <td class="tdTitle">Ciudad</td>
-                                        <td class="tdTitle">Supervisor</td>
-                                        <td class="tdTitle">Periodo</td>
-                                        <td class="tdTitle">Estado</td>
-                                        <td class="tdTitle"><p>Selecionar todos</p><input id="selecTodos" type="checkbox" onclick="valSelectTodos();"/></td>
-                                    </tr>
+                                        <tr>
+                                            <td class="tdTitle">Consecutivo</td>
+                                            <td class="tdTitle">Centro costo</td>
+                                            <td class="tdTitle">Ciudad</td>
+                                            <td class="tdTitle">Supervisor</td>
+                                            <td class="tdTitle">Periodo</td>
+                                            <td class="tdTitle">Estado</td>
+                                            <td class="tdTitle">Excel</td>
+                                            <td class="tdTitle">Plano</td>                                            
+                                        </tr>
 
-                                </thead>
+                                    </thead>
 
-                                <tbody id="datosNomina">
-                                </tbody>                 
+                                    <tbody id="datosNomina">
+                                    </tbody>                 
 
-                            </table>
+                                </table>
+                          
+                            </div>                        
 
-                            <div id="contentBtn2" class="col-lg-12" style="text-align: right;">
-                                <a type="button" id="consultar" class="btn btn-primary" onclick="aprobarRegNom();"><span class="fa fa-check"></span> Aprobar</a>
-                            </div> 
+                        </div>                         
 
-                        </div>                        
+                    </div>
 
-                    </div>                         
+                </div>  
 
-                </div> 
-                
-                </div>
-
-            </form>            
+            </form>
 
         </div>
 
@@ -525,8 +516,7 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['ciudadaux']['last']       = 
             </div>
 
         </div>
-
-
+        
         <?php echo $_smarty_tpl->tpl_vars['footer']->value;?>
 
 
@@ -534,8 +524,8 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['ciudadaux']['last']       = 
         <script src="../../libs/bootstrap/js/bootstrap.js"></script>
         <script src="../../libs/calendario/eternicode-bootstrap-datepicker-8bc254a/js/bootstrap-datepicker.js"></script>
         <script src="../../libs/calendario/eternicode-bootstrap-datepicker-8bc254a/js/locales/bootstrap-datepicker.es.js"></script> 
-        <script src="../../js/aprobarNominaJs/aprobarNomina.js"></script> 
+        <script src="../../js/consultaNominaJs/consultaNomina.js"></script> 
 
-    </body>    
+    </body>        
 
 </html><?php }} ?>
