@@ -10,6 +10,8 @@ $(function() {
         todayBtn: "linked",
         todayHighlight: true
     });
+    
+ 
 
 });
 
@@ -152,7 +154,7 @@ function consultarRegNomina() {
 
     $.ajax({
         type: 'POST',
-        url: '../../vista/aprobarNominaVista/asincAprobarNomina.php',
+        url: '../../vista/consultaNominaVista/asincConsultaNomina.php',
         data: {
             accion: "consultarRegNomina",
             empInt: empInt,
@@ -186,8 +188,6 @@ function consultarRegNomina() {
                 $("#modalLoad").modal('hide');
 
             }
-
-
         }
 
     });
@@ -195,7 +195,11 @@ function consultarRegNomina() {
 }
 
 function construirTabla(data) {
+    
     console.log(data);
+    var tablaDatosReg = $('#tablaDatosReg').DataTable();
+    tablaDatosReg.destroy();  
+    
     var filaDatos = '';
     $("#datosNomina").html('');
     var pos = 0;
@@ -219,6 +223,16 @@ function construirTabla(data) {
 
     $("#datosNomina").append(filaDatos);
     $("#modalLoad").modal('toggle');
+    
+       $('#tablaDatosReg').DataTable({
+         language: {
+             search:         "Buscar:",
+             "sZeroRecords":    "No se encontraron resultados"
+         },
+         "info":     false,
+         "paging":   false,
+         "order": [[ 3, "desc" ]]
+    });
 }
 
 function consultarTotalDatos() {
@@ -290,7 +304,7 @@ function consultarTotalDatos() {
 
                     var aux = formatPesos(parseFloat(valor));
                     
-                    if(aux !== 'NaN.undefined'){                    
+                    if(aux !== 'NaN,undefined'){                    
                         $("#adicionales").append(aux);                        
                     }else {
                         
@@ -328,7 +342,8 @@ function consulSolicitud(id) {
         },
         dataType: "json",
         beforeSend: function() {
-
+            
+            $("#modalLoad").modal('toggle');
 
         },
         success: function(data) {
@@ -387,13 +402,15 @@ function consulSolicitud(id) {
                         pos++;                   
 
                 });
-
+                
                 $("#hrsHabiles2").html(totalHabiles);
                 $("#hrsDominicales2").html(totalDominicales);
                 $("#hrsFestivos2").html(totalFestivos);
                 $("#totalUsers2").html(totalUsers);
 
                 $("#datosUsuario").append(filas);
+                
+                $("#modalLoad").modal('toggle');
 
             }
         }
@@ -513,7 +530,7 @@ function detAdicionales() {
         },
         dataType: 'json',
         beforeSend: function() {
-            //$("#modalLoad").modal('toggle');            
+            $("#modalLoad").modal('show');            
         },
         success: function(data) {
 
@@ -550,6 +567,7 @@ function detAdicionales() {
 
         $("#tituloModalDatos").html("Detalle Adicionales");
         $("#cuerpoModalDatos").html(tablaDetConceptos);
+        $("#modalLoad").modal('hide');          
         $("#modalInfoDatos").modal('show');
 
     });
@@ -631,7 +649,7 @@ function detFestivos() {
 
     $.ajax({
         type: 'POST',
-        url: '../../vista/aprobarNominaVista/asincAprobarNomina.php',
+        url: '../../vista/consultaNominaVista/asincConsultaNomina.php',
         data: {
             accion: "detFestivos",
             empInt: empInt,
@@ -712,7 +730,7 @@ function detDominicales() {
 
     $.ajax({
         type: 'POST',
-        url: '../../vista/aprobarNominaVista/asincAprobarNomina.php',
+        url: '../../vista/consultaNominaVista/asincConsultaNomina.php',
         data: {
             accion: "detDominicales",
             empInt: empInt,
@@ -837,13 +855,42 @@ function generarPlano(id){
         },
         dataType:"json",
         beforeSend:function(){},
-        success:function(){}
+        success: function(data) {
+
+            if (data != '-1') {
+
+                $("#modalLoad").modal('hide');
+                window.open(data);
+
+            } else {
+
+                $("#modalLoad").modal('hide');
+                $("#tituloModal").html("Advertencia");
+                $("#cuerpoModal").html("Ha ocurrido un fallo. Por favor vuelva a intentarlo. Si el proble persiste cominiquelo al departamento de desarrollo");
+                $("#modalInfo").modal('toggle');
+
+            }
+
+        }
         
-    }).done(function(){
-        
-        
-        
-    });
+    }).done(function(){});
+
+}
+
+function valfechaini() {
+
+    var fecIni = $("#fecIni").val();
+
+    if (fecIni != '') {
+
+        $("#fecFin").prop('disabled', false);
+
+    } else {
+
+        $("#fecFin").val('');
+        $("#fecFin").prop('disabled', true);
+
+    }
 
 }
 
@@ -873,8 +920,6 @@ function validarfechas(fechaInicial, fechaFinal) {
         return true;
 
     }
-
-
 }
 
 function formatPesos(num) {

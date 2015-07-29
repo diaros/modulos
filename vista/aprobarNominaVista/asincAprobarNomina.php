@@ -16,7 +16,7 @@ if (isset($_POST['accion']) && $_POST['accion'] == 'consultarRegNomina') {
     $ciudad = $_POST['ciudad'];
     $fechaIni = $_POST['fechaIni'];
     $fechaFin = $_POST['fechaFin'];
-    $estado = $_POST['estado'];
+    $estado = 2;
     $consecutivo = $_POST['consecutivo'];
 
     $reporte = $aprobarNominaControl->consultaRegNomina($empInt, $empCli, $centroCosto, $ciudad, $estado, $fechaIni, $fechaFin,$consecutivo);
@@ -113,7 +113,7 @@ if (isset($_POST['accion']) && $_POST['accion'] == 'detDominicales'){
     $ciudad = $_POST['ciudad'];
     $fechaIni = $_POST['fechaIni'];
     $fechaFin = $_POST['fechaFin'];
-    $estado = $_POST['estado'];
+    $estado = 2;
     $consecutivo = $_POST['consecutivo'];
     
     $detDominicales = $aprobarNominaControl->detDominicales($empInt, $empCli, $centroCosto, $ciudad, $estado, $fechaIni, $fechaFin,$consecutivo);
@@ -142,7 +142,7 @@ if (isset($_POST['accion']) && $_POST['accion'] == 'detFestivos'){
     $ciudad = $_POST['ciudad'];
     $fechaIni = $_POST['fechaIni'];
     $fechaFin = $_POST['fechaFin'];
-    $estado = $_POST['estado'];
+    $estado = 2;
     $consecutivo = $_POST['consecutivo'];
     
     $detDominicales = $aprobarNominaControl->detFestivos($empInt, $empCli, $centroCosto, $ciudad, $estado, $fechaIni, $fechaFin,$consecutivo);

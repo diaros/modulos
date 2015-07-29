@@ -184,7 +184,6 @@ function valfechaini() {
 
         $("#fecFin").val('');
         $("#fecFin").prop('disabled', true);
-
     }
 
 }
@@ -201,7 +200,6 @@ function valfechafin() {
 
     if (valFechas != true) {
 
-        console.log("entro2");
         $("#tituloModal").html("Advertencia");
         $("#cuerpoModal").html("La fecha inicial no puede ser mayor a la fecha final.");
         $("#modalInfo").modal('toggle');
@@ -623,7 +621,7 @@ function detAdicionales() {
         },
         dataType: 'json',
         beforeSend: function() {
-            //$("#modalLoad").modal('toggle');            
+           $("#modalLoad").modal('show');            
         },
         success: function(data) {
 
@@ -660,6 +658,7 @@ function detAdicionales() {
 
         $("#tituloModalDatos").html("Detalle Adicionales");
         $("#cuerpoModalDatos").html(tablaDetConceptos);
+         $("#modalLoad").modal('hide');          
         $("#modalInfoDatos").modal('show');
 
     });

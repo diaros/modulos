@@ -315,7 +315,6 @@
                         </div>
                     </div>
 
-
                     <div class="col-lg-12" style="text-align: right;">
 
                         <a type="button" id="finalizar" class="btn btn-primary" onclick="confirmFinalizar();"><span class="fa fa-check"></span>Terminar</a> 

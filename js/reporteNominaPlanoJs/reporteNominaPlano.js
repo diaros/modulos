@@ -217,11 +217,11 @@ function generarPlantilla() {
         },
         success: function(data) {
 
-            $("#modalLoad").modal('toggle');
+            $("#modalLoad").modal('hide');
 
             if (data != '-1') {
 
-                $("#registrar").fadeIn(1000)
+                $("#registrar").fadeIn(1000);
                 $("#plantilla").fadeIn(1000);
                 $("#contenedorBtnCargar").fadeIn(1000);
                 $("#nomArchivoOculto").val(data);
@@ -305,9 +305,7 @@ function subirArchivo() {
         processData: false,
         cache: false,
         beforeSend: function() {
-
             $('#modalLoad').modal({backdrop: 'static', keyboard: true});
-
         },
         success: function(data) {
         }
@@ -870,7 +868,10 @@ function valUsersSinReg(){
              
          },
          dataType: 'json',
-        beforeSend:function(){},
+        beforeSend:function(){
+            
+            $("#modalLoad").modal('show');
+        },
         success: function(data) {            
             console.log(data);
             if(data != '-1' ){
@@ -894,7 +895,14 @@ function valUsersSinReg(){
                 
                 $("#tituloModalDatos").html("Usuarios sin registrar");
                 $("#cuerpoModalDatos").html(tablaUserSinreg);
+                $("#modalLoad").modal('hide');
                 $("#modalInfoDatos").modal('toggle');
+                
+            }else{
+                $("#modalLoad").modal('hide');
+                $("#tituloModal").html("Advertencia");
+                $("#cuerpoModal").html("Ha ocurrido un error en la consulta, por favor vuelva a intentarlo. Si el fallo persiste por favor comuniquese con el departamento de desarrollo.");
+                $("#modalInfo").modal('toggle');
                 
             }
         
@@ -921,6 +929,7 @@ function mostrarDetAdicionales() {
         async: false,
         dataType: "json",
         beforeSend: function() {
+           $("#modalLoad").modal('show');
         },
         success: function() {
         }
@@ -954,6 +963,7 @@ function mostrarDetAdicionales() {
 
         $("#tituloModalDatos").html("Detalle Conceptos");
         $("#cuerpoModalDatos").html(tablaDetConceptos);
+        $("#modalLoad").modal('hide');
         $("#modalInfoDatos").modal('toggle');
 
     });
@@ -1019,6 +1029,7 @@ function mostrarconceptos(id) {
         },
         dataType: "json",
         beforeSend: function() {
+           $("#modalLoad").modal('show');
         },
         success: function() {
         }
@@ -1050,6 +1061,7 @@ function mostrarconceptos(id) {
 
         $("#tituloModalDatos").html("Conceptos");
         $("#cuerpoModalDatos").html(tablaConceptosUsuario);
+        $("#modalLoad").modal('hide');
         $("#modalInfoDatos").modal('toggle');
 
     });
@@ -1346,5 +1358,5 @@ function formatPesos(num) {
     var p = num.toFixed(1).split(".");
     return  p[0].split("").reverse().reduce(function(acc, num, i, orig) {
         return  num + (i && !(i % 3) ? "." : "") + acc;
-    }, "") + "." + p[1];
+    }, "") + "," + p[1];
 }

@@ -5,7 +5,6 @@
     <head>
 
         <meta http-equiv="Content-Type" content="text/html:charset=UTF-8">
-
         <link type="text/css" href="../../libs/bootstrap/css/bootstrap.css" rel="stylesheet"/>
         <link type="text/css" href="../../libs/calendario/eternicode-bootstrap-datepicker-8bc254a/css/datepicker3.css" rel="stylesheet"/>
         <link type="text/css" href="../../libs/font-awesome-4.2.0/css/font-awesome.min.css" rel="stylesheet" />
@@ -13,6 +12,7 @@
         <link type="text/css" href="../../css/consultaNominaCss/consultaNomina.css" rel="stylesheet"/> 
 
         <title>Consultar Nomina</title>
+        
     </head>
 
     <body>
@@ -229,12 +229,12 @@
                                     <thead id="cabeceraDatosNomina">
 
                                         <tr>
-                                            <td class="tdTitle">Consecutivo</td>
-                                            <td class="tdTitle">Centro costo</td>
-                                            <td class="tdTitle">Ciudad</td>
-                                            <td class="tdTitle">Supervisor</td>
-                                            <td class="tdTitle">Periodo</td>
-                                            <td class="tdTitle">Estado</td>
+                                            <td class="tdTitle">Consecutivo <span class="fa fa-sort"></span></td>
+                                            <td class="tdTitle">Centro costo <span class="fa fa-sort"></span></td>
+                                            <td class="tdTitle">Ciudad <span class="fa fa-sort"></span></td>
+                                            <td class="tdTitle">Supervisor <span class="fa fa-sort"></span></td>
+                                            <td class="tdTitle">Periodo <span class="fa fa-sort"></span></td>
+                                            <td class="tdTitle">Estado <span class="fa fa-sort"></span></td>
                                             <td class="tdTitle">Excel</td>
                                             <td class="tdTitle">Plano</td>                                            
                                         </tr>
@@ -442,6 +442,7 @@
         <script src="../../libs/bootstrap/js/bootstrap.js"></script>
         <script src="../../libs/calendario/eternicode-bootstrap-datepicker-8bc254a/js/bootstrap-datepicker.js"></script>
         <script src="../../libs/calendario/eternicode-bootstrap-datepicker-8bc254a/js/locales/bootstrap-datepicker.es.js"></script> 
+        <script src="../../libs/DataTables-1.10.7/media/js/jquery.dataTables.js"></script> 
         <script src="../../js/consultaNominaJs/consultaNomina.js"></script> 
 
     </body>        

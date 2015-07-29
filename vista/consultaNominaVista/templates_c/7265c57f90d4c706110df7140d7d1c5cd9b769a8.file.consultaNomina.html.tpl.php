@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2015-07-24 16:54:21
+<?php /* Smarty version Smarty-3.1.13, created on 2015-07-29 17:09:00
          compiled from "..\..\web\consultaNominaWeb\consultaNomina.html.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:2592855b1601b09ea95-60283233%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '7265c57f90d4c706110df7140d7d1c5cd9b769a8' => 
     array (
       0 => '..\\..\\web\\consultaNominaWeb\\consultaNomina.html.tpl',
-      1 => 1437773905,
+      1 => 1438206266,
       2 => 'file',
     ),
   ),
@@ -34,7 +34,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     <head>
 
         <meta http-equiv="Content-Type" content="text/html:charset=UTF-8">
-
         <link type="text/css" href="../../libs/bootstrap/css/bootstrap.css" rel="stylesheet"/>
         <link type="text/css" href="../../libs/calendario/eternicode-bootstrap-datepicker-8bc254a/css/datepicker3.css" rel="stylesheet"/>
         <link type="text/css" href="../../libs/font-awesome-4.2.0/css/font-awesome.min.css" rel="stylesheet" />
@@ -42,6 +41,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
         <link type="text/css" href="../../css/consultaNominaCss/consultaNomina.css" rel="stylesheet"/> 
 
         <title>Consultar Nomina</title>
+        
     </head>
 
     <body>
@@ -310,12 +310,12 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['ciudadaux']['last']       = 
                                     <thead id="cabeceraDatosNomina">
 
                                         <tr>
-                                            <td class="tdTitle">Consecutivo</td>
-                                            <td class="tdTitle">Centro costo</td>
-                                            <td class="tdTitle">Ciudad</td>
-                                            <td class="tdTitle">Supervisor</td>
-                                            <td class="tdTitle">Periodo</td>
-                                            <td class="tdTitle">Estado</td>
+                                            <td class="tdTitle">Consecutivo <span class="fa fa-sort"></span></td>
+                                            <td class="tdTitle">Centro costo <span class="fa fa-sort"></span></td>
+                                            <td class="tdTitle">Ciudad <span class="fa fa-sort"></span></td>
+                                            <td class="tdTitle">Supervisor <span class="fa fa-sort"></span></td>
+                                            <td class="tdTitle">Periodo <span class="fa fa-sort"></span></td>
+                                            <td class="tdTitle">Estado <span class="fa fa-sort"></span></td>
                                             <td class="tdTitle">Excel</td>
                                             <td class="tdTitle">Plano</td>                                            
                                         </tr>
@@ -524,6 +524,7 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['ciudadaux']['last']       = 
         <script src="../../libs/bootstrap/js/bootstrap.js"></script>
         <script src="../../libs/calendario/eternicode-bootstrap-datepicker-8bc254a/js/bootstrap-datepicker.js"></script>
         <script src="../../libs/calendario/eternicode-bootstrap-datepicker-8bc254a/js/locales/bootstrap-datepicker.es.js"></script> 
+        <script src="../../libs/DataTables-1.10.7/media/js/jquery.dataTables.js"></script> 
         <script src="../../js/consultaNominaJs/consultaNomina.js"></script> 
 
     </body>        

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2015-03-25 09:42:52
+<?php /* Smarty version Smarty-3.1.13, created on 2015-07-28 16:45:25
          compiled from "..\..\web\gestionRequisicionesWeb\gestionRequisicionesWeb.html.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:627754bec69ee46a27-04942711%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'dd5890f34cf849ed22af976723ba28c6da34c18d' => 
     array (
       0 => '..\\..\\web\\gestionRequisicionesWeb\\gestionRequisicionesWeb.html.tpl',
-      1 => 1427294567,
+      1 => 1437145152,
       2 => 'file',
     ),
   ),
@@ -229,9 +229,9 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['estado']['last']       = ($_
                 <hr>
 
                 <div id="contenedorTabla" style="display:<?php echo $_smarty_tpl->tpl_vars['mostrarTabla']->value;?>
-"> 
+" class="table-responsive"> 
 
-                    <table class="table table-condensed table-hover table-responsive table-striped" id="datosRequicisiones">
+                    <table class="table table-condensed table-hover table-striped" id="datosRequicisiones">
 
                         <thead>
 
@@ -389,14 +389,13 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['reporte']['last']       = ($
             </div><!-- /.modal-dialog -->
         </div><!-- /.modal -->  
 
-        <div class="modal fade" id="modalLoad">
+           <div class="modal fade" id="modalLoad">
             <div class="modal-dialog">
-                <div class="modal-content">
-
+                <div class="modal-content noFondoModal">
                     <div class="modal-body" style="text-align: center;">
-                        <img src="../../libs/imagenes/cargando.gif">
+                        
+                        <span class=" fa fa-cog fa-spin fa-6x iconblue"></span>
                     </div>
-
                 </div>
             </div>
         </div>

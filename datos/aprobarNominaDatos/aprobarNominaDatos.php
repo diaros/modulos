@@ -194,8 +194,7 @@ class aprobarNominaDatos {
                         and a.id = f.id_planilla
                         and f.id_usuario = g.cod_empl
                         and a.id_emp_int = g.cod_empr
-                        and f.horas_dominicales != 0
-                        and a.estado = 2";
+                        and f.horas_dominicales != 0";
         
         $reporte = $conexion->consultar($sql);
         return $reporte;
@@ -226,8 +225,7 @@ class aprobarNominaDatos {
                         and a.id = f.id_planilla
                         and f.id_usuario = g.cod_empl
                         and a.id_emp_int = g.cod_empr
-                        and f.horas_festivos != 0
-                        and a.estado = 2";
+                        and f.horas_festivos != 0";
         
         $reporte = $conexion->consultar($sql);
         return $reporte;

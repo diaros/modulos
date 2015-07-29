@@ -66,8 +66,7 @@ class consultaNominaControl {
                 
             }
             
-        }
-        
+        }        
 
         foreach ($reporteUsuarios as $fila) {
             
@@ -108,8 +107,25 @@ class consultaNominaControl {
     function generarPlano($id){
         
         $consulRegNomina = new reporteNominaPlanoDatos();
-        $reporteUsuarios = $consulRegNomina->consultarDatosRegByIdPlanilla($id);
+        $reporteUsuarios = $consulRegNomina->consultarDatosRegByIdPlanilla($id);     
+        $fecha = date('Y-m-d-H-i-s');
         
+        foreach ($reporteUsuarios as $fila){
+            
+            $archivo = fopen("../../temporales/planosNomina/planoNomina" .$fecha. ".txt", "a");
+            
+            if(strlen($fila['id_usuario']) < 10){
+              
+               $fila['id_usuario'] = str_pad($fila['id_usuario'], 10); 
+                
+            }           
+            
+            $linea = $fila['id_usuario']." ".$fila['concepto']." ".$fila['vlr_concepto']." ".$fila['centro_costo'];            
+            fputs($archivo,$linea."\r\n");            
+            
+        }
+        
+        return $archivo;
         
     }
 }

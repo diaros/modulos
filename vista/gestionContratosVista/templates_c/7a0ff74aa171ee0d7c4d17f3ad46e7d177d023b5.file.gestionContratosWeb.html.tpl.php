@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2015-07-15 11:45:46
+<?php /* Smarty version Smarty-3.1.13, created on 2015-07-28 16:41:51
          compiled from "..\..\web\gestionContratosWeb\gestionContratosWeb.html.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:137915446de60ebf4a2-59156914%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '7a0ff74aa171ee0d7c4d17f3ad46e7d177d023b5' => 
     array (
       0 => '..\\..\\web\\gestionContratosWeb\\gestionContratosWeb.html.tpl',
-      1 => 1436219454,
+      1 => 1437145152,
       2 => 'file',
     ),
   ),
@@ -197,14 +197,13 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['empInt']['last']       = ($_
             
         </div><!-- /.modal -->    
 
-        <div class="modal fade" id="modalLoad">
+          <div class="modal fade" id="modalLoad">
             <div class="modal-dialog">
-                <div class="modal-content">
-
+                <div class="modal-content noFondoModal">
                     <div class="modal-body" style="text-align: center;">
-                        <img src="../../libs/imagenes/cargando.gif">
+                        
+                        <span class=" fa fa-cog fa-spin fa-6x iconblue"></span>
                     </div>
-
                 </div>
             </div>
         </div>

@@ -1466,8 +1466,7 @@ class reporteNominaPlanoControl {
         
         $flgError = false;
         
-        foreach ($arreglosDias as $valor){
-            
+        foreach ($arreglosDias as $valor){            
            
             $isnum = is_numeric($valor);
             
