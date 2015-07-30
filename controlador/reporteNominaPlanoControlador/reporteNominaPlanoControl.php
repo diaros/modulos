@@ -31,8 +31,17 @@ class reporteNominaPlanoControl {
         $resulConsulta = $reporteNominaDatos->consultarUsuarios($empInt, $centroCosto, $ciudad);
         return $resulConsulta;
     }
+    
+    function consultaConceptos($empresaInt,$empUsu){
+        
+          $reporteNominaDatos = new reporteNominaPlanoDatos();
+        $resulConsulta = $reporteNominaDatos->consultaConceptos($empresaInt,$empUsu);
+        return $resulConsulta;
+        
+        
+    }
 
-    function generarPlantilla($consultaUsuarios, $periocidad) {
+    function generarPlantilla($consultaUsuarios, $periocidad,$consultaConceptos) {
 
         //inicio creacion de excel
         $objPHPExcel = new PHPExcel();
@@ -63,7 +72,7 @@ class reporteNominaPlanoControl {
             ),
             'fill' => array(
                 'type' => PHPExcel_Style_Fill::FILL_SOLID,
-                'color' => array('rgb' => 'FF3333'),
+                'color' => array('rgb' => 'FF6666'),
             ),
             'font' => array(
                 'bold' => true,
@@ -74,21 +83,21 @@ class reporteNominaPlanoControl {
         $objPHPExcel->getActiveSheet()->getStyle('A1')->applyFromArray($style_header);
         $objPHPExcel->getActiveSheet()->getStyle('B1')->applyFromArray($style_header);
         $objPHPExcel->getActiveSheet()->getStyle('C1')->applyFromArray($style_header);
-        $objPHPExcel->getActiveSheet()->getStyle('D1')->applyFromArray($style_header);        
-       
-        $objPHPExcel->getActiveSheet()->getColumnDimension('A')->setWidth(30);
-        $objPHPExcel->getActiveSheet()->getColumnDimension('B')->setWidth(40);
-        $objPHPExcel->getActiveSheet()->getColumnDimension('C')->setWidth(30);
-        $objPHPExcel->getActiveSheet()->getColumnDimension('D')->setWidth(45);
-        $objPHPExcel->getActiveSheet()->getColumnDimension('E')->setWidth(30);
-        $objPHPExcel->getActiveSheet()->getColumnDimension('F')->setWidth(30);
-        $objPHPExcel->getActiveSheet()->getColumnDimension('G')->setWidth(30);
-        $objPHPExcel->getActiveSheet()->getColumnDimension('H')->setWidth(30);
-        $objPHPExcel->getActiveSheet()->getColumnDimension('I')->setWidth(30);
-        $objPHPExcel->getActiveSheet()->getColumnDimension('J')->setWidth(30);
-        $objPHPExcel->getActiveSheet()->getColumnDimension('K')->setWidth(30);
-        $objPHPExcel->getActiveSheet()->getColumnDimension('L')->setWidth(30);
-        $objPHPExcel->getActiveSheet()->getColumnDimension('M')->setWidth(30);      
+        $objPHPExcel->getActiveSheet()->getStyle('D1')->applyFromArray($style_header);     
+           
+        $objPHPExcel->getActiveSheet()->getColumnDimension('A')->setWidth(15);
+        $objPHPExcel->getActiveSheet()->getColumnDimension('B')->setWidth(25);
+        $objPHPExcel->getActiveSheet()->getColumnDimension('C')->setWidth(10);
+        $objPHPExcel->getActiveSheet()->getColumnDimension('D')->setWidth(30);
+        $objPHPExcel->getActiveSheet()->getColumnDimension('E')->setWidth(15);
+        $objPHPExcel->getActiveSheet()->getColumnDimension('F')->setWidth(15);
+        $objPHPExcel->getActiveSheet()->getColumnDimension('G')->setWidth(15);
+        $objPHPExcel->getActiveSheet()->getColumnDimension('H')->setWidth(10);
+        $objPHPExcel->getActiveSheet()->getColumnDimension('I')->setWidth(15);
+        $objPHPExcel->getActiveSheet()->getColumnDimension('J')->setWidth(15);
+        $objPHPExcel->getActiveSheet()->getColumnDimension('K')->setWidth(25);
+        $objPHPExcel->getActiveSheet()->getColumnDimension('L')->setWidth(25);
+        $objPHPExcel->getActiveSheet()->getColumnDimension('M')->setWidth(15);      
 
         $objPHPExcel->getActiveSheet()->SetCellValue("A" . $cont, 'Cedula');
         $objPHPExcel->getActiveSheet()->SetCellValue("B" . $cont, 'Nombre');
@@ -103,31 +112,69 @@ class reporteNominaPlanoControl {
         $objPHPExcel->getActiveSheet()->SetCellValue("K" . $cont, '# Horas DominicSinComp');
         $objPHPExcel->getActiveSheet()->SetCellValue("L" . $cont, 'Dias DominicSinComp');
         $objPHPExcel->getActiveSheet()->SetCellValue("M" . $cont, 'Observaciones');
-
+        
+        $objPHPExcel->getActiveSheet()->getStyle('A1:A1')->getAlignment()->setWrapText(true);
+        $objPHPExcel->getActiveSheet()->getStyle('B1:B1')->getAlignment()->setWrapText(true);
+        $objPHPExcel->getActiveSheet()->getStyle('C1:C1')->getAlignment()->setWrapText(true);
+        $objPHPExcel->getActiveSheet()->getStyle('D1:D1')->getAlignment()->setWrapText(true);
+        $objPHPExcel->getActiveSheet()->getStyle('E1:E1')->getAlignment()->setWrapText(true);
+        $objPHPExcel->getActiveSheet()->getStyle('F1:F1')->getAlignment()->setWrapText(true);
+        $objPHPExcel->getActiveSheet()->getStyle('G1:G1')->getAlignment()->setWrapText(true);
+        $objPHPExcel->getActiveSheet()->getStyle('H1:H1')->getAlignment()->setWrapText(true);
+        $objPHPExcel->getActiveSheet()->getStyle('I1:I1')->getAlignment()->setWrapText(true);
+        $objPHPExcel->getActiveSheet()->getStyle('J1:J1')->getAlignment()->setWrapText(true);
+        $objPHPExcel->getActiveSheet()->getStyle('K1:K1')->getAlignment()->setWrapText(true);
+        $objPHPExcel->getActiveSheet()->getStyle('L1:L1')->getAlignment()->setWrapText(true);
+        $objPHPExcel->getActiveSheet()->getStyle('M1:M1')->getAlignment()->setWrapText(true);
+        
+        $posColumn = "N";
+        
+        foreach ($consultaConceptos as $concepto){
+            
+            $objPHPExcel->getActiveSheet()->getColumnDimension($posColumn)->setWidth(20);     
+            $objPHPExcel->getActiveSheet()->getStyle("".$posColumn."1:".$posColumn."1")->getAlignment()->setWrapText(true);
+            $objPHPExcel->getActiveSheet()->SetCellValue($posColumn++ . $cont, $concepto['codigo']."-".$concepto['descripcion']);           
+            
+        }
+        
+        $posColumn = "N";
+        
         foreach ($consultaUsuarios as $fila) {
 
             $cont = $cont + 1;
             
+            
             $objPHPExcel->getActiveSheet()->SetCellValue("A" . $cont, $fila['cod_empl']);
+            $objPHPExcel->getActiveSheet()->getStyle("A".$cont.":A".$cont."")->getAlignment()->setWrapText(true);
+            
+           
             $objPHPExcel->getActiveSheet()->SetCellValue("B" . $cont, trim($fila['nom_empl']) . " " . trim($fila['ape_empl']));
+             $objPHPExcel->getActiveSheet()->getStyle("B".$cont.":B".$cont."")->getAlignment()->setWrapText(true);
 
             if ($periocidad == 1 || $periocidad == 2) {
-
+                
                 $objPHPExcel->getActiveSheet()->SetCellValue("C" . $cont, '120');
+                $objPHPExcel->getActiveSheet()->getStyle("C".$cont.":C".$cont."")->getAlignment()->setWrapText(true);
 
                 if ($periocidad == 1) {
 
                     $objPHPExcel->getActiveSheet()->SetCellValue("D" . $cont, '1,2,3,4,5,6,7,8,9,10,11,12,13,14,15');
+                    $objPHPExcel->getActiveSheet()->getStyle("D".$cont.":D".$cont."")->getAlignment()->setWrapText(true);
                 }
 
                 if ($periocidad == 2) {
 
                     $objPHPExcel->getActiveSheet()->SetCellValue("D" . $cont, '16,17,18,19,20,21,22,23,24,25,26,27,28,29,30');
+                    $objPHPExcel->getActiveSheet()->getStyle("D".$cont.":D".$cont."")->getAlignment()->setWrapText(true);
+                    
                 }
             } else if ($periocidad = 3) {
 
                 $objPHPExcel->getActiveSheet()->SetCellValue("C" . $cont, '240');
+                $objPHPExcel->getActiveSheet()->getStyle("C".$cont.":C".$cont."")->getAlignment()->setWrapText(true);
+                
                 $objPHPExcel->getActiveSheet()->SetCellValue("D" . $cont, '1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30');
+                 $objPHPExcel->getActiveSheet()->getStyle("D".$cont.":D".$cont."")->getAlignment()->setWrapText(true);
             }
         }
 
@@ -1299,8 +1346,10 @@ class reporteNominaPlanoControl {
         for ($i = 14; $i <= $longArreglo; $i++) {
 
             if ($encabezados[$i] != null && $encabezados[$i] != '') {
+                
+                $encabezado = explode("-", $encabezados[$i]);
 
-                $resValidacion = $this->valAdicional($encabezados[$i], $empInt);
+                $resValidacion = $this->valAdicional($encabezado[0], $empInt);
 
                 if ($resValidacion[0]['cantidad'] == 0) {
 
@@ -1338,11 +1387,14 @@ class reporteNominaPlanoControl {
                 
                 if($objHoja[$i][$posEncabezado] == null){
                     
-                    $conceptos[$k][$encabezados[$j]] = 0;
+                    $encabezado = explode("-", $encabezados[$j]);
+                    
+                    $conceptos[$k][$encabezado[0]] = 0;
                     
                 }else{
                     
-                    $conceptos[$k][$encabezados[$j]] = $objHoja[$i][$posEncabezado];
+                    $encabezado = explode("-", $encabezados[$j]);                    
+                    $conceptos[$k][$encabezado[0]] = $objHoja[$i][$posEncabezado];
                     
                 }
                 

@@ -86,6 +86,31 @@ class reporteNominaPlanoDatos {
         $resulConsulta = $conexion->consultarKactus($sql);
         return $resulConsulta;
     }
+    
+    function consultaConceptos($empresaInt,$empUsu){
+        
+        $conexion = new conexion();
+        
+         $sql = "select c.codigo,c.descripcion
+                    from dbo.mod_nomina_tipo_planilla a,
+                         dbo.mod_nomina_tipo_planilla_cliente b,
+                         dbo.mod_nomina_tipo_concepto c,
+                         dbo.mod_nomina_tipo_planilla_tipo_concepto d,
+                         dbo.cliente_general e
+
+                    where 1=1
+                    and a.id = b.id_tipo_planilla
+                    and a.id = d.id_tipo_planilla
+                    and c.id = d.id_tipo_concepto
+                    and convert(varchar,b.nit_cliente) = e.nit
+                    and e.empresa = a.id_emp_int
+                    and a.id_emp_int = ".$empresaInt."
+                    and b.nit_cliente = ".$empUsu." ";
+         
+        $resulConsulta = $conexion->consultar($sql);
+        return $resulConsulta;
+        
+    }
 
     function valCedCentroCosto($cedula, $empresaInt, $centroCosto, $ciudad) {
 

@@ -58,10 +58,11 @@ if(isset($_POST['accion']) && $_POST['accion'] == 'generarPlantilla'){
     $centroCosto = $_POST['centroCosto'];
     $ciudad = $_POST['ciudad'];
     $mes = $_POST['mes'];
-    $pericidad = $_POST['periocidad'];
+    $periocidad = $_POST['periocidad'];
     
-    $consultaUsuarios = $reporteNomimaPlanoControl->consultarUsuarios($empresaInt, $centroCosto, $ciudad);    
-    $resulgenerarPlantilla = $reporteNomimaPlanoControl->generarPlantilla($consultaUsuarios,$pericidad);
+    $consultaUsuarios = $reporteNomimaPlanoControl->consultarUsuarios($empresaInt, $centroCosto, $ciudad);   
+    $consultarConceptos = $reporteNomimaPlanoControl->consultaConceptos($empresaInt,$empUsu);
+    $resulgenerarPlantilla = $reporteNomimaPlanoControl->generarPlantilla($consultaUsuarios,$periocidad,$consultarConceptos);
     
     if($resulgenerarPlantilla != null){        
         
