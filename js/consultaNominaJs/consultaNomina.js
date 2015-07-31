@@ -860,7 +860,10 @@ function generarPlano(id){
             if (data != '-1') {
 
                 $("#modalLoad").modal('hide');
-                window.open(data);
+//                window.open(data);
+                document.location = 'data:Application/octet-stream,' +
+                         encodeURIComponent(data);
+               
 
             } else {
 
