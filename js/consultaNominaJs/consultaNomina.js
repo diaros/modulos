@@ -854,16 +854,19 @@ function generarPlano(id){
             consecutivo:consecutivo            
         },
         dataType:"json",
-        beforeSend:function(){},
+        beforeSend:function(){
+            
+            $("#modalLoad").modal('show');
+        },
         success: function(data) {
 
             if (data != '-1') {
 
                 $("#modalLoad").modal('hide');
-//                window.open(data);
-                document.location = 'data:Application/octet-stream,' +
-                         encodeURIComponent(data);
-               
+                window.open(data);
+                
+                //location.replace(data);                
+                //document.location = data;              
 
             } else {
 

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2015-07-29 17:36:18
+<?php /* Smarty version Smarty-3.1.13, created on 2015-08-03 15:53:47
          compiled from "..\..\web\reporteNominaPlanoWeb\reporteNominaPlano.html.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:12373556376ab787468-25265475%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'd62a7222d1922cf9e35f2d7343e10bd1e36e06ef' => 
     array (
       0 => '..\\..\\web\\reporteNominaPlanoWeb\\reporteNominaPlano.html.tpl',
-      1 => 1438209224,
+      1 => 1438634825,
       2 => 'file',
     ),
   ),
@@ -370,8 +370,7 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['ciudad']['last']       = ($_
                         <div class="panel panel-default table-responsive">
                             <div class="panel-heading">Usuarios registrados</div>  
                             <div class="panel-body">  
-
-
+                                
                                 <table id="tablaDatos" class="table table-hover table-striped table-condensed">
 
                                     <thead id="cabeceraDatosUser">

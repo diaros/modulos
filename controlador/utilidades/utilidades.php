@@ -393,4 +393,20 @@ class utilidades {
         
     }    
     //fin mod nomina
+    
+    
+    function comprimirArchivo($nombreArchivo,$carpeta,$nombreComprimido) {
+        $zip = new ZipArchive();
+        $filename = "../../temporales/".$carpeta."/$nombreComprimido.zip";
+
+        if ($zip->open($filename, ZIPARCHIVE::CREATE) === true) {
+            if (file_exists("../../temporales/".$carpeta."/$nombreArchivo")) {
+                $zip->addFile("../../temporales/".$carpeta."/$nombreArchivo", "$nombreArchivo");
+            }
+        }
+        $zip->close();
+//        return "../../temporales/".$carpeta."/$nombreArchivo.zip";
+        return $filename;
+    }
+    
 }

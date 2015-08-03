@@ -2,6 +2,7 @@
 
 include '../../datos/consultaNomina/consultaNominaDatos.php';
 include '../../datos/reporteNominaPlanoDatos/reporteNominaPlanoDatos.php';
+include '../../controlador/utilidades/utilidades.php';
 require_once '../../libs/Classes/PHPExcel.php';
 require_once '../../libs/Classes/PHPExcel/Writer/Excel2007.php';
 
@@ -103,6 +104,8 @@ class consultaNominaControl {
     function generarPlano($id) {
 
         $consulRegNomina = new consultaNominaDatos();
+        $utilidades = new utilidades();
+        
         $reporteUsuarios = $consulRegNomina->consultarDatosRegByIdPlanilla($id);
         $fecha = date('Y-m-d-H-i-s');
 
@@ -124,10 +127,21 @@ class consultaNominaControl {
                 if (strlen($fila['concepto']) < 6) {
                     $fila['concepto'] = str_pad($fila['concepto'], 6);
                 }
-
-                $vlr = number_format($fila['vlr_concepto'], 2, ',', ' ');                
+                
+                if($fila['vlr_concepto'] > 10){
+                    
+                    $vlr = number_format($fila['vlr_concepto'], 1, ',', '');  
+                    
+                }else{
+                    
+                     $vlr = number_format($fila['vlr_concepto'], 2, ',', '');  
+                    
+                }                              
+                
                 if (strlen($vlr) < 5) {
+                    
                     $vlr = str_pad($vlr, 5);
+                    
                 }
                 
                 if (strlen($fila['centro_costo']) < 5) {
@@ -135,8 +149,9 @@ class consultaNominaControl {
                 }
                 
 
-                $linea = $fila['id_usuario'] . " " . $fila['concepto'] . " " . $vlr . " 0,000 " . $fila['centro_costo'] . " " . $fila['nro_cont'];
+                $linea = $fila['id_usuario'] . " " . $fila['concepto'] . " " . $vlr . "  0,000 " . $fila['centro_costo'] . " " . $fila['nro_cont'];
                 fputs($archivo, $linea . "\r\n");
+                
             } else if ($tipoConcepto['0']['cap_como'] == 'V') {
 
                 if (strlen($fila['concepto']) < 6) {
@@ -147,7 +162,7 @@ class consultaNominaControl {
                     $fila['centro_costo'] = str_pad($fila['centro_costo'], 5);
                 }
 
-                $vlr = number_format($fila['vlr_concepto'], 3, ',', ' ');
+                $vlr = number_format($fila['vlr_concepto'], 3, ',', '');
                 $linea = $fila['id_usuario'] . " " . $fila['concepto'] . " 0,00 " . $vlr . " " . $fila['centro_costo'] . " " . $fila['nro_cont'];
                 fputs($archivo, $linea . "\r\n");
             }
@@ -155,8 +170,16 @@ class consultaNominaControl {
         
         if($archivo != false){
             
-            $rutaArchivo = "../../temporales/planosNomina/planoNomina" . $fecha . ".txt";
-            return $rutaArchivo;
+            $rutaArchivo = "../../temporales/planosNomina/planoNomina" . $fecha . ".txt";    
+            
+            $nombreArchivo = "planoNomina".$fecha.".txt";
+            $carpeta = "planosNomina";
+            $nombreComprimido = "planoNomina".$fecha;
+            
+            $resComprimir = $utilidades->comprimirArchivo($nombreArchivo,$carpeta,$nombreComprimido);
+            
+            //return $rutaArchivo;
+            return $resComprimir;
             
         }else{
             

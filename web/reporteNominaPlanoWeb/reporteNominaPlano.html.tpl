@@ -297,8 +297,7 @@
                         <div class="panel panel-default table-responsive">
                             <div class="panel-heading">Usuarios registrados</div>  
                             <div class="panel-body">  
-
-
+                                
                                 <table id="tablaDatos" class="table table-hover table-striped table-condensed">
 
                                     <thead id="cabeceraDatosUser">
