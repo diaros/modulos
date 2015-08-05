@@ -313,6 +313,8 @@ class solicitudExamenControl{
         $asunto = "Solicitud de examenes medicos LISTOS S.A";
         $body = "Cordial saludo. <br> Adjuntamos reporte de la solicitud de examenes No: ".$idOrden." . <br> Gracias por su atención";
         
+        //provisionaal para pruebas
+        $destinatario = 'linamarcela.obando@visionymarketing.com.co';
         $utilidades->envioMail($asunto, $body, $destinatario, $rutaArchivo);
         
         return true;

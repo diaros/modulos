@@ -198,6 +198,24 @@ if(isset($_POST['accion']) && $_POST['accion'] == 'consultarTotalConceptos'){
     
 }
 
+if(isset($_POST['accion']) && $_POST['accion'] == 'consultartotalDomFest'){
+    
+    $idPlanilla = $_POST['idPlanilla'];
+    
+    $resulConsulta = $reporteNomimaPlanoControl->consultarTotalDomFest($idPlanilla);
+    
+    if($resulConsulta != null){
+        
+        echo json_encode($resulConsulta);
+        
+    }else {
+        
+        echo "-1";
+    }
+    
+    
+}
+
 if(isset($_POST['accion']) && $_POST['accion'] == 'consultarDetalleConceptos'){
     
     $idPlanilla = $_POST['idPlanilla'];    

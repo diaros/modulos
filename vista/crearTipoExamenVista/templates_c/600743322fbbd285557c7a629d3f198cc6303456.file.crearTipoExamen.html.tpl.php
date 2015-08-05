@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2015-02-27 11:53:35
+<?php /* Smarty version Smarty-3.1.13, created on 2015-08-04 17:19:48
          compiled from "..\..\web\crearTipoExamenWeb\crearTipoExamen.html.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:1653353d96587a591a0-69706497%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '600743322fbbd285557c7a629d3f198cc6303456' => 
     array (
       0 => '..\\..\\web\\crearTipoExamenWeb\\crearTipoExamen.html.tpl',
-      1 => 1425055628,
+      1 => 1437145152,
       2 => 'file',
     ),
   ),
@@ -301,12 +301,11 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['tipoExam']['last']       = (
 
         <div class="modal fade" id="modalLoad">
             <div class="modal-dialog">
-                <div class="modal-content">
-
+                <div class="modal-content noFondoModal">
                     <div class="modal-body" style="text-align: center;">
-                        <img src="../../libs/imagenes/cargando.gif">
+                        
+                        <span class=" fa fa-cog fa-spin fa-6x iconblue"></span>
                     </div>
-
                 </div>
             </div>
         </div>

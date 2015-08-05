@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2015-02-27 11:53:32
+<?php /* Smarty version Smarty-3.1.13, created on 2015-08-04 17:19:44
          compiled from "..\..\web\crearCategoriaWeb\crearCategoria.html.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:1897653d8fab86e1df3-93706846%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'f8a5224794d3f549f60f44b0d338bf55d7c2d318' => 
     array (
       0 => '..\\..\\web\\crearCategoriaWeb\\crearCategoria.html.tpl',
-      1 => 1425055503,
+      1 => 1437145039,
       2 => 'file',
     ),
   ),
@@ -182,17 +182,16 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['categoria']['last']       = 
 
         </div>
 
-        <div class="modal fade" id="modalLoad">
+          <div class="modal fade" id="modalLoad">
             <div class="modal-dialog">
-                <div class="modal-content">
-
+                <div class="modal-content noFondoModal">
                     <div class="modal-body" style="text-align: center;">
-                        <img src="../../libs/imagenes/cargando.gif">
+                        
+                        <span class=" fa fa-cog fa-spin fa-6x iconblue"></span>
                     </div>
-
                 </div>
             </div>
-        </div>                            
+        </div>                           
 
         <div class="modal fade" id="modalInfo">
 

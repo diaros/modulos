@@ -747,18 +747,20 @@ function construirTabla(data,idReg) {
             filas = filas + "</tr>";
 
             totalHabiles = parseFloat(totalHabiles) + parseFloat(valor.horas_habiles);
-            totalDominicales = parseFloat(totalDominicales) + parseFloat(valor.horas_dominicales);
-            totalFestivos = parseFloat(totalFestivos) + parseFloat(valor.horas_festivos);
+            
+//            totalDominicales = parseFloat(totalDominicales) + parseFloat(valor.horas_dominicales);
+//            totalFestivos = parseFloat(totalFestivos) + parseFloat(valor.horas_festivos);
 
             totalUsers++;
 
             pos++;
 
         });
+        
+        totalDomFest();
 
         $("#hrsHabiles").html(totalHabiles);
-        $("#hrsDominicales").html(totalDominicales);
-        $("#hrsFestivos").html(totalFestivos);
+        
         $("#totalUsers").html(totalUsers);
 
         $("#contenedorEstadoPlanilla").removeClass('panel-info');
@@ -1003,6 +1005,44 @@ function totalConceptos() {
     });
 
     return datoTotalConceptos;
+}
+
+function totalDomFest(){
+    
+    var idPlanilla = $("#idPlanilla1").val();
+    var datoTotalDominicales = '';
+    var datoTotalFestivos = '';
+    
+   
+    $.ajax({
+        type: 'POST',
+        url: "../../vista/reporteNominaPlanoVista/asincReporteNominaPlano.php",
+        data:{
+            accion:"consultartotalDomFest",
+            idPlanilla:idPlanilla
+            
+        },
+        dataType:"json",
+        beforeSend:function(){},
+        success:function(data){
+            
+            
+            
+        }        
+        
+    }).done(function(data){
+        
+        if(data != '-1'){            
+            
+            //falta recorrer la consulta en data para agregar los valores al template....            
+            $("#hrsDominicales").html(totalDominicales);
+            $("#hrsFestivos").html(totalFestivos);
+    
+            
+        }      
+        
+    });
+    
 }
 
 function mostrarconceptos(id) {

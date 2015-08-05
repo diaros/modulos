@@ -21,18 +21,26 @@ if (isset($_POST['accion']) && $_POST['accion'] == 'guardarTipoExam') {
 
     $inicioTransac = $utilidades->iniciarTransaccion();
 
-    if ($inicioTransac != false) {
+    if ($inicioTransac != false) {   
 
-        foreach ($categoriasSinVacios as $valor) {
+        $resulInsert = $crearTipoExam->registrarTipoExam($desc, $paraCli, $especial, $estado, $valor);
+        
+        if($resulInsert != FALSE){
+        
+            foreach ($categoriasSinVacios as $valor) {
 
-            $resulInsert = $crearTipoExam->registrarTipoExam($desc, $paraCli, $especial, $estado, $valor);
-            
-            if($resulInsert == FALSE){
+                $resulInsertRel = $crearTipoExam->relExamCat($valor);
                 
-                $flgError = true;
-                
+                if($resulInsertRel == false){
+                    
+                    $flgError = true;
+                }
+ 
             }     
             
+        }else{
+            
+             $flgError = true;
         }
         
         if($flgError == true){
@@ -52,9 +60,7 @@ if (isset($_POST['accion']) && $_POST['accion'] == 'guardarTipoExam') {
             }else{
                 
                 echo ("-1");
-            }
-            
-            
+            }           
         }
         
     }else{

@@ -277,17 +277,47 @@ class reporteNominaPlanoDatos {
 
                 from dbo.mod_nomina_planilla as a,
                 dbo.mod_nomina_planilla_usuario b,
-                dbo.mod_nomina_concepto c
+                dbo.mod_nomina_concepto c,
+                kactus.dbo.nm_conce d
 
                 where 1 = 1
 
-                and a.id = " . $idPlanilla . "
+                and a.id = ".$idPlanilla."
                 and a.id = b.id_planilla
                 and b.id = c.id_planilla_usuario
+                and c.nombre = d.cod_conc
+                and d.cod_empr = a.id_emp_int
+                and d.cap_como = 'V';
                 ";
 
         $resul = $conexion->consultar($sql);
         return $resul;
+    }
+    
+    function consultarTotalDomFest($idPlanilla){
+        
+        $conexion = new conexion();
+        $sql = "select sum(c.valor) as total,c.nombre
+
+                from dbo.mod_nomina_planilla as a,
+                dbo.mod_nomina_planilla_usuario b,
+                dbo.mod_nomina_concepto c,
+                kactus.dbo.nm_conce d
+
+                where 1 = 1
+
+                and a.id = ".$idPlanilla."
+                and a.id = b.id_planilla
+                and b.id = c.id_planilla_usuario
+                and c.nombre = d.cod_conc
+                and d.cod_empr = a.id_emp_int
+                and d.cod_conc in (5,95)
+                GROUP by d.cod_conc,c.nombre
+                ";
+
+        $resul = $conexion->consultar($sql);
+        return $resul;
+        
     }
 
     function consultarDetConceptos($idPlanilla) {
@@ -302,11 +332,14 @@ class reporteNominaPlanoDatos {
                  kactus.dbo.nm_conce d
                  where 1 = 1
 
-                 and a.id = " . $idPlanilla . "
+                 and a.id = ".$idPlanilla."
                  and a.id_emp_int = d.cod_empr
                  and c.nombre = d.cod_conc    
                  and a.id = b.id_planilla
                  and b.id = c.id_planilla_usuario
+                 and c.nombre = d.cod_conc
+                 and a.id_emp_int = d.cod_empr
+                 and d.cap_como = 'V'
                  group by d.nom_conc";
 
         $resul = $conexion->consultar($sql);

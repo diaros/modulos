@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2015-02-27 11:55:28
+<?php /* Smarty version Smarty-3.1.13, created on 2015-08-04 17:27:12
          compiled from "..\..\web\relacionClienteTipoExamenWeb\relacionClienteTipoExamen.html.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:2719053dfff3b3efbd9-14451249%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'a82eb2839f3cd22225a32e94c656485898ccbd0b' => 
     array (
       0 => '..\\..\\web\\relacionClienteTipoExamenWeb\\relacionClienteTipoExamen.html.tpl',
-      1 => 1425055881,
+      1 => 1437145115,
       2 => 'file',
     ),
   ),
@@ -149,7 +149,6 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['empInt']['last']       = ($_
                     <table class="table table-hover table-striped table-condensed" id="tablaExamenes">
 
                         <thead>
-
                             <tr>
                                 <th>Examen</th>
                                 <th>Categoria</th>
@@ -157,7 +156,6 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['empInt']['last']       = ($_
                                 <th>Valor</th>
                                 <th>Estado</th>
                             </tr>
-
                         </thead>                        
 
                         <tbody id="datosExamenes">
@@ -195,12 +193,11 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['empInt']['last']       = ($_
         
         <div class="modal fade" id="modalLoad">
             <div class="modal-dialog">
-                <div class="modal-content">
-
+                <div class="modal-content noFondoModal">
                     <div class="modal-body" style="text-align: center;">
-                        <img src="../../libs/imagenes/cargando.gif">
+                        
+                        <span class=" fa fa-cog fa-spin fa-6x iconblue"></span>
                     </div>
-
                 </div>
             </div>
         </div>

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2015-02-27 11:53:29
+<?php /* Smarty version Smarty-3.1.13, created on 2015-08-04 17:19:52
          compiled from "..\..\web\crearLaboratoriosWeb\crearLaboratorio.html.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:2899453d7c5530f5509-49133863%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '44ab6361179789b0948c460b75cb610eb8b745ba' => 
     array (
       0 => '..\\..\\web\\crearLaboratoriosWeb\\crearLaboratorio.html.tpl',
-      1 => 1425055557,
+      1 => 1437145057,
       2 => 'file',
     ),
   ),
@@ -36,6 +36,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <html>
 
     <head>
+        
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         
         <link type="text/css" href="../../libs/bootstrap/css/bootstrap.css" rel="stylesheet"/>
@@ -45,9 +46,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
         <link type="text/css" href="../../css/estilosGenerales/estilosGeneralesCss.css" rel="stylesheet">
 
         <title>Crear laboratorio</title>
+        
     </head>
 
     <body>
+        
         <?php echo $_smarty_tpl->tpl_vars['cabecera']->value;?>
 
 
@@ -310,14 +313,13 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['laboratorio']['last']       
             </div><!-- /.modal-dialog -->
         </div><!-- /.modal -->
 
-        <div class="modal fade" id="modalLoad">
+          <div class="modal fade" id="modalLoad">
             <div class="modal-dialog">
-                <div class="modal-content">
-
+                <div class="modal-content noFondoModal">
                     <div class="modal-body" style="text-align: center;">
-                        <img src="../../libs/imagenes/cargando.gif">
+                        
+                        <span class=" fa fa-cog fa-spin fa-6x iconblue"></span>
                     </div>
-
                 </div>
             </div>
         </div>

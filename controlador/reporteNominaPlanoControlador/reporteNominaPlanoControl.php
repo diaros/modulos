@@ -96,8 +96,8 @@ class reporteNominaPlanoControl {
         $objPHPExcel->getActiveSheet()->getColumnDimension('I')->setWidth(15);
         $objPHPExcel->getActiveSheet()->getColumnDimension('J')->setWidth(15);
         $objPHPExcel->getActiveSheet()->getColumnDimension('K')->setWidth(25);
-        $objPHPExcel->getActiveSheet()->getColumnDimension('L')->setWidth(25);
-        $objPHPExcel->getActiveSheet()->getColumnDimension('M')->setWidth(15);      
+//        $objPHPExcel->getActiveSheet()->getColumnDimension('L')->setWidth(25);
+//        $objPHPExcel->getActiveSheet()->getColumnDimension('M')->setWidth(15);      
 
         $objPHPExcel->getActiveSheet()->SetCellValue("A" . $cont, 'Cedula');
         $objPHPExcel->getActiveSheet()->SetCellValue("B" . $cont, 'Nombre');
@@ -107,11 +107,11 @@ class reporteNominaPlanoControl {
         $objPHPExcel->getActiveSheet()->SetCellValue("F" . $cont, 'Festivos periodo Anterior');
         $objPHPExcel->getActiveSheet()->SetCellValue("G" . $cont, 'Dominicales periodo Anterior');
         $objPHPExcel->getActiveSheet()->SetCellValue("H" . $cont, 'Mes PA');
-        $objPHPExcel->getActiveSheet()->SetCellValue("I" . $cont, '# Horas Festivas');
-        $objPHPExcel->getActiveSheet()->SetCellValue("J" . $cont, 'Dias Festivos');
-        $objPHPExcel->getActiveSheet()->SetCellValue("K" . $cont, '# Horas DominicSinComp');
-        $objPHPExcel->getActiveSheet()->SetCellValue("L" . $cont, 'Dias DominicSinComp');
-        $objPHPExcel->getActiveSheet()->SetCellValue("M" . $cont, 'Observaciones');
+//        $objPHPExcel->getActiveSheet()->SetCellValue("I" . $cont, '# Horas Festivas');
+        $objPHPExcel->getActiveSheet()->SetCellValue("I" . $cont, 'Dias Festivos');
+//        $objPHPExcel->getActiveSheet()->SetCellValue("K" . $cont, '# Horas DominicSinComp');
+        $objPHPExcel->getActiveSheet()->SetCellValue("J" . $cont, 'Dias DominicSinComp');
+        $objPHPExcel->getActiveSheet()->SetCellValue("K" . $cont, 'Observaciones');
         
         $objPHPExcel->getActiveSheet()->getStyle('A1:A1')->getAlignment()->setWrapText(true);
         $objPHPExcel->getActiveSheet()->getStyle('B1:B1')->getAlignment()->setWrapText(true);
@@ -124,10 +124,10 @@ class reporteNominaPlanoControl {
         $objPHPExcel->getActiveSheet()->getStyle('I1:I1')->getAlignment()->setWrapText(true);
         $objPHPExcel->getActiveSheet()->getStyle('J1:J1')->getAlignment()->setWrapText(true);
         $objPHPExcel->getActiveSheet()->getStyle('K1:K1')->getAlignment()->setWrapText(true);
-        $objPHPExcel->getActiveSheet()->getStyle('L1:L1')->getAlignment()->setWrapText(true);
-        $objPHPExcel->getActiveSheet()->getStyle('M1:M1')->getAlignment()->setWrapText(true);
+//        $objPHPExcel->getActiveSheet()->getStyle('L1:L1')->getAlignment()->setWrapText(true);
+//        $objPHPExcel->getActiveSheet()->getStyle('M1:M1')->getAlignment()->setWrapText(true);
         
-        $posColumn = "N";
+        $posColumn = "L";
         
         foreach ($consultaConceptos as $concepto){
             
@@ -136,17 +136,14 @@ class reporteNominaPlanoControl {
             $objPHPExcel->getActiveSheet()->SetCellValue($posColumn++ . $cont, $concepto['codigo']."-".$concepto['descripcion']);           
             
         }
-        
-        $posColumn = "N";
+       
         
         foreach ($consultaUsuarios as $fila) {
 
-            $cont = $cont + 1;
-            
+            $cont = $cont + 1;            
             
             $objPHPExcel->getActiveSheet()->SetCellValue("A" . $cont, $fila['cod_empl']);
-            $objPHPExcel->getActiveSheet()->getStyle("A".$cont.":A".$cont."")->getAlignment()->setWrapText(true);
-            
+            $objPHPExcel->getActiveSheet()->getStyle("A".$cont.":A".$cont."")->getAlignment()->setWrapText(true);            
            
             $objPHPExcel->getActiveSheet()->SetCellValue("B" . $cont, trim($fila['nom_empl']) . " " . trim($fila['ape_empl']));
              $objPHPExcel->getActiveSheet()->getStyle("B".$cont.":B".$cont."")->getAlignment()->setWrapText(true);
@@ -168,6 +165,7 @@ class reporteNominaPlanoControl {
                     $objPHPExcel->getActiveSheet()->getStyle("D".$cont.":D".$cont."")->getAlignment()->setWrapText(true);
                     
                 }
+                
             } else if ($periocidad = 3) {
 
                 $objPHPExcel->getActiveSheet()->SetCellValue("C" . $cont, '240');
@@ -601,24 +599,24 @@ class reporteNominaPlanoControl {
                     }
 
                     //validacion horas festivas
-                    if ($pos2 == 'I') {
-
-                        $auxHfest = 0;
-
-                        if ($valor2 != null || $valor2 != '') {
-
-                            if (!is_numeric($valor2)) {
-
-                                $arregloErrores[$i][] = "Fila ".($i+1)." Columna " . $pos2 . ": Tipo dato invalido";
-                            } else {
-
-                                $auxHfest = $valor2;
-                            }
-                        }
-                    }
+//                    if ($pos2 == 'I') {
+//
+//                        $auxHfest = 0;
+//
+//                        if ($valor2 != null || $valor2 != '') {
+//
+//                            if (!is_numeric($valor2)) {
+//
+//                                $arregloErrores[$i][] = "Fila ".($i+1)." Columna " . $pos2 . ": Tipo dato invalido";
+//                            } else {
+//
+//                                $auxHfest = $valor2;
+//                            }
+//                        }
+//                    }
 
                     //validacion dias festivos
-                    if ($pos2 == 'J') {
+                    if ($pos2 == 'I') {
 
                         if ($valor2 != null || $valor2 != '') {
                             //convertir a arreglo                            
@@ -695,24 +693,24 @@ class reporteNominaPlanoControl {
                     }
 
                     //validacion horas dominicales
-                    if ($pos2 == 'K') {
-
-                        $auxHorasD = 0;
-
-                        if ($valor2 != null || $valor2 != '') {
-
-                            if (!is_numeric($valor2)) {
-
-                                $arregloErrores[$i][] = "Fila ".($i+1)." Columna " . $pos2 . ": Tipo dato invalido";
-                            } else {
-
-                                $auxHorasD = $valor2;
-                            }
-                        }
-                    }
+//                    if ($pos2 == 'K') {
+//
+//                        $auxHorasD = 0;
+//
+//                        if ($valor2 != null || $valor2 != '') {
+//
+//                            if (!is_numeric($valor2)) {
+//
+//                                $arregloErrores[$i][] = "Fila ".($i+1)." Columna " . $pos2 . ": Tipo dato invalido";
+//                            } else {
+//
+//                                $auxHorasD = $valor2;
+//                            }
+//                        }
+//                    }
 
                     //validacion dias domincales
-                    if ($pos2 == 'L') {
+                    if ($pos2 == 'J') {
 
                         if ($valor2 != null || $valor2 != '') {
                             //convertir a arreglo                            
@@ -1304,7 +1302,8 @@ class reporteNominaPlanoControl {
     function valEncabezados($encabezados, $empInt) {
 
         $pos = Array();
-        $encabezadosOblgatorios = array("Cedula", "Nombre", "Horas", "# Dias Lab", "Ordinarios periodo Anterior", "Festivos periodo Anterior", "Dominicales periodo Anterior", "Mes PA", "# Horas Festivas", "Dias Festivos", "# Horas DominicSinComp", "Dias DominicSinComp", "Observaciones");
+        //$encabezadosOblgatorios = array("Cedula", "Nombre", "Horas", "# Dias Lab", "Ordinarios periodo Anterior", "Festivos periodo Anterior", "Dominicales periodo Anterior", "Mes PA", "# Horas Festivas", "Dias Festivos", "# Horas DominicSinComp", "Dias DominicSinComp", "Observaciones");
+        $encabezadosOblgatorios = array("Cedula", "Nombre", "Horas", "# Dias Lab", "Ordinarios periodo Anterior", "Festivos periodo Anterior", "Dominicales periodo Anterior", "Mes PA", "Dias Festivos", "Dias DominicSinComp", "Observaciones");
 
         $i = 0;
         $val = 0;
@@ -1322,13 +1321,13 @@ class reporteNominaPlanoControl {
 
             $i++;
 
-            if ($i > 12) {
+            if ($i > 10) {
 
                 break;
             }
         }
 
-        if ($val >= 13 && count($pos) == 0) {
+        if ($val >= 11 && count($pos) == 0) {
 
             return true;
             
@@ -1343,7 +1342,7 @@ class reporteNominaPlanoControl {
         $longArreglo = count($encabezados);
         $pos = Array();
 
-        for ($i = 14; $i <= $longArreglo; $i++) {
+        for ($i = 12; $i <= $longArreglo; $i++) {
 
             if ($encabezados[$i] != null && $encabezados[$i] != '') {
                 
@@ -1359,10 +1358,8 @@ class reporteNominaPlanoControl {
         }
 
         if (count($pos) > 0) {
-
             return $pos;
         } else {
-
             return true;
         }
     }
@@ -1478,6 +1475,14 @@ class reporteNominaPlanoControl {
         $resulconsulta = $reporteNominaDatos->consultarTotalConceptos($idPlanilla);
         return $resulconsulta;
     }
+    
+    function consultarTotalDomFest($idPlanilla){
+        $reporteNominaDatos = new reporteNominaPlanoDatos();
+        $resulconsulta = $reporteNominaDatos->consultarTotalDomFest($idPlanilla);
+        return $resulconsulta;
+        
+    }
+
 
     function consultarDetConceptos($idPlanilla) {
 
@@ -1539,7 +1544,8 @@ class reporteNominaPlanoControl {
         }
         
     }
-
+    
+ 
 }
 ?>
 

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2015-02-27 11:55:32
+<?php /* Smarty version Smarty-3.1.13, created on 2015-08-04 17:28:08
          compiled from "..\..\web\relacionPsicologoClienteWeb\relacionPsicologoCliente.html.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:138353e4f076d79276-13207031%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '95f31774f61c5a279eb491708b736317dca155ad' => 
     array (
       0 => '..\\..\\web\\relacionPsicologoClienteWeb\\relacionPsicologoCliente.html.tpl',
-      1 => 1425055839,
+      1 => 1437145152,
       2 => 'file',
     ),
   ),
@@ -207,14 +207,13 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['empInt']['last']       = ($_
 
         </div>
 
-        <div class="modal fade" id="modalLoad">
+          <div class="modal fade" id="modalLoad">
             <div class="modal-dialog">
-                <div class="modal-content">
-
+                <div class="modal-content noFondoModal">
                     <div class="modal-body" style="text-align: center;">
-                        <img src="../../libs/imagenes/cargando.gif">
+                        
+                        <span class=" fa fa-cog fa-spin fa-6x iconblue"></span>
                     </div>
-
                 </div>
             </div>
         </div>
