@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2015-08-03 15:53:47
+<?php /* Smarty version Smarty-3.1.13, created on 2015-08-10 11:29:42
          compiled from "..\..\web\reporteNominaPlanoWeb\reporteNominaPlano.html.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:12373556376ab787468-25265475%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'd62a7222d1922cf9e35f2d7343e10bd1e36e06ef' => 
     array (
       0 => '..\\..\\web\\reporteNominaPlanoWeb\\reporteNominaPlano.html.tpl',
-      1 => 1438634825,
+      1 => 1439224175,
       2 => 'file',
     ),
   ),
@@ -105,7 +105,9 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['empInt']['last']       = ($_
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="empUsu">Empresa cliente:</label>
                                 <div class="col-md-8">
-                                    <select id="empUsu" name="empUsu" class="form-control" onchange="consultarCC();"></select>
+                                    <select id="empUsu" name="empUsu" class="form-control" onchange="consultarCC();">
+                                        
+                                    </select>
                                 </div>
                             </div>                     
 
@@ -226,7 +228,7 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['ciudad']['last']       = ($_
                 </div>
                 
                 <hr>
-             
+           
 
 
                 <div id="contenedorTablaErrores">                

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2015-08-04 17:27:12
+<?php /* Smarty version Smarty-3.1.13, created on 2015-08-11 09:52:41
          compiled from "..\..\web\relacionClienteTipoExamenWeb\relacionClienteTipoExamen.html.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:2719053dfff3b3efbd9-14451249%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'a82eb2839f3cd22225a32e94c656485898ccbd0b' => 
     array (
       0 => '..\\..\\web\\relacionClienteTipoExamenWeb\\relacionClienteTipoExamen.html.tpl',
-      1 => 1437145115,
+      1 => 1439304640,
       2 => 'file',
     ),
   ),
@@ -151,7 +151,6 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['empInt']['last']       = ($_
                         <thead>
                             <tr>
                                 <th>Examen</th>
-                                <th>Categoria</th>
                                 <th>Naturaleza</th>
                                 <th>Valor</th>
                                 <th>Estado</th>

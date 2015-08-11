@@ -4,10 +4,7 @@
     <head>
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <script src="../../libs/jquery/jquery.js"></script>  
-        <script src="../../libs/bootstrap/js/bootstrap.js"></script> 
-        <script src="../../js/crearTipoExamenJs/crearTipoExamen.js"></script>
-
+       
         <link type="text/css" href="../../libs/bootstrap/css/bootstrap.css" rel="stylesheet"/>
         <link type="text/css" href="../../libs/font-awesome-4.2.0/css/font-awesome.min.css" rel="stylesheet" />
         <link type="text/css" href="../../css/crearTipoExamenCss/crearTipoExamen.css" rel="stylesheet">
@@ -104,7 +101,7 @@
                             <div class="col-md-8">
 
                                 {section name=categoria loop=$categorias}
-
+                                    
                                     <label class="checkbox" for="{$categorias[categoria].id_categoria_examen}">
                                         <input type="checkbox" id="{$categorias[categoria].id_categoria_examen}" name="{$categorias[categoria].id_categoria_examen}" onclick="valCheck(this.id);">
                                         {$categorias[categoria].nombre}
@@ -134,7 +131,7 @@
                     <table class="table table-hover table-striped table-condensed" >
 
                         <thead>
-
+                        <th>Id</th>
                         <th>Tipo examen</th>
                         <th>Categoria</th>
                         <th>Paraclinico</th>
@@ -149,8 +146,8 @@
                             {section name=tipoExam loop=$tipoExams}
 
                                 <tr>
-                            <div style="display:none;">{$number++}</div>
-
+                            <div id='conse{$number}' style="display:none;">{$number++}</div>
+                            <td id='idExam{$number}'>{$tipoExams[tipoExam].id_tipo_examen}</td>
                             <td>{$tipoExams[tipoExam].nombre}</td>
                             <td>{$tipoExams[tipoExam].categoria}</td>
                             <td>{$tipoExams[tipoExam].paraclinico}</td>
@@ -240,6 +237,11 @@
         </div><!-- /.modal --> 
 
         {$footer}
+        
+        <script src="../../libs/jquery/jquery.js"></script>  
+        <script src="../../libs/bootstrap/js/bootstrap.js"></script> 
+        <script src="../../js/crearTipoExamenJs/crearTipoExamen.js"></script>
+
     </body>
 
 </html>

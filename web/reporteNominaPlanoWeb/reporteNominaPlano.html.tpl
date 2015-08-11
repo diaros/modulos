@@ -51,7 +51,9 @@
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="empUsu">Empresa cliente:</label>
                                 <div class="col-md-8">
-                                    <select id="empUsu" name="empUsu" class="form-control" onchange="consultarCC();"></select>
+                                    <select id="empUsu" name="empUsu" class="form-control" onchange="consultarCC();">
+                                        
+                                    </select>
                                 </div>
                             </div>                     
 
@@ -147,7 +149,7 @@
                 </div>
                 
                 <hr>
-             {*   <div class="col-lg-12">
+           {*<div class="col-lg-12">
 
                     <img src="../../libs/imagenes/iconos/Kameleon-Free-Pack/Multicolor/SVG/Round Icons/Batman.svg" alt="why so serius?">
                     <img src="../../libs/imagenes/iconos/Kameleon-Free-Pack/Multicolor/SVG/Round Icons/Captain-Shield.svg" alt="why so serius?">

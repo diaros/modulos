@@ -68,6 +68,9 @@ function guardarTipoExam() {
 
             }
         }
+    }).done(function(){
+        
+        
     });
 
 
@@ -112,19 +115,20 @@ function eliminarTipoExam(){
     
     $("#modalConfirm").modal('toggle');
     var number = $("#ocultoId").val();
-       
-    var idTipoExamen = $("#idTipoExam"+number+"").val();
+    console.log(number);
+    
+//    var idTipoExamen = $("#idTipoExam"+number+"").val();
     
     $.ajax({
         type: 'POST',
         url: "../../vista/crearTipoExamenVista/asincCrearTipoExam.php",
         data:{
             accion:"eliminarTipoExamen",
-            idTipoExamen:idTipoExamen
+            idTipoExamen:number
         },
         datatype:"json",
         beforeSend:function(){
-            $("#modalLoad").modal('toggle');
+            $('#modalLoad').modal({backdrop: 'static', keyboard: true});
         
         },
         success:function(data){
@@ -133,14 +137,14 @@ function eliminarTipoExam(){
                 
                 consultarTipoExamenes();
                 
-                $("#modalLoad").modal('toggle');
+                $("#modalLoad").modal('hide');
                 $("#tituloModal").html("Informacion");
                 $("#cuerpoModal").html("El registro ha sido eliminado.");
                 $("#modalInfo").modal('toggle');
                 
             }else if(data == 0){
                 
-                $("#modalLoad").modal('toggle');
+                $("#modalLoad").modal('hide');
                 $("#tituloModal").html("Advertencia");
                 $("#cuerpoModal").html("Ha ocurrido un error en la eliminacion. Por favor vuelva a intentarlo. Si el problema persiste comuniquese con el departamento de desarrollo.");
                 $("#modalInfo").modal('toggle');
@@ -180,6 +184,7 @@ function consultarTipoExamenes(){
 
                     $("#datosTipoExam").append(
                          "<tr>\n\
+                         <td id='idExam"+i+"'>" + valor.id_tipo_examen + "</td>\n\
                          <td>" + valor.nombre + "</td>\n\
                          <td>" + valor.categoria + "</td>\n\
                          <td>" + valor.paraclinico + "</td>\n\
@@ -214,13 +219,12 @@ function limpiarForm(){
 
 }
 
-function confirmacionEliminar(){
-    
-    
-}
 
-function confirmacionEliminarTipoExamen(number){
+
+function confirmacionEliminarTipoExamen(id){
     
-    $("#").val();  
+    $("#modalConfirm").modal('show');    
+    var idExam = $("#idExam"+id+"").html();
+    $("#ocultoId").val(idExam);
     
 }

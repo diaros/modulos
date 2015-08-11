@@ -282,15 +282,20 @@ class utilidades {
 
         $conexion = new conexion();
 
-        $sql = "select a.id_tipo_examen,
-                a.nombre,
-                b.nombre as categoria,
-                (case when a.paraclinico = 1 then 'Si' else 'No' end) as paraclinico,
-                (case when a.especial = 1 then 'Si' else 'No' end) as especial,
-                (case when a.estado = 1 then 'Activo' else 'Inactivo' end) as estado 
-                from exmed_tipo_examen a,exmed_categoria_examen b 
-                where a.id_categoria = b.id_categoria_examen 
-                order by a.nombre";
+            $sql = "select a.id_tipo_examen,
+                            a.nombre,
+                            c.nombre as categoria,
+                            (case when a.paraclinico = 1 then 'Si' else 'No' end) as paraclinico,
+                            (case when a.especial = 1 then 'Si' else 'No' end) as especial,
+                            (case when a.estado = 1 then 'Activo' else 'Inactivo' end) as estado 
+                            from 
+                            exmed_tipo_examen a,
+                            dbo.exmed_relacion_tipoExam_Cat b,
+                            dbo.exmed_categoria_examen c
+
+                            where a.id_tipo_examen = b.id_tip_examen
+                            and b.id_cat_examen = c.id_categoria_examen
+                            order by a.nombre";
         $resulConsulta = $conexion->consultar($sql);
 
         return $resulConsulta;

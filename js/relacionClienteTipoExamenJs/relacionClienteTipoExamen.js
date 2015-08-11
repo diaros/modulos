@@ -79,7 +79,6 @@ function consultarExamenes() {
                     $("#datosExamenes").append(
                             "<tr class='"+estilo+"'>\n\
                        <td><input type='hidden' id='idExam" + i + "' name='idExam" + i + "' value='" + valor.id_tipo_examen + "'>" + valor.nombre_examen + "</td>\n\
-                       <td>" + valor.categoria + "</td>\n\
                        <td><select id='naturaleza" + i + "' name='naturaleza" + i + "' class='form-control'>\n\
                            <option value='0'>Seleccione</option>\n\
                            <option value='1'>Facturable al cliente</option>\n\

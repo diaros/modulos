@@ -27,8 +27,8 @@ $smarty->assign("mostrarMsjExito", $mostrarMsjExito, true);
 $smarty->assign("msjExito", $msjExito, true);
 $smarty->assign('mostrarMsj', $mostrarMsj, true);
 $smarty->assign('msjError', $msjError, true);
-
 $smarty->assign('categorias',$consultaCat,true);
+
 $smarty->display('../../web/crearTipoExamenWeb/crearTipoExamen.html.tpl');
 
 ?>

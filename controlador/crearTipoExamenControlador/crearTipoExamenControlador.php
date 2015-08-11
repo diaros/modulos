@@ -25,9 +25,27 @@ class crearTipoExamenControlador {
     public function eliminarTipoExamen($idTipoExamen) {
 
         $crearTipoExamDatos = new crearTipoExamenDatos();
-        $resulDelete = $crearTipoExamDatos->eliminarTipoExamen($idTipoExamen);
-        return $resulDelete;
+
+        $resulDeleteRel = $crearTipoExamDatos->eliminarRelExamenCat($idTipoExamen);
+
+        if ($resulDeleteRel != false) {
+
+            $resulDelete = $crearTipoExamDatos->eliminarTipoExamen($idTipoExamen);
+
+            if ($resulDelete != false) {
+
+                return $resulDelete;
+                
+            } else {
+
+                return false;
+            }
+        } else {
+
+            return false;
+        }
     }
+
 }
 ?>
 

@@ -33,6 +33,15 @@ class crearTipoExamenDatos{
         return $resulDelete;        
     }
     
+    function eliminarRelExamenCat($idTipoExamen){
+        
+        $conexion = new conexion();
+        $sql = "delete from exmed_relacion_tipoExam_Cat where id_tip_examen = ".$idTipoExamen." ";
+        $resulDelete = $conexion->insertar($sql);
+        return $resulDelete;        
+        
+    }
+    
 }
 
 ?>

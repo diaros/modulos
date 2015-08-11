@@ -88,7 +88,6 @@
                         <thead>
                             <tr>
                                 <th>Examen</th>
-                                <th>Categoria</th>
                                 <th>Naturaleza</th>
                                 <th>Valor</th>
                                 <th>Estado</th>

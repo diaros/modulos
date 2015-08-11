@@ -230,7 +230,7 @@ function generarPlantilla() {
 
                 $("#tituloModal").html("Advertencia");
                 $("#cuerpoModal").html("Ha ocurrido un error.Por favor intente nuevamente, si el problema persiste comuniquese con el area de desarrollo");
-                $("#modalInfo").modal('toggle');
+                $("#modalInfo").modal('show');
 
             }
 

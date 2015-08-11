@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2015-08-04 17:19:48
+<?php /* Smarty version Smarty-3.1.13, created on 2015-08-11 08:57:53
          compiled from "..\..\web\crearTipoExamenWeb\crearTipoExamen.html.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:1653353d96587a591a0-69706497%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '600743322fbbd285557c7a629d3f198cc6303456' => 
     array (
       0 => '..\\..\\web\\crearTipoExamenWeb\\crearTipoExamen.html.tpl',
-      1 => 1437145152,
+      1 => 1439301462,
       2 => 'file',
     ),
   ),
@@ -38,10 +38,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     <head>
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <script src="../../libs/jquery/jquery.js"></script>  
-        <script src="../../libs/bootstrap/js/bootstrap.js"></script> 
-        <script src="../../js/crearTipoExamenJs/crearTipoExamen.js"></script>
-
+       
         <link type="text/css" href="../../libs/bootstrap/css/bootstrap.css" rel="stylesheet"/>
         <link type="text/css" href="../../libs/font-awesome-4.2.0/css/font-awesome.min.css" rel="stylesheet" />
         <link type="text/css" href="../../css/crearTipoExamenCss/crearTipoExamen.css" rel="stylesheet">
@@ -166,7 +163,7 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['categoria']['index_next'] = 
 $_smarty_tpl->tpl_vars['smarty']->value['section']['categoria']['first']      = ($_smarty_tpl->tpl_vars['smarty']->value['section']['categoria']['iteration'] == 1);
 $_smarty_tpl->tpl_vars['smarty']->value['section']['categoria']['last']       = ($_smarty_tpl->tpl_vars['smarty']->value['section']['categoria']['iteration'] == $_smarty_tpl->tpl_vars['smarty']->value['section']['categoria']['total']);
 ?>
-
+                                    
                                     <label class="checkbox" for="<?php echo $_smarty_tpl->tpl_vars['categorias']->value[$_smarty_tpl->getVariable('smarty')->value['section']['categoria']['index']]['id_categoria_examen'];?>
 ">
                                         <input type="checkbox" id="<?php echo $_smarty_tpl->tpl_vars['categorias']->value[$_smarty_tpl->getVariable('smarty')->value['section']['categoria']['index']]['id_categoria_examen'];?>
@@ -201,7 +198,7 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['categoria']['last']       = 
                     <table class="table table-hover table-striped table-condensed" >
 
                         <thead>
-
+                        <th>Id</th>
                         <th>Tipo examen</th>
                         <th>Categoria</th>
                         <th>Paraclinico</th>
@@ -239,9 +236,12 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['tipoExam']['last']       = (
 ?>
 
                                 <tr>
-                            <div style="display:none;"><?php echo $_smarty_tpl->tpl_vars['number']->value++;?>
+                            <div id='conse<?php echo $_smarty_tpl->tpl_vars['number']->value;?>
+' style="display:none;"><?php echo $_smarty_tpl->tpl_vars['number']->value++;?>
 </div>
-
+                            <td id='idExam<?php echo $_smarty_tpl->tpl_vars['number']->value;?>
+'><?php echo $_smarty_tpl->tpl_vars['tipoExams']->value[$_smarty_tpl->getVariable('smarty')->value['section']['tipoExam']['index']]['id_tipo_examen'];?>
+</td>
                             <td><?php echo $_smarty_tpl->tpl_vars['tipoExams']->value[$_smarty_tpl->getVariable('smarty')->value['section']['tipoExam']['index']]['nombre'];?>
 </td>
                             <td><?php echo $_smarty_tpl->tpl_vars['tipoExams']->value[$_smarty_tpl->getVariable('smarty')->value['section']['tipoExam']['index']]['categoria'];?>
@@ -342,6 +342,11 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['tipoExam']['last']       = (
         </div><!-- /.modal --> 
 
         <?php echo $_smarty_tpl->tpl_vars['footer']->value;?>
+
+        
+        <script src="../../libs/jquery/jquery.js"></script>  
+        <script src="../../libs/bootstrap/js/bootstrap.js"></script> 
+        <script src="../../js/crearTipoExamenJs/crearTipoExamen.js"></script>
 
     </body>
 
