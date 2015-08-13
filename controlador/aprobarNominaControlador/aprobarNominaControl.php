@@ -114,10 +114,10 @@ class aprobarNominaControl {
             $condicionDinamica = $condicionDinamica . " and a.ciudad = " . $ciudad . " ";
         }
 
-//        if ($estado != '') {
-//
-//            $condicionDinamica = $condicionDinamica . " and a.estado = " . $estado . " ";
-//        }
+        if ($estado != '') {
+
+            $condicionDinamica = $condicionDinamica . " and a.estado = " . $estado . " ";
+        }
         
         if($consecutivo != ''){
             

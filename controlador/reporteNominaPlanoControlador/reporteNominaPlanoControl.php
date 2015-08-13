@@ -802,10 +802,8 @@ class reporteNominaPlanoControl {
         $nom = $utilidades->convertFechaNomDia($periodoFecha);
 
         if ($nom == 'Domingo') {
-
             return true;
         } else {
-
             return false;
         }
     }
@@ -1377,15 +1375,14 @@ class reporteNominaPlanoControl {
 
         $longEncabezados = count($encabezados);
         $posEncabezado = "N";
-
+       
         for ($j = 14; $j <= $longEncabezados; $j++) {
-
+             $conceptos[$k][1] = $objHoja[$i]['C'];
             if ($encabezados[$j] != '') {
                 
                 if($objHoja[$i][$posEncabezado] == null){
                     
-                    $encabezado = explode("-", $encabezados[$j]);
-                    
+                    $encabezado = explode("-", $encabezados[$j]);                    
                     $conceptos[$k][$encabezado[0]] = 0;
                     
                 }else{

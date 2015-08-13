@@ -211,9 +211,7 @@ if(isset($_POST['accion']) && $_POST['accion'] == 'consultartotalDomFest'){
     }else {
         
         echo "-1";
-    }
-    
-    
+    }   
 }
 
 if(isset($_POST['accion']) && $_POST['accion'] == 'consultarDetalleConceptos'){

@@ -167,10 +167,12 @@ if (isset($_POST['accion']) && $_POST['accion'] == 'regSolicitud') {
         if ($resulInsert != false) {
 
             $resulComiit = $utilidades->commitTransaccion();
+            
+            $resulSeq = $solicitudExamen->consultarSecuencia();
 
-            if ($resulComiit != false) {
+            if ($resulSeq != false) {
 
-                echo ($resulInsert);
+                echo ($resulSeq);
                 
             } else {
 

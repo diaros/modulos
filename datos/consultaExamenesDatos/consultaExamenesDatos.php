@@ -98,11 +98,12 @@ class consulltaExamenesDatos {
                                                             kactus.dbo.nm_fapar j,
                                                             exmed_relacion_cliente_examen k,
                                                             kactus.dbo.gn_nivel l,
-                                                            kactus.dbo.bi_cargo m
+                                                            kactus.dbo.bi_cargo m,
+                                                            dbo.exmed_tipo_cobro n
                                             where 1=1
-                                                " . $condicionDinamica . "
+                                                   ".$condicionDinamica."
                                                    and a.id_solicitud_examen = b.id_orden
-                                                    and b.id_orden = c.id_orden
+                                                   and b.id_orden = c.id_orden
                                                     and b.id_examen_item_cedula = f.id_examen_item_cedula
                                                     and c.id_item_orden_examen = f.id_item_orden_examen
                                                     and c.id_examen = d.id_tipo_examen
@@ -117,7 +118,13 @@ class consulltaExamenesDatos {
                                                     and a.nit_cliente = k.nit_cliente
                                                     and c.id_examen = k.id_examen
                                                     and a.nivel = l.cod_nive
-                                                    and b.cargo = m.cod_carg";
+                                                    and a.empresa = l.cod_empr
+                                                    and a.empresa = n.id_empresa_interna
+                                                    and a.nit_cliente = n.id_empresa_cliente
+                                                    and n.tipo_facturacion = l.num_nive
+                                                    and b.cargo = m.cod_carg
+                                                    and a.empresa = m.cod_empr
+";
          
          
          $resulConsulta = $conexion->consultar($sql);

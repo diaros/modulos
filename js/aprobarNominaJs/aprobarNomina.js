@@ -623,11 +623,7 @@ function detAdicionales() {
         beforeSend: function() {
            $("#modalLoad").modal('show');            
         },
-        success: function(data) {
-
-
-
-        }
+        success: function() {}
 
     }).done(function(data) {
 

@@ -757,10 +757,9 @@ function construirTabla(data,idReg) {
 
         });
         
-        totalDomFest();
+      
 
-        $("#hrsHabiles").html(totalHabiles);
-        
+        $("#hrsHabiles").html(totalHabiles);        
         $("#totalUsers").html(totalUsers);
 
         $("#contenedorEstadoPlanilla").removeClass('panel-info');
@@ -768,6 +767,7 @@ function construirTabla(data,idReg) {
 
         $("#datosUsuario").append(filas);
         var vlrTotalConceptos = totalConceptos();
+        totalDomFest();
         
         if($.isNumeric(vlrTotalConceptos) !== true){
             
@@ -1034,11 +1034,20 @@ function totalDomFest(){
         
         if(data != '-1'){            
             
+            $.each(data,function(llave,valor){
+                
+                if(valor.nombre == '5'){                    
+                    $("#hrsFestivos").html(valor.total);
+                }
+                
+                if(valor.nombre == '95'){
+                    $("#hrsDominicales").html(valor.total);
+                }
+                
+                
+            });
             //falta recorrer la consulta en data para agregar los valores al template....            
-            $("#hrsDominicales").html(totalDominicales);
-            $("#hrsFestivos").html(totalFestivos);
-    
-            
+              
         }      
         
     });
@@ -1047,7 +1056,7 @@ function totalDomFest(){
 
 function mostrarconceptos(id) {
 
-    var datos = null;
+    //var datos = null;
 
     var longId = id.length;
     var idLinea = id.substring(12, longId);

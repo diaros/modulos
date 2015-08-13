@@ -338,6 +338,14 @@ class solicitudExamenControl{
         return $resulConsulta;
         
     }
+    
+    public function consultarSecuencia(){
+        
+        $solicitudExamen = new solicitudExamendatos();
+        $consultarSeq = $solicitudExamen->consultarSeq();
+        return $consultarSeq[0]['seq'];
+        
+    }
 }
 
 ?>

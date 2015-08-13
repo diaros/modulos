@@ -79,13 +79,15 @@ class aprobarNominaDatos {
 
         $conexion = new conexion();
         $sql = " select sum(g.valor) as totalConceptos
+                    
                     from dbo.mod_nomina_planilla a,
                     dbo.cliente_general b,
                     dbo.Sucursales c,
                     kactus.dbo.gn_empre d,
                     dbo.mod_nomina_estado e,
                     dbo.mod_nomina_planilla_usuario f,
-                    dbo.mod_nomina_concepto g
+                    dbo.mod_nomina_concepto g,
+                    kactus.dbo.nm_conce h
 
                     where 1=1   
                     " . $condicionDinamica . "
@@ -95,6 +97,9 @@ class aprobarNominaDatos {
                     and a.estado = e.id
                     and a.id = f.id_planilla
                     and f.id = g.id_planilla_usuario
+                    and g.nombre = h.cod_conc
+                    and a.id_emp_int =h.cod_empr
+                    and h.cap_como = 'V'
                     and a.estado = ".$estado." ";
         $reporte = $conexion->consultar($sql);
         return $reporte[0]['totalConceptos'];
@@ -103,13 +108,14 @@ class aprobarNominaDatos {
     function totalDominicales($condicionDinamica, $estado) {
 
         $conexion = new conexion();
-        $sql = "select sum (f.horas_dominicales) as hrsDominicales
+        $sql = "select sum (g.valor) as hrsDominicales
                     from dbo.mod_nomina_planilla a,
                          dbo.cliente_general b,
                          dbo.Sucursales c,
                          kactus.dbo.gn_empre d,
                          dbo.mod_nomina_estado e,
-                         dbo.mod_nomina_planilla_usuario f
+                         dbo.mod_nomina_planilla_usuario f,
+                         dbo.mod_nomina_concepto g
 
                     where 1=1   
                     " . $condicionDinamica . "
@@ -118,6 +124,8 @@ class aprobarNominaDatos {
                     and a.ciudad = c.suc_codigo
                     and a.estado = e.id
                     and a.id = f.id_planilla
+                    and f.id = g.id_planilla_usuario
+                    and g.nombre = 95
                     and a.estado = ".$estado." ";
         $reporte = $conexion->consultar($sql);
         return $reporte[0]['hrsDominicales'];
@@ -126,13 +134,14 @@ class aprobarNominaDatos {
     function totalFestivos($condicionDinamica , $estado) {
 
         $conexion = new conexion();
-        $sql = "select sum (f.horas_festivos) as hrsFestivos
+        $sql = "select sum (g.valor) as hrsFestivos
                     from dbo.mod_nomina_planilla a,
                          dbo.cliente_general b,
                          dbo.Sucursales c,
                          kactus.dbo.gn_empre d,
                          dbo.mod_nomina_estado e,
-                         dbo.mod_nomina_planilla_usuario f
+                         dbo.mod_nomina_planilla_usuario f,
+                          dbo.mod_nomina_concepto g
 
                     where 1=1   
                     " . $condicionDinamica . "
@@ -141,6 +150,8 @@ class aprobarNominaDatos {
                     and a.ciudad = c.suc_codigo
                     and a.estado = e.id
                     and a.id = f.id_planilla
+                    and f.id = g.id_planilla_usuario
+                    and g.nombre = 5
                     and a.estado = ".$estado." ";
         $reporte = $conexion->consultar($sql);
         return $reporte[0]['hrsFestivos'];
@@ -175,7 +186,7 @@ class aprobarNominaDatos {
         $sql = "select g.nom_empl as nombre ,
                         g.ape_empl as apellido,
                         f.id_usuario as cedula ,
-                        f.horas_dominicales as hrsDom
+                        h.valor as hrsDom
 
                         from dbo.mod_nomina_planilla a,
                              dbo.cliente_general b,
@@ -183,7 +194,8 @@ class aprobarNominaDatos {
                              kactus.dbo.gn_empre d,
                              dbo.mod_nomina_estado e,
                              dbo.mod_nomina_planilla_usuario f,
-                             kactus.dbo.bi_emple g
+                             kactus.dbo.bi_emple g,
+                             dbo.mod_nomina_concepto h
 
                         where 1=1  
                          " . $condicionDinamica . "
@@ -194,7 +206,9 @@ class aprobarNominaDatos {
                         and a.id = f.id_planilla
                         and f.id_usuario = g.cod_empl
                         and a.id_emp_int = g.cod_empr
-                        and f.horas_dominicales != 0";
+                        and f.id = h.id_planilla_usuario
+                        and h.nombre = 95
+                        --and f.horas_dominicales != 0";
         
         $reporte = $conexion->consultar($sql);
         return $reporte;
@@ -206,7 +220,7 @@ class aprobarNominaDatos {
         $sql = "select g.nom_empl as nombre ,
                         g.ape_empl as apellido,
                         f.id_usuario as cedula ,
-                         f.horas_festivos as hrsFest
+                        h.valor as hrsFest
 
                         from dbo.mod_nomina_planilla a,
                              dbo.cliente_general b,
@@ -214,7 +228,8 @@ class aprobarNominaDatos {
                              kactus.dbo.gn_empre d,
                              dbo.mod_nomina_estado e,
                              dbo.mod_nomina_planilla_usuario f,
-                             kactus.dbo.bi_emple g
+                             kactus.dbo.bi_emple g,
+                             dbo.mod_nomina_concepto h
 
                         where 1=1  
                          " . $condicionDinamica . "
@@ -225,7 +240,9 @@ class aprobarNominaDatos {
                         and a.id = f.id_planilla
                         and f.id_usuario = g.cod_empl
                         and a.id_emp_int = g.cod_empr
-                        and f.horas_festivos != 0";
+                        and f.id = h.id_planilla_usuario
+                        and h.nombre = 5
+                        --and f.horas_festivos != 0";
         
         $reporte = $conexion->consultar($sql);
         return $reporte;
@@ -272,6 +289,8 @@ class aprobarNominaDatos {
                  and c.nombre = d.cod_conc    
                  and a.id = b.id_planilla
                  and b.id = c.id_planilla_usuario
+                 and d.cod_empr = a.id_emp_int
+                 and d.cap_como = 'V'
                  group by d.nom_conc";
 
         $reporte = $conexion->consultar($sql);
