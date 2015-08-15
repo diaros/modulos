@@ -109,7 +109,7 @@ if (isset($_POST['accion']) && $_POST['accion'] == 'Aceptar') {
             
            
 
-           header("Location: http://192.168.1.203/Proyectos/ExamenesMedicos/vista/gestionRequisicionesVista/gestionRequisicionesVista.php?fechaIni=$fechaIni&fechaFin=$fechaFin&idEmpInt=$idEmpInt&numReq=$numReq&idUser=$idUser&estado=$estado&accion=postAceptar");
+           header("Location: http://192.168.1.203/Proyectos/modulosAdministrativos/vista/gestionRequisicionesVista/gestionRequisicionesVista.php?fechaIni=$fechaIni&fechaFin=$fechaFin&idEmpInt=$idEmpInt&numReq=$numReq&idUser=$idUser&estado=$estado&accion=postAceptar");
            //header("Location: http://192.168.1.203/Proyectos/ExamenesMedicos/vista/gestionRequisicionesVista/gestionRequisicionesVistax.php");
         }
     } else {

@@ -4,7 +4,6 @@ $accionMenu = $_GET['accionMenu'];
 $arregloInfinito = array();
 
 //Perfil 1 Solicitud y aprobacion de examenes
-
 $arregloInfinito['goAprobarExamen'] = array('ruta' => '../../vista/aprobacionExamenesVista/aprobacionExamenesVista.php');
 $arregloInfinito['goConsultaExamenes'] = array('ruta' => '../../vista/consultaExamenesVista/consultaExamenesVista.php');
 $arregloInfinito['goSolicitudExamen'] = array('ruta' => '../../vista/solicitudExamenVista/solicitudExamenVista.php');
@@ -25,23 +24,19 @@ $arregloInfinito['goCrearTipoCobro'] = array('ruta' => '../../vista/crearCentroC
 
 
 //Perfil 4 Admin Parametrizaciones Generales y anular solicitud
-
+//
 
 //Modulo contratos
-
 $arregloInfinito['goGestionContratos'] = array('ruta' => '../../vista/gestionContratosVista/gestionContratosVista.php');
 $arregloInfinito['goConsultaRequisiciones'] = array('ruta' => '../../vista/consultaRequisicionesVista/consultaRequisicionesVista.php');
 $arregloInfinito['goGestionRequisiciones'] = array('ruta' => '../../vista/gestionRequisicionesVista/gestionRequisicionesVista.php');
 $arregloInfinito['goListaChequeo'] = array('ruta' => '../../vista/listaChequeoVista/listaChequeoVista.php');
-
 $arregloInfinito['goDashBoard'] = array('ruta' => '../../vista/dashBoardVista/dashBoardVista.php');
-
-//Perfil admin
-
 
 //Modulo Nomina
 $arregloInfinito['goReporteNomina'] = array('ruta' => '../../vista/reporteNominaPlanoVista/reporteNominaPlanoVista.php');
 $arregloInfinito['goAprobarNomina'] = array('ruta' => '../../vista/aprobarNominaVista/aprobarNominaVista.php');
+$arregloInfinito['goConsultarNomina'] = array('ruta' => '../../vista/consultaNominaVista/consultaNominaVista.php');
 
 
 header("Location:" . $arregloInfinito[$accionMenu]['ruta']);

@@ -70,10 +70,10 @@ if (isset($_POST['accion']) && $_POST['accion'] == 'notificacion') {
                 if ($resultUpdate != null) {
 
                     $mailPsicologo = $chequeoControl->consultarMailUsuario($idPsicologo);
-                    //$listaDocumentos = $chequeoControl->generarPdf($empInt, $req, $idUser);
-                    //$resulEnvioMail = $chequeoControl->enviarNotificacion($mailPsicologo[0]['USU_MAIL'], $listaDocumentos, $idUser, $req);
+                    $listaDocumentos = $chequeoControl->generarPdf($empInt, $req, $idUser);
+                    $resulEnvioMail = $chequeoControl->enviarNotificacion($mailPsicologo[0]['USU_MAIL'], $listaDocumentos, $idUser, $req);
 
-                    $resulEnvioMail = '1';
+                   // $resulEnvioMail = '1';
 
                     if ($resulEnvioMail != '-1') {
 
@@ -95,8 +95,8 @@ if (isset($_POST['accion']) && $_POST['accion'] == 'notificacion') {
                 if ($resulInsert != null) {
 
                     $mailPsicologo = $chequeoControl->consultarMailUsuario($idPsicologo);
-                    //$listaDocumentos = $chequeoControl->generarPdf($empInt, $req, $idUser);
-                    //$resulEnvioMail = $chequeoControl->enviarNotificacion($mailPsicologo[0]['sn_correo'], $listaDocumentos, $idUser, $req);
+                    $listaDocumentos = $chequeoControl->generarPdf($empInt, $req, $idUser);
+                    $resulEnvioMail = $chequeoControl->enviarNotificacion($mailPsicologo[0]['USU_MAIL'], $listaDocumentos, $idUser, $req);
                     $resulEnvioMail = '1';
 
                     if ($resulEnvioMail != '-1') {
@@ -135,12 +135,10 @@ if (isset($_POST['accion']) && $_POST['accion'] == 'notificacion') {
                 if ($resultUpdate != null) {
 
                     $mailPsicologo = $chequeoControl->consultarMailUsuario($idPsicologo);
-                    //$listaDocumentos = $chequeoControl->generarPdf($empInt, $req, $idUser);
-                    //$resulEnvioMail = $chequeoControl->enviarNotificacion($mailPsicologo[0]['sn_correo'], $listaDocumentos, $idUser, $req);
+                    $listaDocumentos = $chequeoControl->generarPdf($empInt, $req, $idUser);
+                    $resulEnvioMail = $chequeoControl->enviarNotificacion($mailPsicologo[0]['USU_MAIL'], $listaDocumentos, $idUser, $req);
 
-
-
-                    $resulEnvioMail = '1'; // provisional por pruebas
+                    //$resulEnvioMail = '1'; // provisional por pruebas
 
                     if ($resulEnvioMail != '-1') {
 

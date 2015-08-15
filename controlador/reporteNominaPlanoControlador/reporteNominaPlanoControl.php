@@ -841,10 +841,10 @@ class reporteNominaPlanoControl {
         $flgError = true;
 
         for ($i = 2; $i <= $longRegistros; $i++) {
-
+            // arreglos correspondientes a los dias reportados
             $arregloDiasHabiles = $this->obtenerDias($objHoja[$i]['D']);
-            $arregloDiasDominicales = $this->obtenerDias($objHoja[$i]['L']);
-            $arregloDiasFestivos = $this->obtenerDias($objHoja[$i]['J']);
+            $arregloDiasDominicales = $this->obtenerDias($objHoja[$i]['J']);
+            $arregloDiasFestivos = $this->obtenerDias($objHoja[$i]['I']);
             $arregloDiasAnterioresH = $this->obtenerDias($objHoja[$i]['E']);
             $arregloDiasAnterioresF = $this->obtenerDias($objHoja[$i]['F']);
             $arregloDiasAnterioresD = $this->obtenerDias($objHoja[$i]['G']);
@@ -853,9 +853,9 @@ class reporteNominaPlanoControl {
             $conceptos = $this->construirConceptos($objHoja, $encabezados, $i, $k);
 
             $hrsHabiles = $objHoja[$i]['C'];
-            $hrsFestivas = $objHoja[$i]['I'];
-            $horasDominicales = $objHoja[$i]['K'];
-            $observaciones = $objHoja[$i]['M'];
+//          $hrsFestivas = $objHoja[$i]['I'];
+//          $horasDominicales = $objHoja[$i]['K'];
+            $observaciones = $objHoja[$i]['K'];
             $cedula = $objHoja[$i]['A'];
 
             $resulInsertDetPlanillaUsuario = $this->insertDetPlanillaUsuario($cedula, $hrsHabiles, $hrsFestivas, $horasDominicales, $observaciones);
@@ -1374,9 +1374,9 @@ class reporteNominaPlanoControl {
         $conceptos = '';
 
         $longEncabezados = count($encabezados);
-        $posEncabezado = "N";
+        $posEncabezado = "L";
        
-        for ($j = 14; $j <= $longEncabezados; $j++) {
+        for ($j = 12; $j <= $longEncabezados; $j++) {
              $conceptos[$k][1] = $objHoja[$i]['C'];
             if ($encabezados[$j] != '') {
                 

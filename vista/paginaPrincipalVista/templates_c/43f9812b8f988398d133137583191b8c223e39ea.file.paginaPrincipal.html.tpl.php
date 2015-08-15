@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2015-07-17 15:34:53
+<?php /* Smarty version Smarty-3.1.13, created on 2015-08-14 09:15:50
          compiled from "..\..\web\paginaPrincipalWeb\paginaPrincipal.html.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:29494539a2910077106-40115473%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '43f9812b8f988398d133137583191b8c223e39ea' => 
     array (
       0 => '..\\..\\web\\paginaPrincipalWeb\\paginaPrincipal.html.tpl',
-      1 => 1437164903,
+      1 => 1439561737,
       2 => 'file',
     ),
   ),
@@ -117,7 +117,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                     </p>
 
                     <p>
-                        <a class="btn btn-danger btn-lg" onclick="ingresarModulo('8');">Ingresar</a>
+                        <a class="btn btn-danger btn-lg" onclick="ingresarModulo('10');">Ingresar</a>
                     </p>
 
                 </div>

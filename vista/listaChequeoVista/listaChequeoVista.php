@@ -203,7 +203,7 @@ if ($_POST['accion'] == 'Guardar' || $_POST['accion'] == 'Finalizar') {
         if ($resulLogReq != null) {
 
             $utilidades->commitTransaccion();
-            header("Location: http://192.168.1.203/Proyectos/ExamenesMedicos/vista/listaChequeoVista/listaChequeoVista.php?empInt=$empInt&req=$req&id=$idUser");           
+            header("Location: http://192.168.1.203/Proyectos/modulosAdministrativos/vista/listaChequeoVista/listaChequeoVista.php?empInt=$empInt&req=$req&id=$idUser");           
                     
         }else{
             

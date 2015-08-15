@@ -100,7 +100,7 @@
                     </p>
 
                     <p>
-                        <a class="btn btn-danger btn-lg" onclick="ingresarModulo('8');">Ingresar</a>
+                        <a class="btn btn-danger btn-lg" onclick="ingresarModulo('10');">Ingresar</a>
                     </p>
 
                 </div>
