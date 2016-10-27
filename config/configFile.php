@@ -9,39 +9,39 @@ class configFile {
         $this->config = Array();
         
         //Conexion Unoe
-        $this->config['unoE']['host'] = "192.168.0.5";
-        $this->config['unoE']['port'] = "1433";
-        $this->config['unoE']['dbname'] = "UNOEE_Maestros";
-        $this->config['unoE']['user'] = "sa";
-        $this->config['unoE']['password'] = "Grup0List0s";
+        $this->config['unoE']['host'] = "";
+        $this->config['unoE']['port'] = "";
+        $this->config['unoE']['dbname'] = "";
+        $this->config['unoE']['user'] = "";
+        $this->config['unoE']['password'] = "";
         
         //Conexion Biplus
-        $this->config['biplus']['host'] = "servclo09";
-        $this->config['biplus']['port'] = "1433";
-        $this->config['biplus']['dbname'] = "biplus";
-        $this->config['biplus']['user'] = "consultas";
-        $this->config['biplus']['password'] = "cali2015";
+        $this->config['biplus']['host'] = "";
+        $this->config['biplus']['port'] = "";
+        $this->config['biplus']['dbname'] = "";
+        $this->config['biplus']['user'] = "";
+        $this->config['biplus']['password'] = "";
         
         //Conexion BiplusPruebas
-        //$this->config['biplus']['host'] = "servclo03";
-        //$this->config['biplus']['port'] = "1433";
-        //$this->config['biplus']['dbname'] = "bipluspruebas";
-//        $this->config['biplus']['user'] = "sime";
-//        $this->config['biplus']['password'] = "Grup0L1st0s+";
+        //$this->config['biplus']['host'] = "";
+        //$this->config['biplus']['port'] = "";
+        //$this->config['biplus']['dbname'] = "";
+//        $this->config['biplus']['user'] = "";
+//        $this->config['biplus']['password'] = "";
         
         //Conexion kactus
-        $this->config['kactus']['host'] = "servclo09";
-        $this->config['kactus']['port'] = "1433";
-        $this->config['kactus']['dbname'] = "KACTUS";
-        $this->config['kactus']['user'] = "consultas";
-        $this->config['kactus']['password'] = "cali2015";
+        $this->config['kactus']['host'] = "";
+        $this->config['kactus']['port'] = "";
+        $this->config['kactus']['dbname'] = "";
+        $this->config['kactus']['user'] = "";
+        $this->config['kactus']['password'] = "";
         
         //Conexion Aut
-        $this->config['aut']['host'] = "servclo03";
-        $this->config['aut']['port'] = "1433";
-        $this->config['aut']['dbname'] = "SeguridadAUT";
-        $this->config['aut']['user'] = "sime";
-        $this->config['aut']['password'] = "Grup0L1st0s+";
+        $this->config['aut']['host'] = "";
+        $this->config['aut']['port'] = "";
+        $this->config['aut']['dbname'] = "";
+        $this->config['aut']['user'] = "";
+        $this->config['aut']['password'] = "";
     }
 
     public function getConfig(){
